@@ -1,5 +1,8 @@
 # PBP_UTS
 
+### Cerita Aplikasi
+..... adalah sebuah aplikasi perpustakaan digital yang memungkinkan pengguna untuk mengakses ratusan e-book dari satu aplikasi sehingga menghemat waktu dalam mencari dan mengelola buku-buku mereka. Pengguna dapat melihat status peminjaman buku (wishlist, proses penyewaan, atau telah dikembalikan), pengguna mempunyai rak buku virtual sendiri, dan pengguna dapat memberikan ulasan/rating pada buku yang telah mereka baca. Selain itu, aplikasi ini juga menampilkan rekomendasi buku yang sesuai dengan minat pengguna, ....
+
 ### Dataset
 Pada proyek ini kami akan menggunakan dataset dari [Kaggle Amazon Top 50 Bestselling Books 2009 - 2019](https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019). <br>
 
