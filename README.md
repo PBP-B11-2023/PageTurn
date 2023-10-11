@@ -127,7 +127,7 @@ Berikut adalah contoh dari dataset tersebut:
 
 2. **Pengguna yang Sudah Login (Member):** <br>
     - **Homepage:** <br/>
-      Member dapat melihat homepage yang berisi informasi terkait akun, dan juga button untuk mengakses ke modul-modul lain.
+      Member dapat melihat homepage yang berisi informasi terkait akun, dan juga button untuk mengakses ke fitur-fitur lainnya.
     - **Autentikasi:** <br>
       Member dapat melakukan logout dari aplikasi.
     - **Katalog Buku:** <br>
