@@ -10,12 +10,12 @@
 
   
 ### Cerita dan Manfaat Aplikasi
-Minat baca masyarakat di Indonesia masih tergolong rendah. Menurut data yang ada, persentase masyarakat yang gemar membaca di Indonesia masih jauh di bawah negara-negara maju. Hal ini menjadi tantangan tersendiri dalam meningkatkan literasi di Indonesia. Oleh karena itu, <nama_aplikasi> hadir sebagai solusi inovatif untuk mengatasi masalah ini.
+Minat baca masyarakat di Indonesia masih tergolong rendah. Menurut data yang ada, persentase masyarakat yang gemar membaca di Indonesia masih jauh di bawah negara-negara maju. Hal ini menjadi tantangan tersendiri dalam meningkatkan literasi di Indonesia. Oleh karena itu, PageTurn hadir sebagai solusi inovatif untuk mengatasi masalah ini.
 
-<nama_aplikasi> adalah sebuah aplikasi perpustakaan digital yang memungkinkan pengguna untuk mengakses ratusan e-book dari satu aplikasi sehingga menghemat waktu dalam mencari dan mengelola buku-buku mereka. Pengguna dapat melihat status peminjaman buku (wishlist, proses penyewaan, atau telah dikembalikan), pengguna mempunyai rak buku virtual sendiri, dan pengguna dapat memberikan ulasan/rating pada buku yang telah mereka baca. Selain itu, aplikasi ini juga menampilkan rekomendasi buku yang sesuai dengan minat pengguna.
+PageTurn adalah sebuah aplikasi perpustakaan digital yang memungkinkan pengguna untuk mengakses ratusan e-book dari satu aplikasi sehingga menghemat waktu dalam mencari dan mengelola buku-buku mereka. Pengguna dapat melihat status peminjaman buku (wishlist, proses penyewaan, atau telah dikembalikan), pengguna mempunyai rak buku virtual sendiri, dan pengguna dapat memberikan ulasan/rating pada buku yang telah mereka baca. Selain itu, aplikasi ini juga menampilkan rekomendasi buku yang sesuai dengan minat pengguna.
 
 ### Daftar Modul
-- Modul Authentikasi mengimplementasikan user Register dan Login.
+- Modul Authentikasi mengimplementasikan user dapat Register akun baru dan Login dengan akun yang sudah didaftarkan.
 - Modul Homepage mengimplementasikan halaman home yang menampilkan semua daftar modul yang ada di dalam aplikasi.
 - Modul Katalog Buku yang mengimplementasikan informasi dari setiap buku (Nama buku, Penulis, Rating, Genre, Tahun terbit) : Arya
 - Modul Request Buku yang mengimplementasikan request buku yang ingin di pinjam namun tidak terdapat di katalog : Fern
