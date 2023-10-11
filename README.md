@@ -17,7 +17,7 @@ Minat baca masyarakat di Indonesia masih tergolong rendah. Menurut data yang ada
 ### Daftar Modul
 - Arya : Modul Katalog Buku yang mengimplementasikan informasi dari setiap buku (Nama buku, Penulis, Rating, Genre, Tahun terbit).
 - Fern : Modul Request Buku yang mengimplementasikan request buku yang ingin di pinjam namun tidak terdapat di katalog.
-- Irfan : Modul Peminjaman Buku yang mengimplementasikan Buku yang ingin dipinjam.
+- Irfan : Modul Peminjaman Buku yang mengimplementasikan Buku yang ingin dipinjam atau dikembalikan.
 - Irsyad : Modul Review/ulasan Buku yang mengimplementasikan review dari pembaca buku.
 - Faiz : Modul Koleksi Buku Favorit yang mengimplementasikan kumpulan buku-buku yang sering di pinjam.
 - Rifdah : Modul Laporan buku rusak yang mengimplementasikan detail informasi buku yang rusak (nama buku dan alasan rusak).
@@ -121,8 +121,29 @@ Berikut adalah contoh dari dataset tersebut:
 </tbody></table>
 
 ### Peran Pengguna
-- Tidak Login : Pengguna dapat melakukan login jika sudah memiliki akun untuk masuk ke website peminjaman buku. Atau jika belum memiliki akun pengguna dapat membuat akun baru dengan membuat username dan password sehingga dapat melakukan login untuk masuk website peminjaman buku
+1. **Pengguna yang Belum Login (Guest):** <br>
+    - **Autentikasi:** <br/>
+      Pengguna dapat melakukan login jika sudah memiliki akun untuk masuk ke aplikasi. Jika belum memiliki akun, pengguna dapat membuat akun baru dengan membuat username dan password sehingga dapat melakukan login untuk masuk ke aplikasi.
 
-- Sudah Login : Pengguna dapat melakukan peminjaman buku, dalam arti jika buku tersebut tersedia. Untuk meminjam buku anda akan menekan button add new buku untuk peminjaman dan berpindah ke halaman peminjaman yaitu beralih pada admin. Buku yang dipinjam akan masuk ke daftar buku yang sudah dipinjam dan ditampilkan di tabel sebagai daftar buku yang dipinjam user. Lalu pengguna yang sudah login dapat mengembalikan buku dengan delete pada daftar buku tersebut, atau ingin menambahkan buku yang sama dengan menambahkan jumlah buku yang juga dapat dilakukan pada daftar buku yang sudah dipinjam tersbebut. Pengguna yang sudah login juga dapat melihat dan memberikan ulasan buku. Kemudian pengguna juga dapat request buku yang akan ditambahkan sebagai wishlist dalam kondisi jika buku belum tersedia
+2. **Pengguna yang Sudah Login (Member):** <br>
+    - **Homepage:** <br/>
+      Member dapat melihat homepage yang berisi informasi terkait akun, dan juga button untuk mengakses ke modul-modul lain.
+    - **Autentikasi:** <br>
+      Member dapat melakukan logout dari aplikasi.
+    - **Katalog Buku:** <br>
+      Member dapat membuka katalog buku untuk melihat informasi dari buku-buku yang tersedia.
+    - **Request Buku:** <br>
+      Member dapat merequest buku yang akan ditambahkan sebagai wishlist jika buku tersebut belum tersedia.
+    - **Peminjaman Buku:** <br>
+      Member dapat melakukan peminjaman buku jika buku tersebut tersedia. Kemudian, member dapat mengembalikan buku tersebut jika sudah selesai dibaca.
+    - **Review Buku:** <br>
+      Member dapat melihat review-review dari suatu buku. Member juga dapat mereview buku yang mereka sudah selesai baca. 
+    - **Koleksi Buku Favorit:** <br>
+      Member dapat melihat koleksi buku-buku favorit.   
+    - **Laporan buku rusak:** <br>
+      Member dapat membuat laporan buku rusak, jika buku yang mereka pinjam rusak.
 
-- Admin : Menambahkan buku baru sehingga diupdate pada daftar buku yang sudah dipinjam
+3. **Admin:** <br>
+   Admin dapat membuka semua yang dapat dibuka oleh member. Tetapi, admin mempunyai satu peran tambahan:
+     - **Katalog Buku:** <br>
+       Admin dapat menambahkan buku baru ke dalam daftar buku.
