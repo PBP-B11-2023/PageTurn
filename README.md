@@ -100,3 +100,10 @@ Berikut adalah contoh dari dataset tersebut:
 <td align="center">.....</td>
 </tr>
 </tbody></table>
+
+Peran Pengguna : 
+Tidak Login : Pengguna dapat melakukan login jika sudah memiliki akun untuk masuk ke website peminjaman buku. Atau jika belum memiliki akun pengguna dapat membuat akun baru dengan membuat username dan password sehingga dapat melakukan login untuk masuk website peminjaman buku
+
+Sudah Login : Pengguna dapat melakukan peminjaman buku, dalam arti jika buku tersebut tersedia. Untuk meminjam buku anda akan menekan button add new buku untuk peminjaman dan berpindah ke halaman peminjaman yaitu beralih pada admin. Buku yang dipinjam akan masuk ke daftar buku yang sudah dipinjam dan ditampilkan di tabel sebagai daftar buku yang dipinjam user. Lalu pengguna yang sudah login dapat mengembalikan buku dengan delete pada daftar buku tersebut, atau ingin menambahkan buku yang sama dengan menambahkan jumlah buku yang juga dapat dilakukan pada daftar buku yang sudah dipinjam tersbebut. Pengguna yang sudah login juga dapat melihat dan memberikan ulasan buku. Kemudian pengguna juga dapat request buku yang akan ditambahkan sebagai wishlist dalam kondisi jika buku belum tersedia
+
+Admin : Menambahkan buku baru sehingga diupdate pada daftar buku yang sudah dipinjam
