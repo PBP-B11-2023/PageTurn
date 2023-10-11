@@ -15,12 +15,14 @@ Minat baca masyarakat di Indonesia masih tergolong rendah. Menurut data yang ada
 <nama_aplikasi> adalah sebuah aplikasi perpustakaan digital yang memungkinkan pengguna untuk mengakses ratusan e-book dari satu aplikasi sehingga menghemat waktu dalam mencari dan mengelola buku-buku mereka. Pengguna dapat melihat status peminjaman buku (wishlist, proses penyewaan, atau telah dikembalikan), pengguna mempunyai rak buku virtual sendiri, dan pengguna dapat memberikan ulasan/rating pada buku yang telah mereka baca. Selain itu, aplikasi ini juga menampilkan rekomendasi buku yang sesuai dengan minat pengguna.
 
 ### Daftar Modul
-- Arya : Modul Katalog Buku yang mengimplementasikan informasi dari setiap buku (Nama buku, Penulis, Rating, Genre, Tahun terbit).
-- Fern : Modul Request Buku yang mengimplementasikan request buku yang ingin di pinjam namun tidak terdapat di katalog.
-- Irfan : Modul Peminjaman Buku yang mengimplementasikan Buku yang ingin dipinjam atau dikembalikan.
-- Irsyad : Modul Review/ulasan Buku yang mengimplementasikan review dari pembaca buku.
-- Faiz : Modul Koleksi Buku Favorit yang mengimplementasikan kumpulan buku-buku yang sering di pinjam.
-- Rifdah : Modul Laporan buku rusak yang mengimplementasikan detail informasi buku yang rusak (nama buku dan alasan rusak).
+- Modul Authentikasi mengimplementasikan user Register dan Login.
+- Modul Homepage mengimplementasikan halaman home yang menampilkan semua daftar modul yang ada di dalam aplikasi.
+- Modul Katalog Buku yang mengimplementasikan informasi dari setiap buku (Nama buku, Penulis, Rating, Genre, Tahun terbit) : Arya
+- Modul Request Buku yang mengimplementasikan request buku yang ingin di pinjam namun tidak terdapat di katalog : Fern
+- Modul Peminjaman Buku yang mengimplementasikan Buku yang ingin dipinjam atau dikembalikan : Irfan
+- Modul Review/ulasan Buku yang mengimplementasikan review dari pembaca buku : Irsyad
+- Modul Koleksi Buku Favorit yang mengimplementasikan kumpulan buku-buku yang sering di pinjam : Faiz
+- Modul Laporan buku rusak yang mengimplementasikan detail informasi buku yang rusak (nama buku dan alasan rusak) : Rifdah
 
 ### Dataset
 Pada proyek ini kami akan menggunakan dataset dari [Kaggle Amazon Top 50 Bestselling Books 2009 - 2019](https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019). <br>
