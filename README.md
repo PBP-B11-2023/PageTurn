@@ -1,4 +1,4 @@
-# PBP_UTS
+# PageTurn - Proyek Tengah Semester Kelompok B11
 
 ### Nama Anggota Kelompok
 - Muhammad Irfan Firmansyah
