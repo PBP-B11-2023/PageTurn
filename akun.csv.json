@@ -1,0 +1,10 @@
+[
+    {
+        "pk": 1,
+        "model": "homepage.AdminUser",
+        "fields": {
+            "username": "admin1",
+            "password": "PWadmin1"
+        }
+    }
+]
