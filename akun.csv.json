@@ -4,7 +4,7 @@
         "model": "homepage.AdminUser",
         "fields": {
             "username": "admin1",
-            "password": "PWadmin1"
+            "password": "a5ba3aa1536eee066b74031a91ed3099013d38e8a01aeefb55d45f929755bbda"
         }
     }
 ]
