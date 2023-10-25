@@ -1,17 +1,35 @@
-<!DOCTYPE html>
-<html>
-    {% for genre in genres %}
-        <input type="checkbox" id="filter_genre" name={{genre}} value={{genre}}>
-        <label for={{genre}}>{{genre}}</label>
+{% extends "base.html" %}
+{% block content %}
+<h1>Daftar Buku yang Dipinjam oleh {{ user }}</h1>
+<ul>
+    {% for p in peminjaman %}
+        <img style="max-width: 100px;" src="{{ p.book.image }}" alt="">
+        <p>Judul buku: {{ p.book.name }}</p>
+        <p>Tanggal dipinjam: {{ p.tgl_dipinjam }}</p>
+        <p>Tanggal dikembalikan {{ p.tgl_dikembalikan }}</p>
     {% endfor %}
-    <button type="button" id="filter-button">OK</button>
+</ul>
 
-</html>
+<button class="btn btn-primary" id="tambahPeminjamanButton">Tambah Peminjaman</button>
 
-<script>
-    alert("tes")
-    function refreshProducts(){
-        alert(69);
-    }
-    document.getElementById("filter-button").onclick=refreshProducts;
-</script>
+<!-- Modal untuk menambahkan peminjaman -->
+<div class="modal fade" id="tambahPeminjamanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Peminjaman</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="tambahPeminjamanForm" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
