@@ -42,6 +42,7 @@ def login_user(request):
             try:
                 hashed_pw = hashlib.sha256(str.encode(password)).hexdigest()
                 user = AdminUser.objects.get(username=username, password=hashed_pw)
+                print(isinstance(user, AdminUser))
             except:
                 user = None
             if user is not None:
@@ -54,6 +55,7 @@ def login_user(request):
         else:
             user = authenticate(request, username=username, password=password)
             if user is not None:
+                print(isinstance(user, AdminUser))
                 login(request, user)
                 response = HttpResponseRedirect(reverse("homepage:show_homepage")) 
                 response.set_cookie('last_login', str(datetime.datetime.now()))

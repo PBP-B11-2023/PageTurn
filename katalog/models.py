@@ -13,3 +13,6 @@ class Book(models.Model):
     genre = models.CharField(max_length=255, null=True, blank=True)
     image = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    is_dipinjam = models.BooleanField(default=False)
+    cnt_dipinjam = models.IntegerField(default=0)
+    

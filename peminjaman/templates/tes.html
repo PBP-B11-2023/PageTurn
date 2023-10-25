@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    {% for genre in genres %}
+        <input type="checkbox" id="filter_genre" name={{genre}} value={{genre}}>
+        <label for={{genre}}>{{genre}}</label>
+    {% endfor %}
+    <button type="button" id="filter-button">OK</button>
+
+</html>
+
+<script>
+    alert("tes")
+    function refreshProducts(){
+        alert(69);
+    }
+    document.getElementById("filter-button").onclick=refreshProducts;
+</script>
