@@ -11,7 +11,8 @@
       "year": 2019,
       "genre": "romance",
       "image": "https://books.google.com/books/publisher/content/images/frontcover/x7hvDwAAQBAJ?fife=w400-h600&source=gbs_api",
-      "description": "A collection of quirky, fun facts."
+      "description": "A collection of quirky, fun facts.",
+      "cntdipinjam": 1
     }
   },
   {

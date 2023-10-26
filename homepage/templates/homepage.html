@@ -241,32 +241,54 @@
         <script>
             $(document).ready(function() {
                 let currentCardIndex = 0;
-                const cards = $('.card');
-                const totalCards = cards.length;
+                if (performance.navigation.type === 1) {
+                    // Full page reload
+                    console.log('Full page reload');
+                } else {
+                    // Not a full page reload
+                    console.log('Not a full page reload');
+                }
             
-                // Show the first card initially
-                $(cards[currentCardIndex]).show();
-            
-                $('#next-button').click(function() {
-                    // Hide current card
-                    $(cards[currentCardIndex]).hide();
-            
-                    // Update currentCardIndex
-                    currentCardIndex = (currentCardIndex + 1) % totalCards;
-            
-                    // Show the next card
+                // Fetch the books using AJAX
+                $.get("/get_favourite_books/", function(data) {
+                    const books = data.favourite_books;
+                    const bookListElement = $('.book-list');
+                    
+                    // Clear existing book list
+                    bookListElement.empty();
+                    
+                    // Render new book cards
+                    books.forEach((book, index) => {
+                        const cardHtml = `<div class="card" id="card-${index}">
+                            <img src="${book.image}" alt="${book.name} Cover">
+                            <h2>${book.name}</h2>
+                            <p>Author: ${book.author}</p>
+                            <p>Rating: ${book.rating}</p>
+                            <p>Price: $${book.price}</p>
+                            <p>Year: ${book.year}</p>
+                            <p>Genre: ${book.genre}</p>
+                            <a class="read-more-link" href="#">Read More</a>
+                            <div class="description hidden">${book.description}</div>
+                        </div>`;
+                        bookListElement.append(cardHtml);
+                    });
+                    
+                    // Now show and hide books like before
+                    const cards = $('.card');
+                    const totalCards = cards.length;
                     $(cards[currentCardIndex]).show();
-                });
-            
-                $('#prev-button').click(function() {
-                    // Hide current card
-                    $(cards[currentCardIndex]).hide();
-            
-                    // Update currentCardIndex
-                    currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
-            
-                    // Show the previous card
-                    $(cards[currentCardIndex]).show();
+                    
+                    $('#next-button').click(function() {
+                        $(cards[currentCardIndex]).hide();
+                        currentCardIndex = (currentCardIndex + 1) % totalCards;
+                        $(cards[currentCardIndex]).show();
+                    });
+                    
+                    $('#prev-button').click(function() {
+                        $(cards[currentCardIndex]).hide();
+                        currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
+                        $(cards[currentCardIndex]).show();
+                    });
                 });
             });
             
@@ -297,7 +319,6 @@
                     });
                 });
             });
-                 
         </script>
 
 </head>
@@ -333,10 +354,10 @@
     <hr class="section-break">
     <div class="right-section">
         <!-- Loop through Michelle Obama's books and create a card for each book -->
-        <h2>Books by Michelle Obama</h2>
+        <h2>Favourite_books</h2>
         <div class="book-list">
             <!-- Loop through Michelle Obama's books and create a card for each book -->
-            {% for book in michelle_obama_books %}
+            {% for book in favourite_books %}
             <div class="card">
                 <img src="{{ book.image }}" alt="{{ book.name }} Cover">
                 <h2>{{ book.name }}</h2>

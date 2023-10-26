@@ -14,19 +14,25 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from katalog.models import Book
+from django.db.models import Max
+from django.http import JsonResponse
+
+
 
 from homepage.models import *
 
 from .forms import CustomUserCreationForm
 
+def get_favourite_books(request):
+    highest_cnt_dipinjam = Book.objects.aggregate(max_cnt_dipinjam=Max('cnt_dipinjam'))['max_cnt_dipinjam']
+    books_with_highest_cnt_dipinjam = Book.objects.filter(cnt_dipinjam=highest_cnt_dipinjam)
+    book_list = list(books_with_highest_cnt_dipinjam.values())  # Convert QuerySet to list of dicts
+    return JsonResponse({'favourite_books': book_list})
 
 def show_homepage(request):
-    print(69)
-    data = Book.objects.filter(author__icontains="Michelle Obama")
-    print("please bekerja")
-    return render(request, 'homepage.html', {'michelle_obama_books': data})
-
-    return render(request, "homepage.html", context)
+    highest_cnt_dipinjam = Book.objects.aggregate(max_cnt_dipinjam=Max('cnt_dipinjam'))['max_cnt_dipinjam']
+    books_with_highest_cnt_dipinjam = Book.objects.filter(cnt_dipinjam=highest_cnt_dipinjam)
+    return render(request, 'homepage.html', {'favourite_books': books_with_highest_cnt_dipinjam})
 
 def register(request):
     form = CustomUserCreationForm() #CustomUserCreationForm() imported from forms.py
