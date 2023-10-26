@@ -1,5 +1,368 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>TES</h1>
+<head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #logo {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav {
+            background-color: #282626;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            overflow: hidden;
+            height: 110px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100%;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li#logo {
+            float: none;
+            margin-right: auto;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-style: italic;
+            margin-right: 30px;
+            font-size: 16px;
+        }
+
+        #search {
+            order: 1;
+            margin-right: 20px;
+            width: 60px;
+        }
+
+        #shop {
+            order: 2;
+            margin-right: 40px;
+        }
+
+        #search img, #shop img {
+            width: 30px;
+            height: 30px;
+        }
+
+        hr.section-break {
+            border: none;
+            height: 10px;
+            background-color: #B6895B;
+            margin: 0;
+            margin-top: 100px;
+        }
+
+        .content-container {
+            margin-top: 150px;
+            margin-left: 100;
+            margin-right: 100;
+            text-align: left;
+            max-width: 800px;
+        }
+
+        .content p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-style: italic;
+            font-size: 56px;
+            text-align: justify;
+            color: white;
+            margin-left: 30px;
+        }
+
+        .highlighted-text {
+            color: #B6895B;; /* Change this color to the color you want */
+        }
+
+        .product-box {
+            background-color: #B6895B;
+            width: 250px;
+            height: 58px;
+            text-align: center;
+            margin: 20px auto;
+            line-height: 58px;
+            border-radius: 30px;
+        }
+
+        .product-box a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-style: italic;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Apply background image and styles to a separate container */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place it behind other content */
+        }
+
+        .background-overlay {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for opacity */
+            pointer-events: none; /* Allows interaction with elements behind the overlay */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #282626;
+            color: #fff; /* Text color or other styles */
+            /* Additional styles for your content */
+        }
+
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.5; /* Adjust the opacity as needed */
+        }
+        .right-section {
+            position: fixed;
+            top: 120px;
+            right: 300px;
+            width: 300px; /* Adjust the width as needed */
+            height: 100%;
+            padding: 20px;
+            overflow-y: auto; /* Add a vertical scrollbar if content overflows */
+            max-height: 80vh; /* Set a maximum height; adjust as needed */
+        }
+        
+        /* Style for each card */
+        .card {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .card:first-child {
+            display: block;
+        }
+        
+        /* Style for card content (image, title, author, category) */
+        .card img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .book-list {
+            padding: 10px; /* Add some spacing inside the panel */
+        }
+        
+        /* Style for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            overflow: auto;
+        }
+        
+        .popup-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 80%;
+            position: relative;
+            color: black; /* Text color for readability */
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            line-height: 1.5; /* Adjust line height for readability */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+        }
+
+        /* Hide the "Read More" link */
+        .read-more-link {
+            cursor: pointer;
+        }
+
+        /* Hide long descriptions */
+        .card .description {
+            max-height: 80px;
+            overflow: hidden;
+        }
+
+        /* Hide the description by default */
+        .hidden {
+            display: none;
+        }
+
+                
+        
+    </style>
+        <script>
+            $(document).ready(function() {
+                let currentCardIndex = 0;
+                const cards = $('.card');
+                const totalCards = cards.length;
+            
+                // Show the first card initially
+                $(cards[currentCardIndex]).show();
+            
+                $('#next-button').click(function() {
+                    // Hide current card
+                    $(cards[currentCardIndex]).hide();
+            
+                    // Update currentCardIndex
+                    currentCardIndex = (currentCardIndex + 1) % totalCards;
+            
+                    // Show the next card
+                    $(cards[currentCardIndex]).show();
+                });
+            
+                $('#prev-button').click(function() {
+                    // Hide current card
+                    $(cards[currentCardIndex]).hide();
+            
+                    // Update currentCardIndex
+                    currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
+            
+                    // Show the previous card
+                    $(cards[currentCardIndex]).show();
+                });
+            });
+            
+            $(document).ready(function() {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    const description = card.querySelector('.description');
+                    const readMoreLink = card.querySelector('.read-more-link');
+                    
+                    // Add a click event to show the description popup
+                    readMoreLink.addEventListener('click', () => {
+                        const popup = document.createElement('div');
+                        popup.className = 'popup';
+                        popup.innerHTML = '<div class="popup-content">' + description.textContent + '</div>';
+
+                        
+                        // Append the popup to the body
+                        document.body.appendChild(popup);
+                        
+                        // Show the popup
+                        popup.style.display = 'block'; // Add this line to make the popup visible
+                        
+                        // Close the popup when clicking on it
+                        popup.addEventListener('click', () => {
+                            popup.style.display = 'none'; // Add this line to hide the popup
+                            popup.remove();
+                        });
+                    });
+                });
+            });
+                 
+        </script>
+
+</head>
+<body>
+    <div class="background-container">
+        <img src="https://uiii.ac.id/assets/images/1636690539-alfons-morales-YLSwjSy7stw-unsplash-2.jpg" alt="Background Image" class="background-image">
+        <div class="background-overlay"></div>
+    </div>
+    <nav>
+        <ul>
+            <li id="logo">
+                <a href="#">
+                    <img src="https://cdn.discordapp.com/attachments/1055868254347857941/1160262052116443148/SecondHandShop..png?ex=6534053d&is=6521903d&hm=07015148f3ab752d3ebadb8b30ff46856034341301b919256396b0e8558accef" alt="Logo">
+                </a>
+            </li>
+            <li class="nav-item"><a href="#">Home</a></li>  
+            <li class="nav-item"><a href="#">Tentang Kami</a></li>
+            <li class="nav-item"><a href="#">Katalog</a></li>
+            <li class="nav-item"><a href="#">Contact</a></li>
+            <li class="nav-item"><a href="#">Login  </a></li>
+            <li id="search">
+                <a href="#">
+                    <img src="https://cdn.discordapp.com/attachments/1145315809846104065/1160267712279355514/Vector.png?ex=65340a83&is=65219583&hm=af4c9516b46f6f7a78556b464452bd1020fb2eda4dc73dbdd60ee574b9168233&" alt="search">
+                </a>
+            </li>
+            <li id="shop">
+                <a href="#">
+                    <img src="https://cdn.discordapp.com/attachments/1145315809846104065/1160267712589742251/Group_1.png?ex=65340a83&is=65219583&hm=c318f34d4c357efce070d8f50432c883ba7cea8898c7f2db57f9cd85b3a26e76&" alt="shop">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <hr class="section-break">
+    <div class="right-section">
+        <!-- Loop through Michelle Obama's books and create a card for each book -->
+        <h2>Books by Michelle Obama</h2>
+        <div class="book-list">
+            <!-- Loop through Michelle Obama's books and create a card for each book -->
+            {% for book in michelle_obama_books %}
+            <div class="card">
+                <img src="{{ book.image }}" alt="{{ book.name }} Cover">
+                <h2>{{ book.name }}</h2>
+                <p>Author: {{ book.author }}</p>
+                <p>Rating: {{ book.rating }}</p>
+                <p>Price: ${{ book.price }}</p>
+                <p>Year: {{ book.year }}</p>
+                <p>Genre: {{ book.genre }}</p>
+                <a class="read-more-link" href="#">Read More</a>
+                <div class="description hidden">{{ book.description }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <button id="prev-button">Previous</button>
+        <button id="next-button">Next</button>
+    </div>        
+    <div class="content-container">
+        <div class="content">
+            <p style="text-align: center;">“Perpustakaan adalah rumah berteduh bagi para <span class="highlighted-text">pencari ilmu"</span>.</p>
+        </div>
+        <div class="product-box">
+            <a href="#">Lihat Katalog</a>
+        </div>
+    </div>
+</body>
+
+
+
 {% endblock content %}

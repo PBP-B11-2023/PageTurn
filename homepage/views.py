@@ -13,6 +13,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from katalog.models import Book
 
 from homepage.models import *
 
@@ -20,7 +21,11 @@ from .forms import CustomUserCreationForm
 
 
 def show_homepage(request):
-    context = {}
+    print(69)
+    data = Book.objects.filter(author__icontains="Michelle Obama")
+    print("please bekerja")
+    return render(request, 'homepage.html', {'michelle_obama_books': data})
+
     return render(request, "homepage.html", context)
 
 def register(request):
@@ -49,9 +54,12 @@ def login_user(request):
             messages.info(request, 'Username atau Password salah!')
     context = {}
     return render(request, 'login.html', context)
+<<<<<<< HEAD
 
 def logout_user(request):
     logout(request)
     response = HttpResponseRedirect(reverse('homepage:login'))
     response.delete_cookie('last_login')
     return response
+=======
+>>>>>>> 4a66f59ccc27ea7bd4284d0b91be4cb7d10d9da0
