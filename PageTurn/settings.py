@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'homepage',
     'katalog',
     'peminjaman',
+    'laporan_buku_rusak',
 ]
 
 MIDDLEWARE = [

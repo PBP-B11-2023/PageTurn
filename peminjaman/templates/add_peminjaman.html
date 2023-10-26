@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <title>Peminjaman Buku</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+    <a href="{% url 'peminjaman:show_peminjaman' %}" class="btn btn-primary mt-3">Back</a>
+    <h1 class="display-4 text-center fw-bold">Selamat Datang, {{ user.username }}!</h1>
+    <h3 class="mt-3 mb-5 text-center">Klik gambar buku untuk meminjamnya </h3>
+    <div class="container w-75">
+        <form class="d-flex rounded border">
+            <input class="form-control" type="text" placeholder="Search Books and Authors" aria-label="Search" id="search">
+        </form>
+
+        <div id="book_cards" class="container my-3 w-100">
+
+        </div>
+        <nav>
+            <ul class="pagination justify-content-center" id="page">
+                
+            </ul>
+        </nav>
+    </div>
+    <div class="row">
+        <!-- Filter Buku -->
+        <h4 class="card-title mb-3">Filter Buku</h4>
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Genre</h5>
+                    <form id="filterForm">
+                        {% for genre in genres %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="{{ genre }}" id="{{ genre }}" checked>
+                            <label class="form-check-label" for="{{ genre }}">{{ genre }}</label>
+                        </div>
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daftar Buku -->
+        <div class="col-md-10">
+            <div id="book-card" class="row row-cols-1 row-cols-md-4 g-4">
+                {% for book in books %}
+                <!-- <div class="col">
+                    <div class="card h-100" style="margin-left: 50px;">
+                        <a data-bs-toggle="modal" data-bs-target="#pinjamModal{{ book.pk }}">
+                            <img src="{{ book.image }}" class="card-img-top" alt="{{ book.name }} Cover" style="object-fit: contain; width: 100%; height: 100%;">
+                        </a>
+                    </div>
+                </div> -->
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% for book in books %}
+<div class="modal fade" id="pinjamModal{{ book.pk }}" tabindex="-1" aria-labelledby="pinjamModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pinjamModal">{{ book.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Gambar Buku -->
+                        <img src="{{ book.image }}" alt="{{ book.name }} Cover" style="width: 100%;">
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Detail Buku -->
+                        <p><strong>Penulis:</strong> {{ book.author }}</p>
+                        <p><strong>Genre:</strong> {{ book.genre }}</p>
+                        <p><strong>Tahun:</strong> {{ book.year }}</p>
+                        <p><strong>Deskripsi:</strong> {{ book.description | truncatechars:250 }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" name="add_button" value={{book.pk}} data-bs-dismiss="modal">Pinjam Buku</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% for book in kosong %}
+<div class="modal fade" id="kosongModal{{ book.pk }}" tabindex="-1" aria-labelledby="kosongModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="kosongModal"><strong>Maaf buku sedang kosong!</strong><br>{{ book.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Gambar Buku -->
+                        <img src="{{ book.image }}" alt="{{ book.name }} Cover" style="width: 100%;">
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Detail Buku -->
+                        <p><strong>Penulis:</strong> {{ book.author }}</p>
+                        <p><strong>Genre:</strong> {{ book.genre }}</p>
+                        <p><strong>Tahun:</strong> {{ book.year }}</p>
+                        <p><strong>Deskripsi:</strong> {{ book.description | truncatechars:250 }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<script>
+    var konz = "";
+    async function getBooks() {
+        return fetch("{% url 'peminjaman:get_book_json' %}").then((res) => res.json())
+    }
+    async function refreshBooks() {
+        const checkedBoxes = document.querySelectorAll('#filterForm input[type="checkbox"]:checked');
+        const checkedGenres = Array.from(checkedBoxes).map(checkbox => checkbox.value);
+        const filterForm = document.getElementById('filterForm');
+        document.getElementById("book-card").innerHTML = ""
+        const books = await getBooks();
+        let htmlString = ``
+        books.forEach((book) => {
+            if(checkedGenres.includes(book.fields.genre) && (book.fields.name.toLowerCase().includes(konz.toLowerCase()) || book.fields.author.toLowerCase().includes(konz.toLowerCase()))){
+                htmlString += `
+                <div class="col">
+                    <div class="card h-100 ${book.fields.is_dipinjam ? 'bg-danger' : 'bg-transparent'}" style="margin-left: 50px; padding: 10px;">
+                        <a data-bs-toggle="modal" data-bs-target=${book.fields.is_dipinjam ? `#kosongModal${book.pk}` : `#pinjamModal${book.pk}`}>
+                            <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
+                        </a>
+                    </div>
+                </div>`
+            } 
+        })
+        document.getElementById("book-card").innerHTML = htmlString
+    }
+    refreshBooks();
+    const filterForm = document.getElementById('filterForm');
+    filterForm.addEventListener('change', function() {
+        refreshBooks();
+    });
+
+    document.getElementById('search').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();  // Prevent form submission
+            konz = this.value;
+            console.log(typeof this.value)
+            refreshBooks();
+        }
+    });
+    
+    async function addBook(id) {
+        const books = await getBooks();
+        console.log(books)
+        let url="{% url 'peminjaman:add_book' '0' %}";
+        url = url.replace('0', id);
+        fetch(url, {
+            method: "POST",
+        }).then(refreshBooks);
+        return false;
+    }
+    const buttons = document.querySelectorAll('button[name="add_button"]');
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", function() {
+            const isConfirmed = window.confirm("Ingin meminjam buku ini?");
+            if (!isConfirmed) {
+                event.preventDefault();
+            }
+            else {
+                console.log(this.value)
+                addBook(this.value); 
+            }
+        });
+    });
+</script>
+
+{% endblock content %}

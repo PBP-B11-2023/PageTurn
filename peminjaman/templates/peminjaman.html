@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <title>Peminjaman Buku</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+    <div class="my-3 text-center">
+        <h1 class="display-4 text-center fw-bold">Selamat Datang, {{ user.username }}!</h1>
+        <h5 class="mt-3 mb-4 text-center">Berikut ini adalah buku yang sedang kamu pinjam, klik gambar buku untuk mengembalikannya </h5>
+        <br>
+        <div class="row" id="item_card">
+            <!-- {% for peminjaman in dipinjam %}
+                <div class="col-md-3 mb-4">
+                    <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px;">
+                        <a data-bs-toggle="modal" data-bs-target="#pinjamModal{{ peminjaman.pk }}">
+                            <img src="{{ peminjaman.book.image }}" class="card-img-top" alt="{{ peminjaman.book.name }} Cover" style="object-fit: contain; width: 100%; height: 100%;">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %} -->
+        </div>
+    </div>
+</div>
+{% for peminjaman in dipinjam %}
+<div class="modal fade" id="pinjamModal{{ peminjaman.pk }}" tabindex="-1" aria-labelledby="pinjamModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="pinjamModal">{{ peminjaman.book.name }}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Gambar Buku -->
+                        <img src="{{ peminjaman.book.image }}" alt="{{ book.name }} Cover" style="width: 100%;">
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Detail Buku -->
+                        <span>Dipinjam oleh: {{ user.username }}</span>
+                        <br>
+                        <span>Dipinjam tanggal: {{ peminjaman.tgl_dipinjam }}</span>
+                        <br>
+                        <span>Batas pengembalian: {{ peminjaman.tgl_batas }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" name="return_button" value={{peminjaman.pk}} data-bs-dismiss="modal">Kembalikan Buku</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<div class="d-flex justify-content-center">
+    <a href="{% url 'peminjaman:add_peminjaman' %}" class="btn btn-primary">Ingin Meminjam Buku?</a>
+</div>
+
+<script>
+    async function getItems() {
+        return fetch("{% url 'peminjaman:get_item_json' %}").then((res) => res.json())
+    }
+    async function getBooks() {
+        return fetch("{% url 'peminjaman:get_book_json' %}").then((res) => res.json())
+    }
+    async function refreshItems(){
+        document.getElementById("item_card").innerHTML = ""
+        const items = await getItems();
+        const books = await getBooks();
+        let htmlString = ``
+        items.forEach((item) => {
+            const book = books.find(book => book.pk === item.fields.book);
+            htmlString += `
+                <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px">
+                    <a data-bs-toggle="modal" data-bs-target="#pinjamModal${item.pk}">
+                        <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
+                    </a>
+                </div>`
+        })
+        document.getElementById("item_card").innerHTML = htmlString
+    }
+    refreshItems();
+    async function returnBook(id) {
+        const items = await getItems()
+        const item = items.find(item => item.pk === parseInt(id));
+        let date = new Date(item.fields.tgl_batas);
+        let today = new Date();
+
+        date.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
+
+        if (today <= date) {
+            alert("Terima kasih sudah mengembalikan buku ini tepat waktu!")
+        } else {
+            alert("Lain kali jangan telat mengembalikan, ya!")
+        }
+        let url="{% url 'peminjaman:return_book' '0' %}";
+        url = url.replace('0', id);
+        fetch(url, {
+            method: "POST",
+        }).then(refreshItems);
+        return false;
+    }
+    const buttons = document.querySelectorAll('button[name="return_button"]');
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", function() {
+            const isConfirmed = window.confirm("Ingin mengembalikan buku ini?");
+            if (!isConfirmed) {
+                event.preventDefault();
+            }
+            else { returnBook(this.value); }
+        });
+    });
+
+</script>
+{% endblock content %}
+
+
+
+
+
+
