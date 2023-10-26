@@ -1,10 +1,11 @@
 [
     {
         "pk": 1,
-        "model": "homepage.AdminUser",
+        "model": "homepage.CustomUser",
         "fields": {
+            "role": "admin",
             "username": "admin1",
-            "password": "PWadmin1"
+            "password": "pbkdf2_sha256$600000$RyOcFNsRi5qaJQ2BgjxzUD$F/04wl9UeueUT7DOXwn0zrrzBZzDYBxo4pNw28sBEE0="
         }
     }
 ]

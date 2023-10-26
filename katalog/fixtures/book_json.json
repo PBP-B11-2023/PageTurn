@@ -1,0 +1,1337 @@
+[
+  {
+    "pk": 1,
+    "model": "katalog.book",
+    "fields": {
+      "name": "5,000 Awesome Facts (About Everything!) (National Geographic Kids)",
+      "author": "National Geographic Kids",
+      "rating": 4.8,
+      "review": 7665,
+      "price": 12,
+      "year": 2019,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/x7hvDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "A collection of quirky, fun facts."
+    }
+  },
+  {
+    "pk": 2,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Becoming",
+      "author": "Michelle Obama",
+      "rating": 4.8,
+      "review": 61133,
+      "price": 11,
+      "year": 2019,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/YbtNDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "An intimate, powerful, and inspiring memoir by the former First Lady of the United States #1 NEW YORK TIMES BESTSELLER • WATCH THE EMMY-NOMINATED NETFLIX ORIGINAL DOCUMENTARY • OPRAH’S BOOK CLUB PICK • NAACP IMAGE AWARD WINNER • ONE OF ESSENCE’S 50 MOST IMPACTFUL BLACK BOOKS OF THE PAST 50 YEARS In a life filled with meaning and accomplishment, Michelle Obama has emerged as one of the most iconic and compelling women of our era. As First Lady of the United States of America—the first African American to serve in that role—she helped create the most welcoming and inclusive White House in history, while also establishing herself as a powerful advocate for women and girls in the U.S. and around the world, dramatically changing the ways that families pursue healthier and more active lives, and standing with her husband as he led America through some of its most harrowing moments. Along the way, she showed us a few dance moves, crushed Carpool Karaoke, and raised two down-to-earth daughters under an unforgiving media glare. In her memoir, a work of deep reflection and mesmerizing storytelling, Michelle Obama invites readers into her world, chronicling the experiences that have shaped her—from her childhood on the South Side of Chicago to her years as an executive balancing the demands of motherhood and work, to her time spent at the world’s most famous address. With unerring honesty and lively wit, she describes her triumphs and her disappointments, both public and private, telling her full story as she has lived it—in her own words and on her own terms. Warm, wise, and revelatory, Becoming is the deeply personal reckoning of a woman of soul and substance who has steadily defied expectations—and whose story inspires us to do the same."
+    }
+  },
+  {
+    "pk": 3,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Brown Bear, Brown Bear, What Do You See?",
+      "author": "Bill Martin Jr.",
+      "rating": 4.9,
+      "review": 14344,
+      "price": 5,
+      "year": 2019,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/O_9SPgAACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "With more than two million copies sold, Brown Bear, Brown Bear, What Do You See? has opened up a world of learning to a generation of children. For this edition, created for the twenty-fifth anniversay in 1992, Bill Martin, Jr., restored his text to its original wording. And Eric Carle created all new pictures--based on the originals, but clearer, brighter, and truer to the colors they represent."
+    }
+  },
+  {
+    "pk": 4,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Dog Man: Brawl of the Wild: From the Creator of Captain Underpants (Dog Man #6)",
+      "author": "Dav Pilkey",
+      "rating": 4.9,
+      "review": 7235,
+      "price": 4,
+      "year": 2019,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/GLxbDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The heroic hound is send to jail in the sixth Dog Man book from worldwide bestselling author and artist Dav Pilkey. Is Dog Man bad to the bone? The canine cop is sent to the pound for a crime he didn't commit! While his pals work to prove his innocence, Dog Man struggles to find his place among dogs and people. Being a part of both worlds, will he ever fully fit in with one? Dav Pilkey's wildly popular Dog Man series appeals to readers of all ages and explores universally positive themes, including empathy, kindness, persistence, and the importance of being true to one's self."
+    }
+  },
+  {
+    "pk": 5,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Dog Man: Fetch-22: From the Creator of Captain Underpants (Dog Man #8)",
+      "author": "Dav Pilkey",
+      "rating": 4.9,
+      "review": 12619,
+      "price": 8,
+      "year": 2019,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/Wo1WwwEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "While Petey the Cat has reevaluated what matters most in his life, Li'l Petey is struggling to find the good in the world."
+    }
+  },
+  {
+    "pk": 6,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Dog Man: For Whom the Ball Rolls: From the Creator of Captain Underpants (Dog Man #7)",
+      "author": "Dav Pilkey",
+      "rating": 4.9,
+      "review": 9089,
+      "price": 8,
+      "year": 2019,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/Sp1-DwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Petey learns what it means to do good in the seventh Dog Man book from worldwide bestselling author and artist Dav Pilkey. The Supa Buddies have been working hard to help Dog Man overcome his bad habits. But when his obsessions turn to fears, Dog Man finds himself the target of an all-new supervillain! Meanwhile, Petey the Cat has been released from jail and starts a new life with Li'l Petey. But when Petey's own father arrives, Petey must face his past and fight for who he loves. Dav Pilkey's wildly popular Dog Man series appeals to readers of all ages and explores universally positive themes, including empathy, kindness, persistence, and the importance of doing good."
+    }
+  },
+  {
+    "pk": 7,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Educated: A Memoir",
+      "author": "Tara Westover",
+      "rating": 4.7,
+      "review": 28729,
+      "price": 15,
+      "year": 2019,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/2ObWDgAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 NEW YORK TIMES, WALL STREET JOURNAL, AND BOSTON GLOBE BESTSELLER • One of the most acclaimed books of our time: an unforgettable memoir about a young woman who, kept out of school, leaves her survivalist family and goes on to earn a PhD from Cambridge University “Extraordinary . . . an act of courage and self-invention.”—The New York Times NAMED ONE OF THE TEN BEST BOOKS OF THE YEAR BY THE NEW YORK TIMES BOOK REVIEW • ONE OF PRESIDENT BARACK OBAMA’S FAVORITE BOOKS OF THE YEAR • BILL GATES’S HOLIDAY READING LIST • FINALIST: National Book Critics Circle’s Award In Autobiography and John Leonard Prize For Best First Book • PEN/Jean Stein Book Award • Los Angeles Times Book Prize Born to survivalists in the mountains of Idaho, Tara Westover was seventeen the first time she set foot in a classroom. Her family was so isolated from mainstream society that there was no one to ensure the children received an education, and no one to intervene when one of Tara’s older brothers became violent. When another brother got himself into college, Tara decided to try a new kind of life. Her quest for knowledge transformed her, taking her over oceans and across continents, to Harvard and to Cambridge University. Only then would she wonder if she’d traveled too far, if there was still a way home. “Beautiful and propulsive . . . Despite the singularity of [Westover’s] childhood, the questions her book poses are universal: How much of ourselves should we give to those we love? And how much must we betray them to grow up?”—Vogue NAMED ONE OF THE BEST BOOKS OF THE YEAR BY The Washington Post • O: The Oprah Magazine • Time • NPR • Good Morning America • San Francisco Chronicle • The Guardian • The Economist • Financial Times • Newsday • New York Post • theSkimm • Refinery29 • Bloomberg • Self • Real Simple • Town & Country • Bustle • Paste • Publishers Weekly • Library Journal • LibraryReads • Book Riot • Pamela Paul, KQED • New York Public Library"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Giraffes Can't Dance",
+      "author": "Giles Andreae",
+      "rating": 4.8,
+      "review": 14038,
+      "price": 4,
+      "year": 2019,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/h4vktgEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "Celebrate the 20th birthday of much-loved picture book classic, Giraffes Can't Dance, with this special new edition featuring a super-shiny cover! Gerald the giraffe longs to go to the great Jungle Dance, but how can he join in when he doesn't know how to tango or two-step? Everyone knows that giraffes can't dance ... or can they? A funny, touching and triumphant story about being yourself and finding your own tune, Giraffes Can't Dance has been a family favourite for 20 years. \"All toddlers should grow up reading this\" Daily Mail \"A modern classic\" Baby & Me \"A joyful read about an outsider who finds acceptance on his own terms . . . there's also a simple moral about tolerance and daring to be different\" Junior \"A fantastically funny and wonderfully colourful romp\" Daily Telegraph"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Girl, Stop Apologizing: A Shame-Free Plan for Embracing and Achieving Your Goals",
+      "author": "Rachel Hollis",
+      "rating": 4.6,
+      "review": 7660,
+      "price": 12,
+      "year": 2019,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/ENFgDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Rachel Hollis points out the pitfalls, challenges, and excuses that stop us from achieving our aspirations. Rachel Hollis has seen it too often: Women not living into their full potential. They feel a tugging on their hearts for something more, but they’re afraid of embarrassment, of falling short of perfection, of not being enough. In Girl, Stop Apologizing, #1 New York Times bestselling author and founder of a multimillion-dollar media company Rachel Hollis sounds a wake-up call. She knows that many women have been taught to define themselves in light of other people—whether as wife, mother, daughter, or employee—instead of learning how to own who they are and what they want. In this book, Hollis helps you to: identify the excuses to let go of, the behaviors to adopt, And the skills to acquire on the path to growth, confidence, and believing in yourself. Hollis shares stories and principles with raw honesty that inspires her readers to discover and take the practical steps that will put them on a lifelong path of personal growth. Girl, Stop Apologizing is the life- changing guide you need to dump your excuses, embrace your dreams, set boundaries, and gain real confidence in life."
+    }
+  },
+  {
+    "pk": 10,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Girl, Wash Your Face: Stop Believing the Lies About Who You Are So You Can Become Who You Were Meant to Be",
+      "author": "Rachel Hollis",
+      "rating": 4.6,
+      "review": 22288,
+      "price": 12,
+      "year": 2019,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/YZMoDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 NEW YORK TIMES BESTSELLER – OVER 3 MILLION COPIES SOLD Do you ever suspect that everyone else has life figured out and you don’t have a clue? If so, Rachel Hollis has something to tell you: that’s a lie. If you have ever said any of these things to yourself . . . Something else will make me happy. I’m not a good mom. I will never get past this. I am defined by my weight. I should be further along by now. . . . then you could benefit from the unflinching faith and rock-hard tenacity Rachel Hollis has in store for you. In this challenging but conversational book, Rachel exposes the twenty lies and misconceptions that too often hold us back from living joyfully and productively, lies we’ve told ourselves so often we don’t even hear them anymore. Rachel is real and talks about real issues. More than that, she reveals the specific practical strategies that helped her move past them. In the process, she encourages, entertains, and even kicks a little butt, all to convince you to do whatever it takes to get real and become the joyous, confident woman you were meant to be. Because you really can live with passion and hustle – and give yourself grace without giving up."
+    }
+  },
+  {
+    "pk": 11,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Good Days Start With Gratitude: A 52 Week Guide To Cultivate An Attitude Of Gratitude: Gratitude Journal",
+      "author": "Pretty Simple Press",
+      "rating": 4.6,
+      "review": 10141,
+      "price": 6,
+      "year": 2019,
+      "genre": "mystery",
+      "image": "Image not found",
+      "description": "Good Days Start With Gratitude is a 52 week guide to cultivate an attitude of gratitude! It is a self exploration journal designed to focus on being thankful for what we have, the big things in life, as well as the simple joys. Each well designed weekly spread contains an inspirational quote, space to write 3 things you are thankful for each day of the week, and a weekly checkpoint. If you start each day by writing down three things you are thankful for - a good cup of coffee, the smell of rain, starting a good book - you begin each day on the right note. Do it daily and make it a habit to focus on the blessings you have been given! Grab a copy for a friend and share the journey together!"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Goodnight Moon",
+      "author": "Margaret Wise Brown",
+      "rating": 4.8,
+      "review": 8837,
+      "price": 5,
+      "year": 2019,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/0yoOvgAACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "This gentle bedtime story, which has lulled generations of children to sleep, is the perfect first book to share at bedtime. In a great green room a little bunny is tucked up snugly and safely in bed and is getting ready to say goodnight to all the familiar things in his room, one by one. Margaret Wise Brown's comforting, rhythmical text accompanied by the warmth of Clement Hurd's classic mid-century illustrations make Goodnight Moon a timeless picture book, which is known and loved around the world."
+    }
+  },
+  {
+    "pk": 13,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Guts",
+      "author": "Raina Telgemeier",
+      "rating": 4.8,
+      "review": 5476,
+      "price": 7,
+      "year": 2019,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/8W9wDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "A true story from Raina Telgemeier, the #1 New York Timesbestselling, multiple Eisner Award-winning author of Smile, Sisters, Drama, and Ghosts! Raina wakes up one night with a terrible upset stomach. Her mom has one, too, so it's probably just a bug. Raina eventually returns to school, where she's dealing with the usual highs and lows: friends, not-friends, and classmates who think the school year is just one long gross-out session. It soon becomes clear that Raina's tummy trouble isn't going away... and it coincides with her worries about food, school, and changing friendships. What's going on?Raina Telgemeier once again brings us a thoughtful, charming, and funny true story about growing up and gathering the courage to face -- and conquer -- her fears."
+    }
+  },
+  {
+    "pk": 14,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Harry Potter and the Goblet of Fire: The Illustrated Edition (Harry Potter, Book 4) (4)",
+      "author": "J. K. Rowling",
+      "rating": 4.9,
+      "review": 7758,
+      "price": 18,
+      "year": 2019,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/MCPjwAEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "Young wizard-in-training Harry Potter prepares for a competition between Hogwarts School of Magic and two rival schools, develops a crush on Cho Chang, and wishes above all to be a normal fourteen-year-old."
+    }
+  },
+  {
+    "pk": 15,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Howard Stern Comes Again",
+      "author": "Howard Stern",
+      "rating": 4.3,
+      "review": 5272,
+      "price": 16,
+      "year": 2019,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/59CMDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Presents the first book in more than twenty years from the self-proclaimed King of All Media."
+    }
+  },
+  {
+    "pk": 16,
+    "model": "katalog.book",
+    "fields": {
+      "name": "If Animals Kissed Good Night",
+      "author": "Ann Whitford Paul",
+      "rating": 4.8,
+      "review": 16643,
+      "price": 4,
+      "year": 2019,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/0ftJEAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Rhyming text explores what would happen if animals kissed like humans do, from a slow kiss between a sloth and her cub to a mud-happy kiss from a hippo calf to his father."
+    }
+  },
+  {
+    "pk": 17,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Instant Pot Pressure Cooker Cookbook: 500 Everyday Recipes for Beginners and Advanced Users. Try Easy and Healthy…",
+      "author": "Jennifer Smith",
+      "rating": 4.4,
+      "review": 7396,
+      "price": 13,
+      "year": 2019,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/OFLPvAEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "500 recipes for any budget. Recipes are listed step by step in a clear and understandable manner. With this cookbook, you will cook better, tastier and faster meals for yourself and your family.\"--Amazon.com"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "katalog.book",
+    "fields": {
+      "name": "It's Not Supposed to Be This Way: Finding Unexpected Strength When Disappointments Leave You Shattered",
+      "author": "Lysa TerKeurst",
+      "rating": 4.8,
+      "review": 7062,
+      "price": 12,
+      "year": 2019,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/di5QDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "New York Times bestselling author Lysa TerKeurst unveils her heart amid shattering circumstances and shows readers how to live assured when life doesn't turn out like they expected. What do you do when God’s timing seems questionable, His lack of intervention hurtful, and His promises doubtful? Life often looks so very different than we hoped or expected. Some events may simply catch us off guard for a moment, but others shatter us completely. We feel disappointed and disillusioned, and we quietly start to wonder about the reality of God’s goodness. Lysa TerKeurst understands this deeply. But she's also discovered that our disappointments can be the divine appointments our souls need to radically encounter God. In It's Not Supposed to Be This Way, Lysa invites us into her own journey of faith and, with grit, vulnerability, and honest humor, helps us to: Stop being pulled into the anxiety of disappointment by discovering how to better process unmet expectations and other painful situations. Train ourselves to recognize the three strategies of the enemy so we can stand strong and persevere through unsettling relationships and uncertain outcomes. Discover the secret of being steadfast and not panicking when God actually does give us more than we can handle. Shift our suspicion that God is cruel or unfair to the biblical assurance that God is protecting and preparing us. Know how to encourage a friend and help her navigate hard realities with real help from God's truth."
+    }
+  },
+  {
+    "pk": 19,
+    "model": "katalog.book",
+    "fields": {
+      "name": "National Geographic Kids Why?: Over 1,111 Answers to Everything",
+      "author": "Crispin Boyer",
+      "rating": 4.8,
+      "review": 5347,
+      "price": 16,
+      "year": 2019,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/px9mDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Shares the answers to over one thousand questions on such topics as animals, natural resources, technology, and history."
+    }
+  },
+  {
+    "pk": 20,
+    "model": "katalog.book",
+    "fields": {
+      "name": "National Geographic Little Kids First Big Book of Why (National Geographic Little Kids First Big Books)",
+      "author": "Amy Shields",
+      "rating": 4.8,
+      "review": 7866,
+      "price": 11,
+      "year": 2019,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/Z1B-BAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Linking to a popular feature in the super successful National Geographic Little Kids magazine, this book brings the browsable fun of the bestselling National Geographic Kids Almanac to a new audience: preschoolers! Using an interactive question-and-answer format and content grounded in a child's immediate world, the Big Book of Why delivers lively information, hands-on games, simple recipes, crafts, and more. What makes a car go? How does mushy dough become a crispy cookie? What does the doctor see in my throat? An essential parent reference, The Big Book of Why invites children to ask big questions, think big thoughts, and get answers that are accurate, engaging, level-appropriate, and based on sound educational findings. It helps prepare preschoolers for school in an interactive way—the very best way to foster learning at this age, according to research. Highly photographic and playful, this big book is an adventure in exploration."
+    }
+  },
+  {
+    "pk": 21,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Oh, the Places You'll Go!",
+      "author": "Dr. Seuss",
+      "rating": 4.9,
+      "review": 21834,
+      "price": 8,
+      "year": 2019,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/1q_xAwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Dr. Seuss’s wonderfully wise Oh, the Places You’ll Go! is the perfect gift to celebrate all of our special milestones—from graduations to birthdays and beyond! From soaring to high heights and seeing great sights to being left in a Lurch on a prickle-ly perch, Dr. Seuss addresses life’s ups and downs with his trademark humorous verse and whimsical illustrations. The inspiring and timeless message encourages readers to find the success that lies within, no matter what challenges they face. A perennial favorite and a perfect gift for anyone starting a new phase in their life!"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "katalog.book",
+    "fields": {
+      "name": "P is for Potty! (Sesame Street) (Lift-the-Flap)",
+      "author": "Naomi Kleinberg",
+      "rating": 4.7,
+      "review": 10820,
+      "price": 5,
+      "year": 2019,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/zvcBDAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Sesame Street's Elmo tells little girls and boys ages 1 to 3 all about how to use the potty in this sturdy lift-the-flap board book with more than 30 flaps to find and open! P is for Potty is the perfect mix of fun and learning for potty-training toddlers—especially while they practice sitting on the potty! Sturdy flaps will hold up to hours of repeat lifting and peeking, and toddlers will delight in the surprises they find under the flaps."
+    }
+  },
+  {
+    "pk": 23,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Player's Handbook (Dungeons & Dragons)",
+      "author": "Wizards RPG Team",
+      "rating": 4.8,
+      "review": 16990,
+      "price": 27,
+      "year": 2019,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/lldXNwAACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "This companion to the 'Player's handbook' core rulebook introduces the primal power source, which draws on the spirits that preserve and sustain the world. This book includes four classes tied to the primal power source: the barbarian, the druid, the shaman, and the warden. It also presents four new arcane and divine classes: the avenger, the bard, the invoker, and the sorcerer."
+    }
+  },
+  {
+    "pk": 24,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Strange Planet (Strange Planet Series)",
+      "author": "Nathan W. Pyle",
+      "rating": 4.9,
+      "review": 9382,
+      "price": 6,
+      "year": 2019,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/cLyoDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Straight from the mind of New York Times bestselling author Nathan W. Pyle, Strange Planet is an adorable and profound universe in pink, blue, green, and purple, based on the phenomenally popular Instagram of the same name! Strange Planet covers a full life cycle of the planet’s inhabitants, including milestones such as: The Emergence Day Being Gains a Sibling The Being Family Attains a Beast The Formal Education of a Being Celebration of Special Days Being Begins a Vocation The Beings at Home Health Status of a Being The Hobbies of a Being The Extended Family of the Being The Being Reflects on Life While Watching the Planet Rotate With dozens of never-before-seen illustrations in addition to old favorites, this fixed-format e-book offers a sweet and hilarious look at a distant world not all that unlike our own. I feel more attractive. Honestly, you are. It’s the star damage. I CRAVE STAR DAMAGE."
+    }
+  },
+  {
+    "pk": 25,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The 5 Love Languages: The Secret to Love that Lasts",
+      "author": "Gary Chapman",
+      "rating": 4.8,
+      "review": 25554,
+      "price": 8,
+      "year": 2019,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/K1fRBAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Over 20 million copies sold! A perennial New York Times bestseller for over a decade! Falling in love is easy. Staying in love—that’s the challenge. How can you keep your relationship fresh and growing amid the demands, conflicts, and just plain boredom of everyday life? In the #1 New York Times international bestseller The 5 Love Languages, you’ll discover the secret that has transformed millions of relationships worldwide. Whether your relationship is flourishing or failing, Dr. Gary Chapman’s proven approach to showing and receiving love will help you experience deeper and richer levels of intimacy with your partner—starting today. The 5 Love Languages is as practical as it is insightful. Updated to reflect the complexities of relationships today, this new edition reveals intrinsic truths and applies relevant, actionable wisdom in ways that work. Includes the Couple's Personal Profile assessment so you can discover your love language and that of your loved one."
+    }
+  },
+  {
+    "pk": 26,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma",
+      "author": "Bessel van der Kolk M.D.",
+      "rating": 4.8,
+      "review": 12361,
+      "price": 12,
+      "year": 2019,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/2a2MEAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 New York Times bestseller “Essential reading for anyone interested in understanding and treating traumatic stress and the scope of its impact on society.” —Alexander McFarlane, Director of the Centre for Traumatic Stress Studies A pioneering researcher transforms our understanding of trauma and offers a bold new paradigm for healing in this New York Times bestseller Trauma is a fact of life. Veterans and their families deal with the painful aftermath of combat; one in five Americans has been molested; one in four grew up with alcoholics; one in three couples have engaged in physical violence. Dr. Bessel van der Kolk, one of the world’s foremost experts on trauma, has spent over three decades working with survivors. In The Body Keeps the Score, he uses recent scientific advances to show how trauma literally reshapes both body and brain, compromising sufferers’ capacities for pleasure, engagement, self-control, and trust. He explores innovative treatments—from neurofeedback and meditation to sports, drama, and yoga—that offer new paths to recovery by activating the brain’s natural neuroplasticity. Based on Dr. van der Kolk’s own research and that of other leading specialists, The Body Keeps the Score exposes the tremendous power of our relationships both to hurt and to heal—and offers new hope for reclaiming lives."
+    }
+  },
+  {
+    "pk": 27,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Complete Ketogenic Diet for Beginners: Your Essential Guide to Living the Keto Lifestyle",
+      "author": "Amy Ramos",
+      "rating": 4.3,
+      "review": 13061,
+      "price": 6,
+      "year": 2019,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/ax_3jwEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "The simple, friendly way to start the ketogenic diet and lifestyle AN EASY START TO KETO FOR BEGINNERS: Starting to work keto into your life can be overwhelming―so much to learn, so many resources to choose from. The Complete Ketogenic Diet for Beginners makes it easy to start, and stick with, the ketogenic diet. Think of this book as keto for the lazy person- you get exactly what you need for surprisingly simple keto: meal plans, shopping lists, support, and lots of keto-licious recipes, for those concerned about weight loss or those just working on being healthy. What sets this ketogenic cookbook apart from other keto books for beginners: EXPLAINS THE BIG PICTURE: This book offers an overview explaining the fundamentals of the ketogenic diet and handy charts illustrating nutritional information to help you master keto cooking in no time. CONTAINS 75 SCRUMPTIOUS RECIPES: From Bacon-Artichoke Omelets to Pesto Zucchini Noodles, these easy-to-follow recipes don't take too much time and can be prepared in 30 minutes or less. OUTLINES A 14-DAY MEAL PLAN: With breakfast, lunch, dinner, and snack suggestions, this book takes the guesswork out of starting your ketogenic diet by offering endless recipes to eat. Easy meets delicious meets healthy in this ketogenic diet and healthy lifestyle guide and cookbook. Start eating keto today!"
+    }
+  },
+  {
+    "pk": 28,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Four Agreements: A Practical Guide to Personal Freedom (A Toltec Wisdom Book)",
+      "author": "Don Miguel Ruiz",
+      "rating": 4.7,
+      "review": 23308,
+      "price": 6,
+      "year": 2019,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/hzVxiw2DiOsC?fife=w400-h600&source=gbs_api",
+      "description": "Bestselling author don Miguel Ruiz reveals the source of self-limiting beliefs that rob us of joy and create needless suffering. Based on ancient Toltec wisdom, The Four Agreements offer a powerful code of conduct that can rapidly transform our lives to a new experience of freedom, true happiness, and love. • A New York Times bestseller for over 7 years • Over 5.2 million copies sold in the U.S. • Translated into 38 languages worldwide Don Miguel Ruiz’s book is a roadmap to enlightenment and freedom.” — Deepak Chopra, Author, The Seven Spiritual Laws of Success “An inspiring book with many great lessons . . .” — Wayne Dyer, Author, Real Magic “In the tradition of Castaneda, Ruiz distills essential Toltec wisdom, expressing with clarity and impeccability what it means for men and women to live as peaceful warriors in the modern world.” — Dan Millman, Author, Way of the Peaceful Warrior"
+    }
+  },
+  {
+    "pk": 29,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Guardians: A Novel",
+      "author": "John Grisham",
+      "rating": 4.5,
+      "review": 13609,
+      "price": 14,
+      "year": 2019,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/fkGNEAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 NEW YORK TIMES BEST SELLER • A classic legal thriller—with a twist. • \"A suspenseful thriller mixed with powerful themes such as false incarceration, the death penalty and how the legal system shows prejudice.” —Associated Press In the small Florida town of Seabrook, a young lawyer named Keith Russo was shot dead at his desk as he worked late one night. The killer left no clues. There were no witnesses, no one with a motive. But the police soon came to suspect Quincy Miller, a young Black man who was once a client of Russo’s. Quincy was tried, convicted, and sent to prison for life. For twenty-two years he languished in prison, maintaining his innocence. But no one was listening. He had no lawyer, no advocate on the outside. In desperation, he writes a letter to Guardian Ministries, a small nonprofit run by Cullen Post, a lawyer who is also an Episcopal minister. Guardian accepts only a few innocence cases at a time. Cullen Post travels the country fighting wrongful convictions and taking on clients forgotten by the system. With Quincy Miller, though, he gets far more than he bargained for. Powerful, ruthless people murdered Keith Russo, and they do not want Quincy Miller exonerated. They killed one lawyer twenty-two years ago, and they will kill another without a second thought."
+    }
+  },
+  {
+    "pk": 30,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing",
+      "author": "Marie Kondō",
+      "rating": 4.5,
+      "review": 22641,
+      "price": 11,
+      "year": 2019,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/EcyiCgAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "This is a beautiful hardback edition of Marie Kondo's classic book, complete with a wrap-around red elastic ribbon to keep the book closed in between reading. Transform your home into a permanently clear and clutter-free space with the incredible KonMari Method. Japan's expert declutterer and professional cleaner Marie Kondo will help you tidy your rooms once and for all with her inspirational step-by-step method. The key to successful tidying is to tackle your home in the correct order, to keep only the things you really love and to do it all at once âe\" and quickly. After that for the rest of your life you only need to choose what to keep and what to discard. The KonMari Method will not just transform your space. Once you have your house in order you will find that your whole life will change. You can feel more confident, you can become more successful, and you can have the energy and motivation to create the life you want. You can also find the courage to move on from the negative aspects of your life. For example, you can recognise and finish a bad relationship, stop feeling anxious or finally lose weight. Marie Kondo's method is based on a 'once-cleaned, never-messy-again' approach. If you think that such a thing is impossible then you should definitely read this compelling book. Alternatively, if you want to share The Life-Changing Magic of Tidying with your friends and family this lovely edition is the perfect gift."
+    }
+  },
+  {
+    "pk": 31,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Mueller Report",
+      "author": "The Washington Post",
+      "rating": 4.6,
+      "review": 2744,
+      "price": 12,
+      "year": 2019,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/NNWKDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "ONE OF TIME’S 100 BEST BOOKS OF THE YEAR The Crucial #1 New York Times Bestseller “The Mueller report is that rare Washington tell-all that surpasses its pre-publication hype…the best book by far on the workings of the Trump presidency.” —Carlos Lozada, The Washington Post The only book with exclusive analysis by the Pulitzer Prize–winning staff of The Washington Post, and the most complete and authoritative available. Read the findings of the Special Counsel’s investigation into Russian interference in the 2016 election, complete with accompanying analysis by the Post reporters who’ve covered the story from the beginning. This edition from The Washington Post/Scribner contains: —The long-awaited Report On The Investigation Into Russian Interference In The 2016 Presidential Election —An introduction by The Washington Post titled “A President, a Prosecutor, and the Protection of American Democracy” —A timeline of the major events of the Special Counsel’s investigation from May 2017, when Robert Mueller was appointed, to the report's delivery —A guide to individuals involved, including in the Special Counsel’s Office, the Department of Justice, the FBI, the Trump Campaign, the White House, the Trump legal defense team, and the Russians —Key documents in the Special Counsel’s investigation, including filings pertaining to General Michael T. Flynn, Paul Manafort, Michael Cohen, Roger Stone, and the Russian internet operation in St. Petersburg. Each document is introduced and explained by Washington Post reporters. One of the most urgent and important investigations ever conducted, the Mueller inquiry focuses on Donald Trump, his presidential campaign, and Russian interference in the 2016 election, and draws on the testimony of dozens of witnesses and the work of some of the country’s most seasoned prosecutors. The special counsel’s investigation looms as a turning point in American history. The Mueller Report is essential reading for all citizens concerned about the fate of the presidency and the future of our democracy."
+    }
+  },
+  {
+    "pk": 32,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Silent Patient",
+      "author": "Alex Michaelides",
+      "rating": 4.5,
+      "review": 27536,
+      "price": 14,
+      "year": 2019,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/tLdiDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "**THE INSTANT #1 NEW YORK TIMES BESTSELLER** \"An unforgettable—and Hollywood-bound—new thriller... A mix of Hitchcockian suspense, Agatha Christie plotting, and Greek tragedy.\" —Entertainment Weekly The Silent Patient is a shocking psychological thriller of a woman’s act of violence against her husband—and of the therapist obsessed with uncovering her motive. Alicia Berenson’s life is seemingly perfect. A famous painter married to an in-demand fashion photographer, she lives in a grand house with big windows overlooking a park in one of London’s most desirable areas. One evening her husband Gabriel returns home late from a fashion shoot, and Alicia shoots him five times in the face, and then never speaks another word. Alicia’s refusal to talk, or give any kind of explanation, turns a domestic tragedy into something far grander, a mystery that captures the public imagination and casts Alicia into notoriety. The price of her art skyrockets, and she, the silent patient, is hidden away from the tabloids and spotlight at the Grove, a secure forensic unit in North London. Theo Faber is a criminal psychotherapist who has waited a long time for the opportunity to work with Alicia. His determination to get her to talk and unravel the mystery of why she shot her husband takes him down a twisting path into his own motivations—a search for the truth that threatens to consume him...."
+    }
+  },
+  {
+    "pk": 33,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life",
+      "author": "Mark Manson",
+      "rating": 4.6,
+      "review": 26490,
+      "price": 15,
+      "year": 2019,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/yng_CwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 New York Times Bestseller Over 10 million copies sold In this generation-defining self-help guide, a superstar blogger cuts through the crap to show us how to stop trying to be \"positive\" all the time so that we can truly become better, happier people. For decades, we’ve been told that positive thinking is the key to a happy, rich life. \"F**k positivity,\" Mark Manson says. \"Let’s be honest, shit is f**ked and we have to live with it.\" In his wildly popular Internet blog, Manson doesn’t sugarcoat or equivocate. He tells it like it is—a dose of raw, refreshing, honest truth that is sorely lacking today. The Subtle Art of Not Giving a F**k is his antidote to the coddling, let’s-all-feel-good mindset that has infected American society and spoiled a generation, rewarding them with gold medals just for showing up. Manson makes the argument, backed both by academic research and well-timed poop jokes, that improving our lives hinges not on our ability to turn lemons into lemonade, but on learning to stomach lemons better. Human beings are flawed and limited—\"not everybody can be extraordinary, there are winners and losers in society, and some of it is not fair or your fault.\" Manson advises us to get to know our limitations and accept them. Once we embrace our fears, faults, and uncertainties, once we stop running and avoiding and start confronting painful truths, we can begin to find the courage, perseverance, honesty, responsibility, curiosity, and forgiveness we seek. There are only so many things we can give a f**k about so we need to figure out which ones really matter, Manson makes clear. While money is nice, caring about what you do with your life is better, because true wealth is about experience. A much-needed grab-you-by-the-shoulders-and-look-you-in-the-eye moment of real-talk, filled with entertaining stories and profane, ruthless humor, The Subtle Art of Not Giving a F**k is a refreshing slap for a generation to help them lead contented, grounded lives."
+    }
+  },
+  {
+    "pk": 34,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Total Money Makeover: Classic Edition: A Proven Plan for Financial Fitness",
+      "author": "Dave Ramsey",
+      "rating": 4.7,
+      "review": 11550,
+      "price": 10,
+      "year": 2019,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/DpqPwAk8UvYC?fife=w400-h600&source=gbs_api",
+      "description": "The success stories speak for themselves in this book from money maestro Dave Ramsey. Instead of promising the normal dose of quick fixes, Ramsey offers a bold, no-nonsense approach to money matters, providing not only the how-to but also a grounded and uplifting hope for getting out of debt and achieving total financial health. Ramsey debunks the many myths of money (exposing the dangers of cash advance, rent-to-own, debt consolidation) and attacks the illusions and downright deceptions of the American dream, which encourages nothing but overspending and massive amounts of debt. \"Don't even consider keeping up with the Joneses,\" Ramsey declares in his typically candid style. \"They're broke!\" The Total Money Makeover isn't theory. It works every single time. It works because it is simple. It works because it gets to the heart of the money problems: you. This 3rd edition of The Total Money Makeover includes a fresh cover design, all new personal success stories, and naysayers, and more."
+    }
+  },
+  {
+    "pk": 35,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Unofficial Harry Potter Cookbook: From Cauldron Cakes to Knickerbocker Glory--More Than 150 Magical Recipes for…",
+      "author": "Dinah Bucholz",
+      "rating": 4.7,
+      "review": 9030,
+      "price": 10,
+      "year": 2019,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/weHxzQEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "“A fun way to get kids interested in Harry Potter also interested in food.” —New York Magazine Conjure up feasts that rival the Great Hall’s, sweets fit for the Minister of Magic, snacks you’d find on the Hogwarts Express, and more! This bestselling unofficial Harry Potter cookbook is perfect for chefs of all ages, from new readers to longtime fans—no wands required! Bangers and mash with Harry, Ron, and Hermione in the Hogwarts dining hall. A proper cuppa tea and rock cakes in Hagrid's hut. Cauldron cakes and pumpkin juice on the Hogwarts Express. With this cookbook, dining a la Hogwarts is as easy as Banoffee Pie! With more than 150 easy-to-make recipes, tips, and techniques, you can indulge in spellbindingly delicious meals drawn straight from the pages of your favorite Potter stories, such as: Treacle Tart--Harry's favorite dessert Molly's Meat Pies--Mrs. Weasley's classic dish Kreacher's French Onion Soup Pumpkin Pasties--a staple on the Hogwarts Express cart With a dash of magic and a drop of creativity, you'll conjure up the entrees, desserts, snacks, and drinks you need to transform ordinary Muggle meals into magical culinary masterpieces, sure to make even Mrs. Weasley proud!"
+    }
+  },
+  {
+    "pk": 36,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Very Hungry Caterpillar",
+      "author": "Eric Carle",
+      "rating": 4.9,
+      "review": 19546,
+      "price": 5,
+      "year": 2019,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/XP1EDQAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The all-time classic picture book, from generation to generation, sold somewhere in the world every 30 seconds! Have you shared it with a child or grandchild in your life? For the first time, Eric Carle’s The Very Hungry Caterpillar is now available in e-book format, perfect for storytime anywhere. As an added bonus, it includes read-aloud audio of Eric Carle reading his classic story. This fine audio production pairs perfectly with the classic story, and it makes for a fantastic new way to encounter this famous, famished caterpillar."
+    }
+  },
+  {
+    "pk": 37,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Wonderful Things You Will Be",
+      "author": "Emily Winfield Martin",
+      "rating": 4.9,
+      "review": 8842,
+      "price": 10,
+      "year": 2019,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/NUK2DwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "This is the first time / There's ever been you, / So I wonder what wonderful things / You will do.\" In this timeless poem about growing up, Emily Windfield Martin explores all the things you can choose to be, from brave and bold to creative and wise. Filled with beautiful, quirky illustrations and clever rhyme, grown-ups will love reading this book to their children at any age, as they lovingly consider all the possibilities that lie ahead. Its enduring message of love and acceptance as children grow and change is both universal and poignant, and it one to share over and over again"
+    }
+  },
+  {
+    "pk": 38,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Wonky Donkey",
+      "author": "Craig Smith",
+      "rating": 4.8,
+      "review": 30183,
+      "price": 4,
+      "year": 2019,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/t6lYb7WDHHoC?fife=w400-h600&source=gbs_api",
+      "description": "While walking down the road, the narrator sees a donkey that he shares more about as the story progresses."
+    }
+  },
+  {
+    "pk": 39,
+    "model": "katalog.book",
+    "fields": {
+      "name": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "rating": 4.8,
+      "review": 26234,
+      "price": 7,
+      "year": 2019,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/PGR2AwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Voted America's Best-Loved Novel in PBS's The Great American Read Harper Lee's Pulitzer Prize-winning masterwork of honor and injustice in the deep South—and the heroism of one man in the face of blind and violent hatred One of the most cherished stories of all time, To Kill a Mockingbird has been translated into more than forty languages, sold more than forty million copies worldwide, served as the basis for an enormously popular motion picture, and was voted one of the best novels of the twentieth century by librarians across the country. A gripping, heart-wrenching, and wholly remarkable tale of coming-of-age in a South poisoned by virulent prejudice, it views a world of great beauty and savage inequities through the eyes of a young girl, as her father—a crusading local lawyer—risks everything to defend a black man unjustly accused of a terrible crime."
+    }
+  },
+  {
+    "pk": 40,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Unfreedom of the Press",
+      "author": "Mark R. Levin",
+      "rating": 4.9,
+      "review": 5956,
+      "price": 11,
+      "year": 2019,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/LvLwDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Six-time New York Times bestselling author, FOX News star, and radio host Mark R. Levin “trounces the news media” (The Washington Times) in this timely and groundbreaking book demonstrating how the great tradition of American free press has degenerated into a standardless profession that has squandered the faith and trust of the public. Unfreedom of the Press is not just another book about the press. In “Levin’s finest work” (Breitbart), he shows how those entrusted with news reporting today are destroying freedom of the press from within—not through actions of government officials, but with its own abandonment of reportorial integrity and objective journalism. With the depth of historical background for which his books are renowned, Levin takes you on a journey through the early American patriot press, which proudly promoted the principles set forth in the Declaration of Independence and the Constitution. This is followed by the early decades of the Republic during which newspapers around the young country were open and transparent about their fierce allegiance to one political party or another. It was only at the start of the Progressive Era and the 20th century that the supposed “objectivity of the press” first surfaced, leaving us where we are today: with a partisan party-press overwhelmingly aligned with a political ideology but hypocritically engaged in a massive untruth as to its real nature."
+    }
+  },
+  {
+    "pk": 41,
+    "model": "katalog.book",
+    "fields": {
+      "name": "What Should Danny Do? (The Power to Choose Series)",
+      "author": "Adir Levy",
+      "rating": 4.8,
+      "review": 8170,
+      "price": 13,
+      "year": 2019,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/7ZspwAEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "Danny is a real-life superhero-in-training learning about his most important superpower of all, the Power to Choose. In this book, YOU decide how Danny's School Day will end by making choices that change the story."
+    }
+  },
+  {
+    "pk": 42,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Where the Crawdads Sing",
+      "author": "Delia Owens",
+      "rating": 4.8,
+      "review": 87841,
+      "price": 15,
+      "year": 2019,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/CGVDDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "NOW A MAJOR MOTION PICTURE—The #1 New York Times bestselling worldwide sensation with more than 18 million copies sold, hailed by The New York Times Book Review as “a painfully beautiful first novel that is at once a murder mystery, a coming-of-age narrative and a celebration of nature.” For years, rumors of the “Marsh Girl” have haunted Barkley Cove, a quiet town on the North Carolina coast. So in late 1969, when handsome Chase Andrews is found dead, the locals immediately suspect Kya Clark, the so-called Marsh Girl. But Kya is not what they say. Sensitive and intelligent, she has survived for years alone in the marsh that she calls home, finding friends in the gulls and lessons in the sand. Then the time comes when she yearns to be touched and loved. When two young men from town become intrigued by her wild beauty, Kya opens herself to a new life—until the unthinkable happens. Where the Crawdads Sing is at once an exquisite ode to the natural world, a heartbreaking coming-of-age story, and a surprising tale of possible murder. Owens reminds us that we are forever shaped by the children we once were, and that we are all subject to the beautiful and violent secrets that nature keeps."
+    }
+  },
+  {
+    "pk": 43,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Wrecking Ball (Diary of a Wimpy Kid Book 14)",
+      "author": "Jeff Kinney",
+      "rating": 4.9,
+      "review": 9413,
+      "price": 8,
+      "year": 2019,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/OxQFwgEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "Diary of a Wimpy Kid Book 14"
+    }
+  },
+  {
+    "pk": 44,
+    "model": "katalog.book",
+    "fields": {
+      "name": "You Are a Badass: How to Stop Doubting Your Greatness and Start Living an Awesome Life",
+      "author": "Jen Sincero",
+      "rating": 4.7,
+      "review": 14331,
+      "price": 8,
+      "year": 2019,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/P4DFDgAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 NEW YORK TIMES BESTSELLER • MORE THAN 5 MILLION COPIES SOLD The first ever self-development book to help millions of people around the globe transform their lives using humor, irreverence, and the occasional curse word—now updated and expanded for its 10th anniversary with a brand-new foreword, reader's guide, and more! In this refreshingly entertaining guide to reshaping your mindset and your life, mega-bestselling author and world-traveling success coach Jen Sincero serves up 27 bite-sized chapters full of hilarious and inspiring stories, sage advice, loving yet firm kicks in the rear, and easy-to-implement exercises to help you: Identify and change the self-sabotaging beliefs and behaviors that stop you from getting what you want. Shift your energy and attract what you desire. Create a life you totally love. And start creating it NOW. Make some damn money already. The kind you've never made before. By the end of You Are a Badass, you’ll understand how to blast past what’s holding you back, make some serious changes, and start living the kind of life that once seemed impossible."
+    }
+  },
+  {
+    "pk": 45,
+    "model": "katalog.book",
+    "fields": {
+      "name": "12 Rules for Life: An Antidote to Chaos",
+      "author": "Jordan B. Peterson",
+      "rating": 4.7,
+      "review": 18979,
+      "price": 15,
+      "year": 2018,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/u8w_DwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The #1 Sunday Times and International Bestseller from 'the most influential public intellectual in the Western world right now' (New York Times) What are the most valuable things that everyone should know? Acclaimed clinical psychologist Jordan Peterson has influenced the modern understanding of personality, and now he has become one of the world's most popular public thinkers, with his lectures on topics from the Bible to romantic relationships to mythology drawing tens of millions of viewers. In an era of unprecedented change and polarizing politics, his frank and refreshing message about the value of individual responsibility and ancient wisdom has resonated around the world. In this book, he provides twelve profound and practical principles for how to live a meaningful life, from setting your house in order before criticising others to comparing yourself to who you were yesterday, not someone else today. Happiness is a pointless goal, he shows us. Instead we must search for meaning, not for its own sake, but as a defence against the suffering that is intrinsic to our existence. Drawing on vivid examples from the author's clinical practice and personal life, cutting edge psychology and philosophy, and lessons from humanity's oldest myths and stories, 12 Rules for Life offers a deeply rewarding antidote to the chaos in our lives: eternal truths applied to our modern problems."
+    }
+  },
+  {
+    "pk": 46,
+    "model": "katalog.book",
+    "fields": {
+      "name": "A Higher Loyalty: Truth, Lies, and Leadership",
+      "author": "James Comey",
+      "rating": 4.7,
+      "review": 5983,
+      "price": 3,
+      "year": 2018,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/4CovDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 New York Times Bestseller now in paperback with new material The inspiration for The Comey Rule, the Showtime limited series starring Jeff Daniels premiering September 2020 In his book, former FBI director James Comey shares his never-before-told experiences from some of the highest-stakes situations of his career in the past two decades of American government, exploring what good, ethical leadership looks like, and how it drives sound decisions. His journey provides an unprecedented entry into the corridors of power, and a remarkable lesson in what makes an effective leader. Mr. Comey served as director of the FBI from 2013 to 2017, appointed to the post by President Barack Obama. He previously served as U.S. attorney for the Southern District of New York, and the U.S. deputy attorney general in the administration of President George W. Bush. From prosecuting the Mafia and Martha Stewart to helping change the Bush administration's policies on torture and electronic surveillance, overseeing the Hillary Clinton e-mail investigation as well as ties between the Trump campaign and Russia, Comey has been involved in some of the most consequential cases and policies of recent history."
+    }
+  },
+  {
+    "pk": 47,
+    "model": "katalog.book",
+    "fields": {
+      "name": "A Wrinkle in Time (Time Quintet)",
+      "author": "Madeleine L'Engle",
+      "rating": 4.5,
+      "review": 5153,
+      "price": 5,
+      "year": 2018,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/SaoDAAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Fifty years ago, Madeleine L'Engle introduced the world to A Wrinkle in Time and the wonderful and unforgettable characters Meg and Charles Wallace Murry, and their friend Calvin O'Keefe. Now their first three adventures are together in one volume. In the Newbery Award winner A Wrinkle in Time, the children learn that Mr. Murry has been captured by the Dark Thing, and they must time travel to Camazotz to save him. Now a major motion picture! In A Wind in the Door, Meg, Calvin and Mr. Jenkins (their grade school principal) must travel inside C.W. and battle to save Charles's life—as well as the balance of the universe. And in A Swiftly Tilting Planet, Meg's brother Charles Wallace has twenty-four hours to stop the tragedy of nuclear war from occurring. Read the iconic novels that continue to inspire millions of fans around the world. Praise for the A Wrinkle in Time Trilogy: “A Wrinkle in Time is one of my favorite books of all time. I've read it so often, I know it by heart. Meg Murry was my hero growing up. I wanted glasses and braces and my parents to stick me in an attic bedroom. And I so wanted to save Charles Wallace from IT.” —Meg Cabot on A Wrinkle in Time “A book that every young person should read, a book that provides a road map for seeking knowledge and compassion even at the worst of times, a book to make the world a better place.” —Cory Doctorow on A Wrinkle in Time “A suspenseful, life-and-death drama that is of believable cosmic significance. Complex and rich in mystical religious insights, this is breathtaking entertainment.” —School Library Journal, starred review on A Wind in the Door “Madeleine L'Engle mixes classical theology, contemporary family life, and futuristic science fiction to make a completely convincing tale that should put under its spell both readers familiar with the Murrys and those meeting them for the first time.” —The New York Times Book Review on A Wind in the Door “An intricately woven fantasy. . . . Theme is L'Engle's greatest forte, and once again she proves this with a compelling plot, rich in style that vibrates with provocative thoughts on universal love, individual caring, and the need for the joy in living.” —Booklist, starred review on A Swiftly Tilting Planet Books by Madeleine L'Engle A Wrinkle in Time Quintet A Wrinkle in Time A Wind in the Door A Swiftly Tilting Planet Many Waters An Acceptable Time A Wrinkle in Time: The Graphic Novel by Madeleine L'Engle; adapted & illustrated by Hope Larson: A graphic novel adaptation of Madeleine L'Engle's ground-breaking science fiction and fantasy classic. Intergalactic P.S. 3 by Madeleine L'Engle; illustrated by Hope Larson: A standalone story set in the world of A Wrinkle in Time! The Austin Family Chronicles Meet the Austins (Volume 1) The Moon by Night (Volume 2) The Young Unicorns (Volume 3) A Ring of Endless Light (Volume 4) A Newbery Honor book! Troubling a Star (Volume 5) The Polly O'Keefe books The Arm of the Starfish Dragons in the Waters A House Like a Lotus And Both Were Young Camilla The Joys of Love"
+    }
+  },
+  {
+    "pk": 48,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Becoming",
+      "author": "Michelle Obama",
+      "rating": 4.8,
+      "review": 61133,
+      "price": 11,
+      "year": 2018,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/YbtNDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "An intimate, powerful, and inspiring memoir by the former First Lady of the United States #1 NEW YORK TIMES BESTSELLER • WATCH THE EMMY-NOMINATED NETFLIX ORIGINAL DOCUMENTARY • OPRAH’S BOOK CLUB PICK • NAACP IMAGE AWARD WINNER • ONE OF ESSENCE’S 50 MOST IMPACTFUL BLACK BOOKS OF THE PAST 50 YEARS In a life filled with meaning and accomplishment, Michelle Obama has emerged as one of the most iconic and compelling women of our era. As First Lady of the United States of America—the first African American to serve in that role—she helped create the most welcoming and inclusive White House in history, while also establishing herself as a powerful advocate for women and girls in the U.S. and around the world, dramatically changing the ways that families pursue healthier and more active lives, and standing with her husband as he led America through some of its most harrowing moments. Along the way, she showed us a few dance moves, crushed Carpool Karaoke, and raised two down-to-earth daughters under an unforgiving media glare. In her memoir, a work of deep reflection and mesmerizing storytelling, Michelle Obama invites readers into her world, chronicling the experiences that have shaped her—from her childhood on the South Side of Chicago to her years as an executive balancing the demands of motherhood and work, to her time spent at the world’s most famous address. With unerring honesty and lively wit, she describes her triumphs and her disappointments, both public and private, telling her full story as she has lived it—in her own words and on her own terms. Warm, wise, and revelatory, Becoming is the deeply personal reckoning of a woman of soul and substance who has steadily defied expectations—and whose story inspires us to do the same."
+    }
+  },
+  {
+    "pk": 49,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Crazy Rich Asians (Crazy Rich Asians Trilogy)",
+      "author": "Kevin Kwan",
+      "rating": 4.3,
+      "review": 6143,
+      "price": 8,
+      "year": 2018,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/Ga1oDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The New York Times bestselling Crazy Rich Asians series reveals the outrageous world of high-net-worth society with humor and heart. Crazy Rich Asians is now a major motion picture. “There’s rich, there’s filthy rich, and then there’s crazy rich.” —People New Yorker Rachel Chu does not know that her loving boyfriend, Nicholas Young, also happens to be Singapore’s most eligible bachelor and likely heir to a massive fortune. So when she agrees to spend the summer in Nick’s home, her life unexpectedly becomes an obstacle course of old money, new money, nosy relatives, and scheming social climbers. And that’s all before she discovers the true identity of her long-lost father . . . This box set includes the entire trilogy: Crazy Rich Asians, China Rich Girlfriend, and Rich People Problems."
+    }
+  },
+  {
+    "pk": 50,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Dear Zoo: A Lift-the-Flap Book",
+      "author": "Rod Campbell",
+      "rating": 4.8,
+      "review": 10922,
+      "price": 5,
+      "year": 2018,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/-I5ZR9VNby8C?fife=w400-h600&source=gbs_api",
+      "description": "Dear Zoo is twenty-five years old -- and still as popular as ever! And with an updated look, this children's classic is sure to delight a new generation of readers!"
+    }
+  },
+  {
+    "pk": 51,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Dog Man and Cat Kid: From the Creator of Captain Underpants (Dog Man #4)",
+      "author": "Dav Pilkey",
+      "rating": 4.9,
+      "review": 5062,
+      "price": 6,
+      "year": 2018,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/vplOxAEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "Dog Man is the crime-biting canine who is part dog, part man, and ALL hero! This three-book boxed set includes the fourth, fifth, and sixth books in the Dog Man series: Dog Man and Cat Kid, Dog Man: Lord of the Fleas, and Dog Man: Brawl of the Wild. Dav Pilkey's wildly popular Dog Man series appeals to readers of all ages and explores universally positive themes, including empathy, kindness, persistence, and the importance of being true to one's self."
+    }
+  },
+  {
+    "pk": 52,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Dog Man: Brawl of the Wild: From the Creator of Captain Underpants (Dog Man #6)",
+      "author": "Dav Pilkey",
+      "rating": 4.9,
+      "review": 7235,
+      "price": 4,
+      "year": 2018,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/GLxbDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The heroic hound is send to jail in the sixth Dog Man book from worldwide bestselling author and artist Dav Pilkey. Is Dog Man bad to the bone? The canine cop is sent to the pound for a crime he didn't commit! While his pals work to prove his innocence, Dog Man struggles to find his place among dogs and people. Being a part of both worlds, will he ever fully fit in with one? Dav Pilkey's wildly popular Dog Man series appeals to readers of all ages and explores universally positive themes, including empathy, kindness, persistence, and the importance of being true to one's self."
+    }
+  },
+  {
+    "pk": 53,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Dog Man: Lord of the Fleas: From the Creator of Captain Underpants (Dog Man #5)",
+      "author": "Dav Pilkey",
+      "rating": 4.9,
+      "review": 5470,
+      "price": 6,
+      "year": 2018,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/xRxbswEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "Howl with laughter with Dog Man, the #1 New York Times bestselling series from Dav Pilkey!"
+    }
+  },
+  {
+    "pk": 54,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Educated: A Memoir",
+      "author": "Tara Westover",
+      "rating": 4.7,
+      "review": 28729,
+      "price": 15,
+      "year": 2018,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/2ObWDgAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 NEW YORK TIMES, WALL STREET JOURNAL, AND BOSTON GLOBE BESTSELLER • One of the most acclaimed books of our time: an unforgettable memoir about a young woman who, kept out of school, leaves her survivalist family and goes on to earn a PhD from Cambridge University “Extraordinary . . . an act of courage and self-invention.”—The New York Times NAMED ONE OF THE TEN BEST BOOKS OF THE YEAR BY THE NEW YORK TIMES BOOK REVIEW • ONE OF PRESIDENT BARACK OBAMA’S FAVORITE BOOKS OF THE YEAR • BILL GATES’S HOLIDAY READING LIST • FINALIST: National Book Critics Circle’s Award In Autobiography and John Leonard Prize For Best First Book • PEN/Jean Stein Book Award • Los Angeles Times Book Prize Born to survivalists in the mountains of Idaho, Tara Westover was seventeen the first time she set foot in a classroom. Her family was so isolated from mainstream society that there was no one to ensure the children received an education, and no one to intervene when one of Tara’s older brothers became violent. When another brother got himself into college, Tara decided to try a new kind of life. Her quest for knowledge transformed her, taking her over oceans and across continents, to Harvard and to Cambridge University. Only then would she wonder if she’d traveled too far, if there was still a way home. “Beautiful and propulsive . . . Despite the singularity of [Westover’s] childhood, the questions her book poses are universal: How much of ourselves should we give to those we love? And how much must we betray them to grow up?”—Vogue NAMED ONE OF THE BEST BOOKS OF THE YEAR BY The Washington Post • O: The Oprah Magazine • Time • NPR • Good Morning America • San Francisco Chronicle • The Guardian • The Economist • Financial Times • Newsday • New York Post • theSkimm • Refinery29 • Bloomberg • Self • Real Simple • Town & Country • Bustle • Paste • Publishers Weekly • Library Journal • LibraryReads • Book Riot • Pamela Paul, KQED • New York Public Library"
+    }
+  },
+  {
+    "pk": 55,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "rating": 4.6,
+      "review": 10721,
+      "price": 8,
+      "year": 2018,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/7V8InwEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "Roman de science-fiction - incendie - lecture - livre."
+    }
+  },
+  {
+    "pk": 56,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Fear: Trump in the White House",
+      "author": "Bob Woodward",
+      "rating": 4.4,
+      "review": 6042,
+      "price": 2,
+      "year": 2018,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/wKRkDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "OVER 2 MILLION COPIES SOLD RUNAWAY #1 NEW YORK TIMES BESTSELLER SENSATIONAL #1 INTERNATIONAL BESTSELLER “Explosive.”—The Washington Post “Devastating.”—The New Yorker “Unprecedented.”—CNN “Great reporting...astute.”—Hugh Hewitt THE INSIDE STORY ON PRESIDENT TRUMP, AS ONLY BOB WOODWARD CAN TELL IT With authoritative reporting honed through nine presidencies, author Bob Woodward reveals in unprecedented detail the harrowing life inside President Donald Trump’s White House and precisely how he makes decisions on major foreign and domestic policies. Fear is the most intimate portrait of a sitting president ever published during the president’s first years in office. The focus is on the explosive debates and the decision-making in the Oval Office, the Situation Room, Air Force One and the White House residence. Woodward draws from hundreds of hours of interviews with firsthand sources, meeting notes, personal diaries, files and documents. Often with day-by-day details, dialogue and documentation, Fear tracks key foreign issues from North Korea, Afghanistan, Iran, the Middle East, NATO, China and Russia. It reports in-depth on Trump’s key domestic issues particularly trade and tariff disputes, immigration, tax legislation, the Paris Climate Accord and the racial violence in Charlottesville in 2017. Fear presents vivid details of the negotiations between Trump’s attorneys and Robert Mueller, the special counsel in the Russia investigation, laying out for the first time the meeting-by-meeting discussions and strategies. It discloses how senior Trump White House officials joined together to steal draft orders from the president’s Oval Office desk so he would not issue directives that would jeopardize top secret intelligence operations. “It was no less than an administrative coup d’état,” Woodward writes, “a nervous breakdown of the executive power of the most powerful country in the world.”"
+    }
+  },
+  {
+    "pk": 57,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Fire and Fury: Inside the Trump White House",
+      "author": "Michael Wolff",
+      "rating": 4.2,
+      "review": 13677,
+      "price": 6,
+      "year": 2018,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/E3M-DwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 New York Times Bestseller With extraordinary access to the West Wing, Michael Wolff reveals what happened behind-the-scenes in the first nine months of the most controversial presidency of our time in Fire and Fury: Inside the Trump White House. Since Donald Trump was sworn in as the 45th President of the United States, the country—and the world—has witnessed a stormy, outrageous, and absolutely mesmerizing presidential term that reflects the volatility and fierceness of the man elected Commander-in-Chief. This riveting and explosive account of Trump’s administration provides a wealth of new details about the chaos in the Oval Office, including: -- What President Trump’s staff really thinks of him -- What inspired Trump to claim he was wire-tapped by President Obama -- Why FBI director James Comey was really fired -- Why chief strategist Steve Bannon and Trump’s son-in-law Jared Kushner couldn’t be in the same room -- Who is really directing the Trump administration’s strategy in the wake of Bannon’s firing -- What the secret to communicating with Trump is -- What the Trump administration has in common with the movie The Producers Never before in history has a presidency so divided the American people. Brilliantly reported and astoundingly fresh, Fire and Fury shows us how and why Donald Trump has become the king of discord and disunion. “Essential reading.”—Michael D’Antonio, author of Never Enough: Donald Trump and the Pursuit of Success, CNN.com “Not since Harry Potter has a new book caught fire in this way...[Fire and Fury] is indeed a significant achievement, which deserves much of the attention it has received.”—The Economist"
+    }
+  },
+  {
+    "pk": 58,
+    "model": "katalog.book",
+    "fields": {
+      "name": "First 100 Words",
+      "author": "Roger Priddy",
+      "rating": 4.7,
+      "review": 17323,
+      "price": 4,
+      "year": 2018,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/b39IAwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Presents pictures of individually labeled items that are grouped into sections based on what they are, such as things that go, pets, and food."
+    }
+  },
+  {
+    "pk": 59,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Giraffes Can't Dance",
+      "author": "Giles Andreae",
+      "rating": 4.8,
+      "review": 14038,
+      "price": 4,
+      "year": 2018,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/h4vktgEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "Celebrate the 20th birthday of much-loved picture book classic, Giraffes Can't Dance, with this special new edition featuring a super-shiny cover! Gerald the giraffe longs to go to the great Jungle Dance, but how can he join in when he doesn't know how to tango or two-step? Everyone knows that giraffes can't dance ... or can they? A funny, touching and triumphant story about being yourself and finding your own tune, Giraffes Can't Dance has been a family favourite for 20 years. \"All toddlers should grow up reading this\" Daily Mail \"A modern classic\" Baby & Me \"A joyful read about an outsider who finds acceptance on his own terms . . . there's also a simple moral about tolerance and daring to be different\" Junior \"A fantastically funny and wonderfully colourful romp\" Daily Telegraph"
+    }
+  },
+  {
+    "pk": 60,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Girl, Wash Your Face: Stop Believing the Lies About Who You Are So You Can Become Who You Were Meant to Be",
+      "author": "Rachel Hollis",
+      "rating": 4.6,
+      "review": 22288,
+      "price": 12,
+      "year": 2018,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/YZMoDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 NEW YORK TIMES BESTSELLER – OVER 3 MILLION COPIES SOLD Do you ever suspect that everyone else has life figured out and you don’t have a clue? If so, Rachel Hollis has something to tell you: that’s a lie. If you have ever said any of these things to yourself . . . Something else will make me happy. I’m not a good mom. I will never get past this. I am defined by my weight. I should be further along by now. . . . then you could benefit from the unflinching faith and rock-hard tenacity Rachel Hollis has in store for you. In this challenging but conversational book, Rachel exposes the twenty lies and misconceptions that too often hold us back from living joyfully and productively, lies we’ve told ourselves so often we don’t even hear them anymore. Rachel is real and talks about real issues. More than that, she reveals the specific practical strategies that helped her move past them. In the process, she encourages, entertains, and even kicks a little butt, all to convince you to do whatever it takes to get real and become the joyous, confident woman you were meant to be. Because you really can live with passion and hustle – and give yourself grace without giving up."
+    }
+  },
+  {
+    "pk": 61,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Goodnight Moon",
+      "author": "Margaret Wise Brown",
+      "rating": 4.8,
+      "review": 8837,
+      "price": 5,
+      "year": 2018,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/0yoOvgAACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "This gentle bedtime story, which has lulled generations of children to sleep, is the perfect first book to share at bedtime. In a great green room a little bunny is tucked up snugly and safely in bed and is getting ready to say goodnight to all the familiar things in his room, one by one. Margaret Wise Brown's comforting, rhythmical text accompanied by the warmth of Clement Hurd's classic mid-century illustrations make Goodnight Moon a timeless picture book, which is known and loved around the world."
+    }
+  },
+  {
+    "pk": 62,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Homebody: A Guide to Creating Spaces You Never Want to Leave",
+      "author": "Joanna Gaines",
+      "rating": 4.8,
+      "review": 3776,
+      "price": 22,
+      "year": 2018,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/0tdWDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "In Homebody: A Guide to Creating Spaces You Never Want to Leave, Joanna Gaines walks you through how to create a home that reflects the personalities and stories of the people who live there. Using examples from her own farmhouse as well as a range of other homes, this comprehensive guide will help you assess your priorities and instincts, as well as your likes and dislikes, with practical steps for navigating and embracing your authentic design style. Room by room, Homebody gives you an in-depth look at how these styles are implemented as well as how to blend the looks you're drawn to in order to create spaces that feel distinctly yours. A design template at the end of the book offers a step-by-step guide to planning and sketching out your own design plans. The insight shared in Homebody will instill in you the confidence to thoughtfully create spaces you never want to leave."
+    }
+  },
+  {
+    "pk": 63,
+    "model": "katalog.book",
+    "fields": {
+      "name": "How to Win Friends & Influence People",
+      "author": "Dale Carnegie",
+      "rating": 4.7,
+      "review": 25001,
+      "price": 11,
+      "year": 2018,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/IE5nzgEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "In the present book, How to Win Friends and Influence People, Dale Carnegie says, \"You can make someone want to do what you want them to do by seeing the situation from the other person's point of view and arousing in the other person an eager want.\" You learn how to make people like you, win people over to your way of thinking, and change people without causing offense or arousing resentment. For instance, \"let the other person feel that the idea is his or hers\" and \"talk about your own mistakes before criticizing the other person.\" This book is all about building relationships. With good relationships, personal and business successes are easy and swift to achieve."
+    }
+  },
+  {
+    "pk": 64,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Instant Pot Pressure Cooker Cookbook: 500 Everyday Recipes for Beginners and Advanced Users. Try Easy and Healthy…",
+      "author": "Jennifer Smith",
+      "rating": 4.4,
+      "review": 7396,
+      "price": 13,
+      "year": 2018,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/OFLPvAEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "500 recipes for any budget. Recipes are listed step by step in a clear and understandable manner. With this cookbook, you will cook better, tastier and faster meals for yourself and your family.\"--Amazon.com"
+    }
+  },
+  {
+    "pk": 65,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Little Fires Everywhere",
+      "author": "Celeste Ng",
+      "rating": 4.5,
+      "review": 25706,
+      "price": 12,
+      "year": 2018,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/OsUPDgAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The #1 New York Times bestseller! “Witty, wise, and tender. It's a marvel.” —Paula Hawkins, author of The Girl on the Train and A Slow Fire Burning “To say I love this book is an understatement. It’s a deep psychological mystery about the power of motherhood, the intensity of teenage love, and the danger of perfection. It moved me to tears.” —Reese Witherspoon From the bestselling author of Everything I Never Told You and Our Missing Hearts comes a riveting novel that traces the intertwined fates of the picture-perfect Richardson family and the enigmatic mother and daughter who upend their lives. In Shaker Heights, a placid, progressive suburb of Cleveland, everything is planned—from the layout of the winding roads, to the colors of the houses, to the successful lives its residents will go on to lead. And no one embodies this spirit more than Elena Richardson, whose guiding principle is playing by the rules. Enter Mia Warren—an enigmatic artist and single mother—who arrives in this idyllic bubble with her teenaged daughter Pearl, and rents a house from the Richardsons. Soon Mia and Pearl become more than tenants: all four Richardson children are drawn to the mother-daughter pair. But Mia carries with her a mysterious past and a disregard for the status quo that threatens to upend this carefully ordered community. When old family friends of the Richardsons attempt to adopt a Chinese-American baby, a custody battle erupts that dramatically divides the town—and puts Mia and Elena on opposing sides. Suspicious of Mia and her motives, Elena is determined to uncover the secrets in Mia’s past. But her obsession will come at unexpected and devastating costs. Little Fires Everywhere explores the weight of secrets, the nature of art and identity, and the ferocious pull of motherhood—and the danger of believing that following the rules can avert disaster. Named a Best Book of the Year by: People, The Washington Post, Bustle, Esquire, Southern Living, The Daily Beast, GQ, Entertainment Weekly, NPR, Amazon, Barnes & Noble, iBooks, Audible, Goodreads, Library Reads, Book of the Month, Paste, Kirkus Reviews, St. Louis Post-Dispatch, and many more... Perfect for book clubs! Visit celesteng.com for discussion guides and more."
+    }
+  },
+  {
+    "pk": 66,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Magnolia Table: A Collection of Recipes for Gathering",
+      "author": "Joanna Gaines",
+      "rating": 4.8,
+      "review": 9867,
+      "price": 16,
+      "year": 2018,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/MEWdEAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Joanna Gaines—cofounder of Magnolia, cook and host of Magnolia Table with Joanna Gaines, and New York Times bestselling author—brings us her third cookbook filled with timeless and nostalgic recipes—now reimagined—for today’s home cook. Whether it’s in the making, the gathering, or the tasting of something truly delicious, this collection of recipes from Magnolia Table, Volume 3 is an invitation to savor every moment. In Joanna’s first cookbook, the #1 New York Times bestselling Magnolia Table, she introduced readers to her favorite passed-down family recipes. For her second cookbook, Magnolia Table, Volume 2, she pushed herself beyond her comfort zone to develop new recipes for her family. In this, her third cookbook, Joanna shares the recipes—old and new—that she’s enjoyed the most over the years. The result is a cookbook filled with recipes that are timeless, creative, and delicious! Just as in her past books, within each recipe Joanna speaks to the reader, explaining why she likes a recipe, what inspired her to create it in the first place, and how she prefers to serve it. The book is beautifully photographed and filled with dishes you will want to bring into your own home, including: Honey Butter Layered Biscuit Bites Bananas Foster Pancakes Brussels Sprout Gruyére Gratin White Chicken Alfredo Lasagna Garlic Shrimp over Parmesan Risotto Peanut Butter Pie Brownie Cookies"
+    }
+  },
+  {
+    "pk": 67,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Milk and Honey",
+      "author": "Rupi Kaur",
+      "rating": 4.7,
+      "review": 17739,
+      "price": 8,
+      "year": 2018,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/WoWfCgAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The book is divided into four chapters, and each chapter serves a different purpose. Deals with a different pain. Heals a different heartache. milk and honey takes readers through a journey of the most bitter moments in life and finds sweetness in them because there is sweetness everywhere if you are just willing to look."
+    }
+  },
+  {
+    "pk": 68,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Oh, the Places You'll Go!",
+      "author": "Dr. Seuss",
+      "rating": 4.9,
+      "review": 21834,
+      "price": 8,
+      "year": 2018,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/1q_xAwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Dr. Seuss’s wonderfully wise Oh, the Places You’ll Go! is the perfect gift to celebrate all of our special milestones—from graduations to birthdays and beyond! From soaring to high heights and seeing great sights to being left in a Lurch on a prickle-ly perch, Dr. Seuss addresses life’s ups and downs with his trademark humorous verse and whimsical illustrations. The inspiring and timeless message encourages readers to find the success that lies within, no matter what challenges they face. A perennial favorite and a perfect gift for anyone starting a new phase in their life!"
+    }
+  },
+  {
+    "pk": 69,
+    "model": "katalog.book",
+    "fields": {
+      "name": "P is for Potty! (Sesame Street) (Lift-the-Flap)",
+      "author": "Naomi Kleinberg",
+      "rating": 4.7,
+      "review": 10820,
+      "price": 5,
+      "year": 2018,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/zvcBDAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Sesame Street's Elmo tells little girls and boys ages 1 to 3 all about how to use the potty in this sturdy lift-the-flap board book with more than 30 flaps to find and open! P is for Potty is the perfect mix of fun and learning for potty-training toddlers—especially while they practice sitting on the potty! Sturdy flaps will hold up to hours of repeat lifting and peeking, and toddlers will delight in the surprises they find under the flaps."
+    }
+  },
+  {
+    "pk": 70,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Player's Handbook (Dungeons & Dragons)",
+      "author": "Wizards RPG Team",
+      "rating": 4.8,
+      "review": 16990,
+      "price": 27,
+      "year": 2018,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/lldXNwAACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "This companion to the 'Player's handbook' core rulebook introduces the primal power source, which draws on the spirits that preserve and sustain the world. This book includes four classes tied to the primal power source: the barbarian, the druid, the shaman, and the warden. It also presents four new arcane and divine classes: the avenger, the bard, the invoker, and the sorcerer."
+    }
+  },
+  {
+    "pk": 71,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Publication Manual of the American Psychological Association, 6th Edition",
+      "author": "American Psychological Association",
+      "rating": 4.5,
+      "review": 8580,
+      "price": 46,
+      "year": 2018,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/X4A2vgAACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "This book is a reprint of the APA manual originally published in 1957. This APA style manual for writers, editors, students, educators, and professionals across all fields provides clear guidance on grammar, the mechanics of writing, and APA style. It includes examples, new guidelines and advice, and more."
+    }
+  },
+  {
+    "pk": 72,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Ready Player One: A Novel",
+      "author": "Ernest Cline",
+      "rating": 4.6,
+      "review": 22536,
+      "price": 12,
+      "year": 2018,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/FY_HWAcm10MC?fife=w400-h600&source=gbs_api",
+      "description": "#1 NEW YORK TIMES BESTSELLER • Now a major motion picture directed by Steven Spielberg. “Enchanting . . . Willy Wonka meets The Matrix.”—USA Today • “As one adventure leads expertly to the next, time simply evaporates.”—Entertainment Weekly A world at stake. A quest for the ultimate prize. Are you ready? In the year 2045, reality is an ugly place. The only time Wade Watts really feels alive is when he’s jacked into the OASIS, a vast virtual world where most of humanity spends their days. When the eccentric creator of the OASIS dies, he leaves behind a series of fiendish puzzles, based on his obsession with the pop culture of decades past. Whoever is first to solve them will inherit his vast fortune—and control of the OASIS itself. Then Wade cracks the first clue. Suddenly he’s beset by rivals who’ll kill to take this prize. The race is on—and the only way to survive is to win. NAMED ONE OF THE BEST BOOKS OF THE YEAR BY Entertainment Weekly • San Francisco Chronicle • Village Voice • Chicago Sun-Times • iO9 • The AV Club “Delightful . . . the grown-up’s Harry Potter.”—HuffPost “An addictive read . . . part intergalactic scavenger hunt, part romance, and all heart.”—CNN “A most excellent ride . . . Cline stuffs his novel with a cornucopia of pop culture, as if to wink to the reader.”—Boston Globe “Ridiculously fun and large-hearted . . . Cline is that rare writer who can translate his own dorky enthusiasms into prose that’s both hilarious and compassionate.”—NPR “[A] fantastic page-turner . . . starts out like a simple bit of fun and winds up feeling like a rich and plausible picture of future friendships in a world not too distant from our own.”—iO9"
+    }
+  },
+  {
+    "pk": 73,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Ship of Fools: How a Selfish Ruling Class Is Bringing America to the Brink of Revolution",
+      "author": "Tucker Carlson",
+      "rating": 4.8,
+      "review": 3923,
+      "price": 16,
+      "year": 2018,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/r-esDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The #1 New York Times bestseller from FOX News star of Tucker Carlson Tonight offers “a targeted snipe at the Democrats and Republicans and their elite enablers” (New York Journal of Books) in a funny political commentary on how America’s ruling class has failed everyday Americans. “Informal and often humorous…an entertainingly told narrative of elite malfeasance” (Publishers Weekly), Tucker Carlson’s Ship of Fools tells the truth about the new American elites, a group whose power and wealth has grown beyond imagination even as the rest of the country has withered. The people who run America now barely interact with it. They fly on their own planes, ski on their own mountains, watch sporting events far from the stands in sky boxes. They have total contempt for you. In Ship of Fools, Tucker Carlson offers a blistering critique of our new overlords and answers the all-important question: How do we put the country back on course? Traditional liberals are gone, he writes. The patchouli-scented hand-wringers who worried about whales and defended free speech have been replaced by globalists who hide their hard-edged economic agenda behind the smokescreen of identity politics. They’ll outsource your job while lecturing you about transgender bathrooms. Left and right, Carlson says, are no longer meaningful categories in America. “The rift is between those who benefit from the status quo, and those who don’t.” Our leaders are fools, Carlson concludes, “unaware that they are captains of a sinking ship.” But in the signature and witty style that viewers of Tucker Carlson Tonight enjoy so much, Ship of Fools is “bulging with big and interesting ideas, presented succinctly with wit and precision, each chapter a potential book in itself” (The Washington Times)."
+    }
+  },
+  {
+    "pk": 74,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The 5 Love Languages: The Secret to Love that Lasts",
+      "author": "Gary Chapman",
+      "rating": 4.8,
+      "review": 25554,
+      "price": 8,
+      "year": 2018,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/K1fRBAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "Over 20 million copies sold! A perennial New York Times bestseller for over a decade! Falling in love is easy. Staying in love—that’s the challenge. How can you keep your relationship fresh and growing amid the demands, conflicts, and just plain boredom of everyday life? In the #1 New York Times international bestseller The 5 Love Languages, you’ll discover the secret that has transformed millions of relationships worldwide. Whether your relationship is flourishing or failing, Dr. Gary Chapman’s proven approach to showing and receiving love will help you experience deeper and richer levels of intimacy with your partner—starting today. The 5 Love Languages is as practical as it is insightful. Updated to reflect the complexities of relationships today, this new edition reveals intrinsic truths and applies relevant, actionable wisdom in ways that work. Includes the Couple's Personal Profile assessment so you can discover your love language and that of your loved one."
+    }
+  },
+  {
+    "pk": 75,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Complete Ketogenic Diet for Beginners: Your Essential Guide to Living the Keto Lifestyle",
+      "author": "Amy Ramos",
+      "rating": 4.3,
+      "review": 13061,
+      "price": 6,
+      "year": 2018,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/ax_3jwEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "The simple, friendly way to start the ketogenic diet and lifestyle AN EASY START TO KETO FOR BEGINNERS: Starting to work keto into your life can be overwhelming―so much to learn, so many resources to choose from. The Complete Ketogenic Diet for Beginners makes it easy to start, and stick with, the ketogenic diet. Think of this book as keto for the lazy person- you get exactly what you need for surprisingly simple keto: meal plans, shopping lists, support, and lots of keto-licious recipes, for those concerned about weight loss or those just working on being healthy. What sets this ketogenic cookbook apart from other keto books for beginners: EXPLAINS THE BIG PICTURE: This book offers an overview explaining the fundamentals of the ketogenic diet and handy charts illustrating nutritional information to help you master keto cooking in no time. CONTAINS 75 SCRUMPTIOUS RECIPES: From Bacon-Artichoke Omelets to Pesto Zucchini Noodles, these easy-to-follow recipes don't take too much time and can be prepared in 30 minutes or less. OUTLINES A 14-DAY MEAL PLAN: With breakfast, lunch, dinner, and snack suggestions, this book takes the guesswork out of starting your ketogenic diet by offering endless recipes to eat. Easy meets delicious meets healthy in this ketogenic diet and healthy lifestyle guide and cookbook. Start eating keto today!"
+    }
+  },
+  {
+    "pk": 76,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Four Agreements: A Practical Guide to Personal Freedom (A Toltec Wisdom Book)",
+      "author": "Don Miguel Ruiz",
+      "rating": 4.7,
+      "review": 23308,
+      "price": 6,
+      "year": 2018,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/hzVxiw2DiOsC?fife=w400-h600&source=gbs_api",
+      "description": "Bestselling author don Miguel Ruiz reveals the source of self-limiting beliefs that rob us of joy and create needless suffering. Based on ancient Toltec wisdom, The Four Agreements offer a powerful code of conduct that can rapidly transform our lives to a new experience of freedom, true happiness, and love. • A New York Times bestseller for over 7 years • Over 5.2 million copies sold in the U.S. • Translated into 38 languages worldwide Don Miguel Ruiz’s book is a roadmap to enlightenment and freedom.” — Deepak Chopra, Author, The Seven Spiritual Laws of Success “An inspiring book with many great lessons . . .” — Wayne Dyer, Author, Real Magic “In the tradition of Castaneda, Ruiz distills essential Toltec wisdom, expressing with clarity and impeccability what it means for men and women to live as peaceful warriors in the modern world.” — Dan Millman, Author, Way of the Peaceful Warrior"
+    }
+  },
+  {
+    "pk": 77,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Hate U Give",
+      "author": "Angie Thomas",
+      "rating": 4.8,
+      "review": 9947,
+      "price": 11,
+      "year": 2018,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/VKWazgEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "8 starred reviews - Goodreads Choice Awards Best of the Best - William C. Morris Award Winner - National Book Award Longlist - Printz Honor Book - Coretta Scott King Honor Book - #1 New York Times Bestseller! Absolutely riveting! --Jason Reynolds Stunning. --John Green This story is necessary. This story is important. --Kirkus (starred review) Heartbreakingly topical. --Publishers Weekly (starred review) A marvel of verisimilitude. --Booklist (starred review) A powerful, in-your-face novel. --Horn Book (starred review) Sixteen-year-old Starr Carter moves between two worlds: the poor neighborhood where she lives and the fancy suburban prep school she attends. The uneasy balance between these worlds is shattered when Starr witnesses the fatal shooting of her childhood best friend Khalil at the hands of a police officer. Khalil was unarmed. Soon afterward, his death is a national headline. Some are calling him a thug, maybe even a drug dealer and a gangbanger. Protesters are taking to the streets in Khalil's name. Some cops and the local drug lord try to intimidate Starr and her family. What everyone wants to know is: what really went down that night? And the only person alive who can answer that is Starr. But what Starr does--or does not--say could upend her community. It could also endanger her life. Want more of Garden Heights? Catch Maverick and Seven's story in Concrete Rose, Angie Thomas's powerful prequel to The Hate U Give."
+    }
+  },
+  {
+    "pk": 78,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Instant Pot Electric Pressure Cooker Cookbook: Easy Recipes for Fast & Healthy Meals",
+      "author": "Laurel Randolph",
+      "rating": 4.3,
+      "review": 7368,
+      "price": 7,
+      "year": 2018,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/e83trQEACAAJ?fife=w400-h600&source=gbs_api",
+      "description": "Prepare delicious dishes in an instant The Instant Pot is an incredibly versatile appliance—but it can also be a tad intimidating. Turn to this electric pressure cooker cookbook for guidance and easy, delicious recipes that cut down on cooking and leave you braising, boiling, slow cooking, and sauteing like a pro. What sets this pressure cooker cookbook apart: AN INTRO TO YOUR INSTANT POT: Master your pressure cooker with step-by-step instructions, a detailed breakdown of features and functions, safety advice, and more. A WIDE VARIETY OF HEALTHY RECIPES: Dive into fast, family-friendly meals that will have you licking your lips, from a satisfying Bacon and Egg Strata breakfast to a flavorful Chicken Tikka Masala dinner that everyone will love to eat. HANDY TIPS & CHEAT SHEETS: Pressure cook like a pro with recipe hacks, guides to cook times, and tips for converting your favorite dishes. Take the pressure off of preparing nutritious, tasty meals—even on the busiest weeknights—with this easy Instant Pot cookbook."
+    }
+  },
+  {
+    "pk": 79,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Meltdown (Diary of a Wimpy Kid Book 13)",
+      "author": "Jeff Kinney",
+      "rating": 4.8,
+      "review": 5898,
+      "price": 8,
+      "year": 2018,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/WjRSDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "When snow shuts down Greg Heffley’s middle school, his neighborhood transforms into a wintry battlefield. Rival groups fight over territory, build massive snow forts, and stage epic snowball fights. And in the crosshairs are Greg and his trusty best friend, Rowley Jefferson. It’s a fight for survival as Greg and Rowley navigate alliances, betrayals, and warring gangs in a neighborhood meltdown. When the snow clears, will Greg and Rowley emerge as heroes? Or will they even survive to see another day?"
+    }
+  },
+  {
+    "pk": 80,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Plant Paradox Cookbook: 100 Delicious Recipes to Help You Lose Weight, Heal Your Gut, and Live Lectin-Free",
+      "author": "Dr. Steven R Gundry MD",
+      "rating": 4.5,
+      "review": 3601,
+      "price": 18,
+      "year": 2018,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/vdwwDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "From renowned cardiac surgeon and acclaimed author Dr. Steven R. Gundry, the companion cookbook to New York Times bestselling The Plant Paradox, offering 100 easy-to-follow recipes and four-color photos. In the New York Times bestseller The Plant Paradox, Dr. Steven Gundry introduced readers to the hidden toxins lurking in seemingly healthy foods like tomatoes, zucchini, quinoa, and brown rice: a class of plant-based proteins called lectins. Many people are familiar with one of the most predominant lectins—a substance called gluten, which is found in wheat and other grains. But while cutting out the bread and going gluten-free is relatively straightforward, going lectin-free is no small task. Now, in The Plant Paradox Cookbook, Dr. Gundry breaks down lectin-free eating step by step and shares one hundred of his favorite healthy recipes. Dr. Gundry will offer an overview of his Plant Paradox program and show readers how to overhaul their pantries and shopping lists to make delicious, simple, seasonal, lectin-free meals. He’ll also share his hacks for making high-lectin foods safe to eat, including methods like pressure-cooking grains and peeling and deseeding tomatoes. With a quick-start program designed to boost weight loss and recipes for smoothies, breakfasts, main meals, snacks, and desserts, The Plant Paradox Cookbook will show readers of The Plant Paradox—and more—how delicious it can be to eat lectin-free."
+    }
+  },
+  {
+    "pk": 81,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Plant Paradox: The Hidden Dangers in \"Healthy\" Foods That Cause Disease and Weight Gain",
+      "author": "Dr. Steven R Gundry MD",
+      "rating": 4.4,
+      "review": 7058,
+      "price": 17,
+      "year": 2018,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/PwyxDAAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "I read this book... it worked. My autoimmune disease is gone and I'm 37 pounds lighter in my pleather.\" --Kelly Clarkson Most of us have heard of gluten—a protein found in wheat that causes widespread inflammation in the body. Americans spend billions of dollars on gluten-free diets in an effort to protect their health. But what if we’ve been missing the root of the problem? In The Plant Paradox, renowned cardiologist Dr. Steven Gundry reveals that gluten is just one variety of a common, and highly toxic, plant-based protein called lectin. Lectins are found not only in grains like wheat but also in the “gluten-free” foods most of us commonly regard as healthy, including many fruits, vegetables, nuts, beans, and conventional dairy products. These proteins, which are found in the seeds, grains, skins, rinds, and leaves of plants, are designed by nature to protect them from predators (including humans). Once ingested, they incite a kind of chemical warfare in our bodies, causing inflammatory reactions that can lead to weight gain and serious health conditions. At his waitlist-only clinics in California, Dr. Gundry has successfully treated tens of thousands of patients suffering from autoimmune disorders, diabetes, leaky gut syndrome, heart disease, and neurodegenerative diseases with a protocol that detoxes the cells, repairs the gut, and nourishes the body. Now, in The Plant Paradox, he shares this clinically proven program with readers around the world. The simple (and daunting) fact is, lectins are everywhere. Thankfully, Dr. Gundry offers simple hacks we easily can employ to avoid them, including: Peel your veggies. Most of the lectins are contained in the skin and seeds of plants; simply peeling and de-seeding vegetables (like tomatoes and peppers) reduces their lectin content. Shop for fruit in season. Fruit contain fewer lectins when ripe, so eating apples, berries, and other lectin-containing fruits at the peak of ripeness helps minimize your lectin consumption. Swap your brown rice for white. Whole grains and seeds with hard outer coatings are designed by nature to cause digestive distress—and are full of lectins. With a full list of lectin-containing foods and simple substitutes for each, a step-by-step detox and eating plan, and delicious lectin-free recipes, The Plant Paradox illuminates the hidden dangers lurking in your salad bowl—and shows you how to eat whole foods in a whole new way"
+    }
+  },
+  {
+    "pk": 82,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Pout-Pout Fish",
+      "author": "Deborah Diesen",
+      "rating": 4.8,
+      "review": 9784,
+      "price": 5,
+      "year": 2018,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/00gTAgAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The first book in the New York Times bestselling Pout-Pout Fish series from Deborah Diesen and illustrator Dan Hanna! Deep in the water, Mr. Fish swims about With his fish face stuck In a permanent pout. Can his pals cheer him up? Will his pout ever end? Is there something he can learn From an unexpected friend? Swim along with the pout-pout fish as he discovers that being glum and spreading \"dreary wearies\" isn't really his destiny. Bright ocean colors and playful rhyme come together in this fun fish story that's sure to turn even the poutiest of frowns upside down. The Pout-Pout Fish is a 2009 Bank Street - Best Children's Book of the Year."
+    }
+  },
+  {
+    "pk": 83,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The President Is Missing: A Novel",
+      "author": "James Patterson",
+      "rating": 4.3,
+      "review": 10191,
+      "price": 18,
+      "year": 2018,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/ngM1DwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "'The political thriller of the decade' Lee Child 'A bullet train of a thriller' A.J. Finn 'A first-rate collaboration... Engrossing from page one' David Baldacci 'This book moves like Air Force One. Big and fast' Michael Connelly 'A big, splashy juggernaut of a novel... truly authentic' Harlan Coben ________________________ THE GLOBAL NUMBER ONE BESTSELLER The President is missing. The world is in shock. Terrorists are planning a devastating attack. And they have help from traitors inside the White House. The only thing standing in their way is a President determined to save his people. Even if it means putting himself in mortal danger . . . ________________________ More praise for The President is Missing 'Relentless in its plotting and honest in its examination of issues' Jeffrey Deaver 'Guarantee of political authenticity. The literary running mates have earned a second term' Guardian 'A brilliant, tricksy first chapter . . . unmistakably shows that their partnership works' Sunday Times 'A high-octane collaboration . . . the addictive qualities are undeniable' Telegraph 'Fast-paced and well-engineered' Financial Times 'A vigorous, fast-moving thriller that takes the reader into the corridors of power' i Newspaper 'A high-tension thriller . . . Bill Clinton's insider perspective and James Patterson's pacy plotting combine to irresistibly page-turning effect' Mail"
+    }
+  },
+  {
+    "pk": 84,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life",
+      "author": "Mark Manson",
+      "rating": 4.6,
+      "review": 26490,
+      "price": 15,
+      "year": 2018,
+      "genre": "fantasy",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/yng_CwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 New York Times Bestseller Over 10 million copies sold In this generation-defining self-help guide, a superstar blogger cuts through the crap to show us how to stop trying to be \"positive\" all the time so that we can truly become better, happier people. For decades, we’ve been told that positive thinking is the key to a happy, rich life. \"F**k positivity,\" Mark Manson says. \"Let’s be honest, shit is f**ked and we have to live with it.\" In his wildly popular Internet blog, Manson doesn’t sugarcoat or equivocate. He tells it like it is—a dose of raw, refreshing, honest truth that is sorely lacking today. The Subtle Art of Not Giving a F**k is his antidote to the coddling, let’s-all-feel-good mindset that has infected American society and spoiled a generation, rewarding them with gold medals just for showing up. Manson makes the argument, backed both by academic research and well-timed poop jokes, that improving our lives hinges not on our ability to turn lemons into lemonade, but on learning to stomach lemons better. Human beings are flawed and limited—\"not everybody can be extraordinary, there are winners and losers in society, and some of it is not fair or your fault.\" Manson advises us to get to know our limitations and accept them. Once we embrace our fears, faults, and uncertainties, once we stop running and avoiding and start confronting painful truths, we can begin to find the courage, perseverance, honesty, responsibility, curiosity, and forgiveness we seek. There are only so many things we can give a f**k about so we need to figure out which ones really matter, Manson makes clear. While money is nice, caring about what you do with your life is better, because true wealth is about experience. A much-needed grab-you-by-the-shoulders-and-look-you-in-the-eye moment of real-talk, filled with entertaining stories and profane, ruthless humor, The Subtle Art of Not Giving a F**k is a refreshing slap for a generation to help them lead contented, grounded lives."
+    }
+  },
+  {
+    "pk": 85,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Very Hungry Caterpillar",
+      "author": "Eric Carle",
+      "rating": 4.9,
+      "review": 19546,
+      "price": 5,
+      "year": 2018,
+      "genre": "romance",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/XP1EDQAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "The all-time classic picture book, from generation to generation, sold somewhere in the world every 30 seconds! Have you shared it with a child or grandchild in your life? For the first time, Eric Carle’s The Very Hungry Caterpillar is now available in e-book format, perfect for storytime anywhere. As an added bonus, it includes read-aloud audio of Eric Carle reading his classic story. This fine audio production pairs perfectly with the classic story, and it makes for a fantastic new way to encounter this famous, famished caterpillar."
+    }
+  },
+  {
+    "pk": 86,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Wonderful Things You Will Be",
+      "author": "Emily Winfield Martin",
+      "rating": 4.9,
+      "review": 8842,
+      "price": 10,
+      "year": 2018,
+      "genre": "action",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/NUK2DwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "This is the first time / There's ever been you, / So I wonder what wonderful things / You will do.\" In this timeless poem about growing up, Emily Windfield Martin explores all the things you can choose to be, from brave and bold to creative and wise. Filled with beautiful, quirky illustrations and clever rhyme, grown-ups will love reading this book to their children at any age, as they lovingly consider all the possibilities that lie ahead. Its enduring message of love and acceptance as children grow and change is both universal and poignant, and it one to share over and over again"
+    }
+  },
+  {
+    "pk": 87,
+    "model": "katalog.book",
+    "fields": {
+      "name": "The Wonky Donkey",
+      "author": "Craig Smith",
+      "rating": 4.8,
+      "review": 30183,
+      "price": 4,
+      "year": 2018,
+      "genre": "geography",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/t6lYb7WDHHoC?fife=w400-h600&source=gbs_api",
+      "description": "While walking down the road, the narrator sees a donkey that he shares more about as the story progresses."
+    }
+  },
+  {
+    "pk": 88,
+    "model": "katalog.book",
+    "fields": {
+      "name": "Whose Boat Is This Boat?: Comments That Don't Help in the Aftermath of a Hurricane",
+      "author": "The Staff of The Late Show with",
+      "rating": 4.6,
+      "review": 6669,
+      "price": 12,
+      "year": 2018,
+      "genre": "history",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/7mVwDwAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "100% of The Late Show’s proceeds from this book go to hurricane relief. Whose Boat Is This Boat? Comments That Don’t Help in the Aftermath of a Hurricane is a picture book made entirely of quotations from President Donald Trump in the wake of Hurricane Florence. It is the first children’s book that demonstrates what not to say after a natural disaster. On September 19, 2018, Donald Trump paid a visit to New Bern, North Carolina, one of the towns ravaged by Hurricane Florence. It was there he showed deep concern for a boat that washed ashore. “At least you got a nice boat out of the deal,” said President Trump to hurricane victims. “Have a good time!” he told them. The only way his comments would be appropriate is in the context of a children’s book—and now you can experience them that way, thanks to the staff of The Late Show with Stephen Colbert. Whose Boat Is This Boat? is an excellent teaching tool for readers of all ages who enjoy learning about empathy by process of elimination. Have a good time!"
+    }
+  },
+  {
+    "pk": 89,
+    "model": "katalog.book",
+    "fields": {
+      "name": "You Are a Badass: How to Stop Doubting Your Greatness and Start Living an Awesome Life",
+      "author": "Jen Sincero",
+      "rating": 4.7,
+      "review": 14331,
+      "price": 8,
+      "year": 2018,
+      "genre": "mystery",
+      "image": "https://books.google.com/books/publisher/content/images/frontcover/P4DFDgAAQBAJ?fife=w400-h600&source=gbs_api",
+      "description": "#1 NEW YORK TIMES BESTSELLER • MORE THAN 5 MILLION COPIES SOLD The first ever self-development book to help millions of people around the globe transform their lives using humor, irreverence, and the occasional curse word—now updated and expanded for its 10th anniversary with a brand-new foreword, reader's guide, and more! In this refreshingly entertaining guide to reshaping your mindset and your life, mega-bestselling author and world-traveling success coach Jen Sincero serves up 27 bite-sized chapters full of hilarious and inspiring stories, sage advice, loving yet firm kicks in the rear, and easy-to-implement exercises to help you: Identify and change the self-sabotaging beliefs and behaviors that stop you from getting what you want. Shift your energy and attract what you desire. Create a life you totally love. And start creating it NOW. Make some damn money already. The kind you've never made before. By the end of You Are a Badass, you’ll understand how to blast past what’s holding you back, make some serious changes, and start living the kind of life that once seemed impossible."
+    }
+  }
+]
