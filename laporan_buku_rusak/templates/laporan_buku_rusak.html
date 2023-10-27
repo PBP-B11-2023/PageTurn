@@ -1,28 +1,93 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 style="text-align: center;">Laporan Buku Rusak Page</h1>
+<style>
+    .centered-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-    <table style="border-collapse: collapse; width: 100%;">
-        <tr>
-            <th style="border: 1px solid black; padding: 8px;">Nama Buku</th>
-            <th style="border: 1px solid black; padding: 8px;">Kondisi Buku</th>
-        </tr>
-    
-        {% for product in products %}
+    h1.custom-heading {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .table-container {
+        width: 50%; 
+        height: 50vh; 
+        overflow: auto; 
+    }
+
+    table.custom-table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    table.custom-table th {
+        background-color: #08725f;
+        color: #fff;
+        padding: 8px;
+        border: 1px solid black;
+    }
+
+    table.custom-table td {
+        background-color: #ddf6ee;
+        padding: 8px;
+        border: 1px solid black;
+    }
+
+    a.custom-button {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    button.custom-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button.custom-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="centered-content">
+    <h1 class="custom-heading">Laporan Buku Rusak</h1>
+
+    <h6>Buku yang Anda pinjam:</h6>
+    <ul>
+        <li>{{ borrowed_book.book.title }}</li>
+    </ul>
+
+    <div class="table-container"> {# Set the width and height of the table container #}
+        <table class="custom-table">
             <tr>
-                <td style="border: 1px solid black; padding: 8px;">{{ product.name }}</td>
-                <td style="border: 1px solid black; padding: 8px;">{{ product.description }}</td>
+                <th class="custom-table">Nama Buku</th>
+                <th class="custom-table">Kondisi Buku</th>
             </tr>
-        {% endfor %}
-    </table>
-    
+
+            {% for product in products %}
+                <tr>
+                    <td class="custom-table">{{ product.name }}</td>
+                    <td class="custom-table">{{ product.description }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
     <br />
-    
-    <a href="{% url 'laporan_buku_rusak:create_laporan' %}">
-        <button>
-            Add New Laporan
-        </button>
+
+    <a href="{% url 'laporan_buku_rusak:create_laporan' %}" class="custom-button">
+        Add New Laporan
     </a>
-    
-{% endblock content %}
+</div>
+
+{% endblock %}
