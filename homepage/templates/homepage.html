@@ -1,73 +1,11 @@
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
 
-{% block content %}
+    {% block content %}
 <head>
     <style>
         html, body {
             margin: 0;
             padding: 0;
-        }
-
-        #logo {
-            display: inline-block;
-            margin-right: 20px;
-        }
-
-        nav {
-            background-color: #282626;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1;
-            overflow: hidden;
-            height: 110px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 4;
-            text-align: right;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            height: 100%;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        nav ul li#logo {
-            float: none;
-            margin-right: auto;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-style: italic;
-            margin-right: 30px;
-            font-size: 16px;
-        }
-
-        #search {
-            order: 1;
-            margin-right: 20px;
-            width: 60px;
-        }
-
-        #shop {
-            order: 2;
-            margin-right: 40px;
-        }
-
-        #search img, #shop img {
-            width: 30px;
-            height: 30px;
         }
 
         hr.section-break {
@@ -238,105 +176,96 @@
                 
         
     </style>
-        <script>
-            $(document).ready(function() {
-                let currentCardIndex = 0;
+    <script>
+        $(document).ready(function() {
+            let currentCardIndex = 0;
+            if (performance.navigation.type === 1) {
+                // Full page reload
+                console.log('Full page reload');
+            } else {
+                // Not a full page reload
+                console.log('Not a full page reload');
+            }
+    
+            // Fetch the books using AJAX
+            $.get("/get_favourite_books/", function(data) {
+                const books = data.favourite_books;
+                const bookListElement = $('.book-list');
+    
+                // Clear existing book list
+                bookListElement.empty();
+    
+                // Render new book cards
+                books.forEach((book, index) => {
+                    const cardHtml = `<div class="card" id="card-${index}">
+                        <img src="${book.image}" alt="${book.name} Cover">
+                        <h2>${book.name}</h2>
+                        <p>Author: ${book.author}</p>
+                        <p>Rating: ${book.rating}</p>
+                        <p>Price: $${book.price}</p>
+                        <p>Year: ${book.year}</p>
+                        <p>Genre: ${book.genre}</p>
+                        <a class="read-more-link" href="#">Read More</a>
+                        <div class="description hidden">${book.description}</div>
+                    </div>`;
+                    bookListElement.append(cardHtml);
+                });
+    
+                // Now show and hide books like before
                 const cards = $('.card');
                 const totalCards = cards.length;
-            
-                // Show the first card initially
                 $(cards[currentCardIndex]).show();
-            
+    
                 $('#next-button').click(function() {
-                    // Hide current card
                     $(cards[currentCardIndex]).hide();
-            
-                    // Update currentCardIndex
                     currentCardIndex = (currentCardIndex + 1) % totalCards;
-            
-                    // Show the next card
                     $(cards[currentCardIndex]).show();
                 });
-            
+    
                 $('#prev-button').click(function() {
-                    // Hide current card
                     $(cards[currentCardIndex]).hide();
-            
-                    // Update currentCardIndex
                     currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
-            
-                    // Show the previous card
                     $(cards[currentCardIndex]).show();
                 });
-            });
-            
-            $(document).ready(function() {
-                const cards = document.querySelectorAll('.card');
-                cards.forEach(card => {
-                    const description = card.querySelector('.description');
-                    const readMoreLink = card.querySelector('.read-more-link');
-                    
-                    // Add a click event to show the description popup
-                    readMoreLink.addEventListener('click', () => {
-                        const popup = document.createElement('div');
-                        popup.className = 'popup';
-                        popup.innerHTML = '<div class="popup-content">' + description.textContent + '</div>';
-
-                        
-                        // Append the popup to the body
-                        document.body.appendChild(popup);
-                        
-                        // Show the popup
-                        popup.style.display = 'block'; // Add this line to make the popup visible
-                        
-                        // Close the popup when clicking on it
-                        popup.addEventListener('click', () => {
-                            popup.style.display = 'none'; // Add this line to hide the popup
-                            popup.remove();
-                        });
+    
+                // Add a click event to show the description popup
+                $('.read-more-link').click(function() {
+                    console.log('Script is running');
+                    const description = $(this).siblings('.description').html();
+                    const popup = document.createElement('div');
+                    popup.className = 'popup';
+                    popup.innerHTML = '<div class="popup-content">' + description + '</div';
+    
+                    // Append the popup to the body
+                    document.body.appendChild(popup);
+    
+                    // Show the popup
+                    popup.style.display = 'block'; // Add this line to make the popup visible
+    
+                    // Close the popup when clicking on it
+                    popup.addEventListener('click', () => {
+                        popup.style.display = 'none'; // Add this line to hide the popup
+                        popup.remove();
                     });
                 });
             });
-                 
-        </script>
+        });
+    </script>
 
 </head>
 <body>
+    {% include 'header.html' %}
     <div class="background-container">
         <img src="https://uiii.ac.id/assets/images/1636690539-alfons-morales-YLSwjSy7stw-unsplash-2.jpg" alt="Background Image" class="background-image">
         <div class="background-overlay"></div>
     </div>
-    <nav>
-        <ul>
-            <li id="logo">
-                <a href="#">
-                    <img src="https://cdn.discordapp.com/attachments/1055868254347857941/1160262052116443148/SecondHandShop..png?ex=6534053d&is=6521903d&hm=07015148f3ab752d3ebadb8b30ff46856034341301b919256396b0e8558accef" alt="Logo">
-                </a>
-            </li>
-            <li class="nav-item"><a href="#">Home</a></li>  
-            <li class="nav-item"><a href="#">Tentang Kami</a></li>
-            <li class="nav-item"><a href="#">Katalog</a></li>
-            <li class="nav-item"><a href="#">Contact</a></li>
-            <li class="nav-item"><a href="#">Login  </a></li>
-            <li id="search">
-                <a href="#">
-                    <img src="https://cdn.discordapp.com/attachments/1145315809846104065/1160267712279355514/Vector.png?ex=65340a83&is=65219583&hm=af4c9516b46f6f7a78556b464452bd1020fb2eda4dc73dbdd60ee574b9168233&" alt="search">
-                </a>
-            </li>
-            <li id="shop">
-                <a href="#">
-                    <img src="https://cdn.discordapp.com/attachments/1145315809846104065/1160267712589742251/Group_1.png?ex=65340a83&is=65219583&hm=c318f34d4c357efce070d8f50432c883ba7cea8898c7f2db57f9cd85b3a26e76&" alt="shop">
-                </a>
-            </li>
-        </ul>
-    </nav>
     <hr class="section-break">
     <div class="right-section">
         <!-- Loop through Michelle Obama's books and create a card for each book -->
-        <h2>Books by Michelle Obama</h2>
+        <h2>Favourite books</h2>
         <div class="book-list">
             <!-- Loop through Michelle Obama's books and create a card for each book -->
-            {% for book in michelle_obama_books %}
+            {% for book in favourite_books %}
             <div class="card">
                 <img src="{{ book.image }}" alt="{{ book.name }} Cover">
                 <h2>{{ book.name }}</h2>

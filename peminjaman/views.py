@@ -44,8 +44,29 @@ def add_peminjaman(request):
     }
     return render(request, 'add_peminjaman.html', context)
 
+@login_required(login_url='/login')
+def show_history(request):
+    books = Book.objects.all()
+    dikembalikan = Peminjaman.objects.filter(user = request.user, is_returned = True)
+    genres = set()
+    for book in Book.objects.all():
+        genres.add(book.genre)
+    context = {
+        'user' : request.user,
+        'books' : books,
+        'dikembalikan' : dikembalikan,
+        'genres' : genres,
+    }
+
+    return render(request, 'history_peminjaman.html', context)
+
+
 def get_item_json(request):
     item = Peminjaman.objects.filter(user=request.user, is_returned = False)
+    return HttpResponse(serializers.serialize('json', item))
+
+def get_item_json_returned(request):
+    item = Peminjaman.objects.filter(user=request.user, is_returned = True)
     return HttpResponse(serializers.serialize('json', item))
 
 def get_book_json(request):
