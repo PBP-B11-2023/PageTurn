@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Book Request</h1>
+
+    <table>
+        <tr>
+            <th>Judul</th>
+            <th>Penulis</th>
+            <th>Deskripsi Buku</th>
+        </tr>
+    
+        {% for request in requests %}
+            <tr>
+                <td>{{request.title}}</td>
+                <td>{{request.author}}</td>
+                <td>{{request.description}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <br />
+    
+    <a href="{% url 'request_buku:create_request' %}">
+        <button>
+            Create Book Request
+        </button>
+    </a>
+{% endblock content %}
