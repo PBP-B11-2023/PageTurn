@@ -3,10 +3,11 @@ from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
 from katalog.models import Book
+from peminjaman.forms import PeminjamanForm
 from peminjaman.models import Peminjaman
 
 
@@ -15,11 +16,15 @@ def show_peminjaman(request):
     books = Book.objects.all()
     dipinjam = Peminjaman.objects.filter(user = request.user, is_returned = False)
     dikembalikan = Peminjaman.objects.filter(user = request.user, is_returned = True)
+    genres = set()
+    for book in Book.objects.all():
+        genres.add(book.genre)
     context = {
         'user' : request.user,
         'books' : books,
         'dipinjam' : dipinjam,
         'dikembalikan' : dikembalikan,
+        'genres' : genres,
     }
 
     return render(request, 'peminjaman.html', context)
@@ -35,6 +40,7 @@ def add_peminjaman(request):
         'books' : books,
         'genres' : genres,
         'kosong' : kosong,
+        'form': PeminjamanForm(),
     }
     return render(request, 'add_peminjaman.html', context)
 
@@ -63,16 +69,19 @@ def return_book(request, id):
 @csrf_exempt
 def add_book(request, id):
     if request.method == 'POST':
-        buku = Book.objects.get(pk=id)
-        new_item = Peminjaman.objects.create(
-            user = request.user,
-            book = buku,
-            tgl_dipinjam = datetime.now().date(),
-            tgl_batas = datetime.now().date() + timedelta(weeks=2),
-            is_returned = False
-        )
-        new_item.save()
-        buku.is_dipinjam = True
-        buku.save()
-        return HttpResponse(b"ADDED", status=201)
+        form = PeminjamanForm(request.POST)
+        if form.is_valid():
+            buku = Book.objects.get(pk=id)
+            new_item = Peminjaman(
+                user=request.user,
+                book=buku,
+                tgl_dipinjam=datetime.now().date(),
+                durasi_peminjaman=form.cleaned_data['durasi_peminjaman'],
+                tgl_batas=datetime.now().date() + timedelta(days=form.cleaned_data['durasi_peminjaman']),
+                is_returned=False
+            )
+            new_item.save()
+            buku.is_dipinjam = True
+            buku.save()
+            return redirect('peminjaman:show_peminjaman')
     return HttpResponseNotFound()

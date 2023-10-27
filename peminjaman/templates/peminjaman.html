@@ -6,20 +6,44 @@
 
 {% block content %}
 <div class="container">
-    <div class="my-3 text-center">
-        <h1 class="display-4 text-center fw-bold">Selamat Datang, {{ user.username }}!</h1>
-        <h5 class="mt-3 mb-4 text-center">Berikut ini adalah buku yang sedang kamu pinjam, klik gambar buku untuk mengembalikannya </h5>
-        <br>
-        <div class="row" id="item_card">
-            <!-- {% for peminjaman in dipinjam %}
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px;">
-                        <a data-bs-toggle="modal" data-bs-target="#pinjamModal{{ peminjaman.pk }}">
-                            <img src="{{ peminjaman.book.image }}" class="card-img-top" alt="{{ peminjaman.book.name }} Cover" style="object-fit: contain; width: 100%; height: 100%;">
-                        </a>
-                    </div>
+    <div class="text-center">
+        <h1 class="display-4 fw-bold">Selamat Datang, {{ user.username }}!</h1>
+        <h5 class="mt-2 mb-3">Berikut ini adalah buku yang sedang kamu pinjam, klik gambar buku untuk mengembalikannya</h5>
+    </div>
+    
+    <div class="container w-75">
+        <form class="d-flex rounded border">
+            <input class="form-control" type="text" placeholder="Search Books and Authors" aria-label="Search" id="search">
+        </form>
+    </div>
+    <!-- <div class="row" id="item_card"> </div> -->
+    <div class="row">
+        <!-- Filter Buku -->
+        <h4 class="card-title mb-3">Filter Buku</h4>
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Genre</h5>
+                    <form id="filterForm">
+                        {% for genre in genres %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="{{ genre }}" id="{{ genre }}" checked>
+                            <label class="form-check-label" for="{{ genre }}">{{ genre }}</label>
+                        </div>
+                        {% endfor %}
+                    </form>
                 </div>
-            {% endfor %} -->
+            </div>
+            <div class="d-flex justify-content-start align-items-start mt-3">
+                <a href="{% url 'peminjaman:add_peminjaman' %}" class="btn btn-primary ms-2">Meminjam Buku</a>
+            </div>
+            <div class="d-flex justify-content-start align-items-start mt-3">
+                <a href="{% url 'peminjaman:add_peminjaman' %}" class="btn btn-primary ms-2">History Peminjaman</a>
+            </div>
+        </div>
+        <!-- Daftar Buku -->
+        <div class="col-md-10">
+            <div id="item-card" class="row row-cols-1 row-cols-md-4 g-4"></div>
         </div>
     </div>
 </div>
@@ -37,16 +61,19 @@
                         <!-- Gambar Buku -->
                         <img src="{{ peminjaman.book.image }}" alt="{{ book.name }} Cover" style="width: 100%;">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <!-- Detail Buku -->
-                        <span>Dipinjam oleh: {{ user.username }}</span>
-                        <br>
-                        <span>Dipinjam tanggal: {{ peminjaman.tgl_dipinjam }}</span>
-                        <br>
-                        <span>Batas pengembalian: {{ peminjaman.tgl_batas }}</span>
+                        <div style="line-height: 4;">
+                            <span><strong>Dipinjam oleh: </strong>{{ user.username }}</span>
+                            <br>
+                            <span><strong>Dipinjam tanggal: </strong>{{ peminjaman.tgl_dipinjam }}</span>
+                            <br>
+                            <span><strong>Batas pengembalian: </strong>{{ peminjaman.tgl_batas }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
+            
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" name="return_button" value={{peminjaman.pk}} data-bs-dismiss="modal">Kembalikan Buku</button>
@@ -55,11 +82,9 @@
     </div>
 </div>
 {% endfor %}
-<div class="d-flex justify-content-center">
-    <a href="{% url 'peminjaman:add_peminjaman' %}" class="btn btn-primary">Ingin Meminjam Buku?</a>
-</div>
 
 <script>
+    var konz = "";
     async function getItems() {
         return fetch("{% url 'peminjaman:get_item_json' %}").then((res) => res.json())
     }
@@ -67,22 +92,39 @@
         return fetch("{% url 'peminjaman:get_book_json' %}").then((res) => res.json())
     }
     async function refreshItems(){
-        document.getElementById("item_card").innerHTML = ""
+        const checkedBoxes = document.querySelectorAll('#filterForm input[type="checkbox"]:checked');
+        const checkedGenres = Array.from(checkedBoxes).map(checkbox => checkbox.value);
+        const filterForm = document.getElementById('filterForm');
+        document.getElementById("item-card").innerHTML = ""
         const items = await getItems();
         const books = await getBooks();
         let htmlString = ``
         items.forEach((item) => {
             const book = books.find(book => book.pk === item.fields.book);
-            htmlString += `
-                <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px">
-                    <a data-bs-toggle="modal" data-bs-target="#pinjamModal${item.pk}">
-                        <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
-                    </a>
-                </div>`
+            if(checkedGenres.includes(book.fields.genre) && (book.fields.name.toLowerCase().includes(konz.toLowerCase()) || book.fields.author.toLowerCase().includes(konz.toLowerCase()))){
+                htmlString += `
+                    <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px">
+                        <a data-bs-toggle="modal" data-bs-target="#pinjamModal${item.pk}">
+                            <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
+                        </a>
+                    </div>`
+            }
         })
-        document.getElementById("item_card").innerHTML = htmlString
+        document.getElementById("item-card").innerHTML = htmlString
     }
     refreshItems();
+    const filterForm = document.getElementById('filterForm');
+    filterForm.addEventListener('change', function() {
+        refreshItems();
+    });
+    document.getElementById('search').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();  // Prevent form submission
+            konz = this.value;
+            console.log(this.value)
+            refreshItems();
+        }
+    });
     async function returnBook(id) {
         const items = await getItems()
         const item = items.find(item => item.pk === parseInt(id));

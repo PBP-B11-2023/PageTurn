@@ -13,9 +13,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-from katalog.models import Book
 
 from homepage.models import *
+from katalog.models import Book
 
 from .forms import CustomUserCreationForm
 
@@ -54,12 +54,9 @@ def login_user(request):
             messages.info(request, 'Username atau Password salah!')
     context = {}
     return render(request, 'login.html', context)
-<<<<<<< HEAD
 
 def logout_user(request):
     logout(request)
     response = HttpResponseRedirect(reverse('homepage:login'))
     response.delete_cookie('last_login')
     return response
-=======
->>>>>>> 4a66f59ccc27ea7bd4284d0b91be4cb7d10d9da0
