@@ -1,12 +1,13 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block meta %}
     <title>Peminjaman Buku</title>
+    <link rel="stylesheet" href="{% static 'history_peminjaman.css' %}">
 {% endblock meta %}
 
 {% block content %}
 {% include "header.html" %}
-<div class="container" style="margin-top: 130px;">
+<div class="container" style="margin-top: 100px;">
     <div class="text-center">
         <h1 class="display-4 fw-bold mb-3">History Peminjaman</h1>
     </div>
