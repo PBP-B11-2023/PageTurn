@@ -19,8 +19,10 @@ async function refreshItems(){
         const book = books.find(book => book.pk === item.fields.book);
         if(checkedGenres.includes(book.fields.genre) && (book.fields.name.toLowerCase().includes(konz.toLowerCase()) || book.fields.author.toLowerCase().includes(konz.toLowerCase()))){
             htmlString += `
-                <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px" data-bs-toggle="modal" data-bs-target="#pinjamModal${item.pk}">
-                    <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
+                <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px">
+                    <a data-bs-toggle="modal" data-bs-target="#pinjamModal${item.pk}">
+                        <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
+                    </a>
                 </div>`
         }
     })
@@ -42,19 +44,16 @@ document.getElementById('search-book').addEventListener('keypress', function(eve
 async function returnBook(id) {
     const items = await getItems()
     const item = items.find(item => item.pk === parseInt(id));
-
     let date = new Date(item.fields.tgl_batas);
     let today = new Date();
 
-    console.log(date)
     date.setHours(0, 0, 0, 0);
     today.setHours(0, 0, 0, 0);
 
     if (today <= date) {
         alert("Terima kasih sudah mengembalikan buku ini tepat waktu!")
     } else {
-        let monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-        alert("Kamu telah mengembalikan buku ini telat dari batas waktu, yaitu " + date.getDate() + " " + monthNames[date.getMonth()] + " " + date.getFullYear() + ", maka kamu dikenai denda sebesar Rp696.969")
+        alert("Lain kali jangan telat mengembalikan, ya!")
     }
     let url = $("#url-return-book").data("url")
     url = url.replace('0', id);

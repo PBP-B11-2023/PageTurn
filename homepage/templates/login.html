@@ -4,9 +4,6 @@
     <title>Login</title>
 {% endblock meta %}
 
-{% block header %}
-{% endblock header %}
-
 {% block content %}
 
 <div class = "login">
@@ -41,11 +38,8 @@
         </ul>
     {% endif %}     
         
-    Belum punya akun? <a href="{% url 'homepage:register' %}">Register Now</a>
+    {% comment %} Don't have an account yet? <a href="{% url 'homepage:register' %}">Register Now</a> {% endcomment %}
 
 </div>
 
 {% endblock content %}
-
-{% block footer %}
-{% endblock footer %}

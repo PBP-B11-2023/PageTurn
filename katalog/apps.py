@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class RequestBukuConfig(AppConfig):
+class KatalogConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'request_buku'
+    name = 'katalog'

@@ -1,50 +1,19 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<style>
-    .centered-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; 
-    }
+<h1>Add New Laporan</h1>
 
-    .custom-button {
-        padding: 10px 20px;
-        background-color: #1b6a5a;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .custom-button:hover {
-        background-color: #2d7b65;
-    }
-
-    .form-container {
-        background-color: #def3f0;
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-</style>
-
-<div class="centered-content">
-    <div class="form-container">
-        <h2 style="margin-bottom: 1em;">Add New Laporan</h2> {# Add margin to create space #}
-
-        <form method="POST" style="text-align: left;">
-            {% csrf_token %}
-            <table>
-                {{ form.as_table }}
-            </table>
-            <div style="text-align: center;"> {# Center the button #}
-                <input type="submit" value="Add Laporan" class="custom-button" />
-            </div>
-        </form>
-    </div>
-</div>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Add Laporan"/>
+            </td>
+        </tr>
+    </table>
+</form>
 
 {% endblock %}

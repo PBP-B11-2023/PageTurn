@@ -15,8 +15,10 @@ async function refreshBooks() {
     books.forEach((book) => {
         if(checkedGenres.includes(book.fields.genre) && ((book.fields.is_dipinjam && checkedReady.includes("1")) || (!book.fields.is_dipinjam && checkedReady.includes("0"))) && (book.fields.name.toLowerCase().includes(konz.toLowerCase()) || book.fields.author.toLowerCase().includes(konz.toLowerCase()))){
             htmlString += `
-                <div class="card ${book.fields.is_dipinjam ? 'bg-danger' : 'bg-white'}" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px" data-bs-toggle="modal" data-bs-target=${book.fields.is_dipinjam ? `#kosongModal${book.pk}` : `#pinjamModal${book.pk}`}>
-                    <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;"/>
+                <div class="card ${book.fields.is_dipinjam ? 'bg-danger' : 'bg-transparent'}" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px">
+                    <a data-bs-toggle="modal" data-bs-target=${book.fields.is_dipinjam ? `#kosongModal${book.pk}` : `#pinjamModal${book.pk}`}>
+                        <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
+                    </a>
                 </div>`
         }
     })
@@ -41,13 +43,11 @@ buttons.forEach((button) => {
     button.addEventListener("click", function() {
         var form = this.form
         var durasi_peminjaman = form.elements['durasi_peminjaman'].value;
-        let kosong = false;
         if (durasi_peminjaman === ""){
-            kosong = true;
+            return;
         }
         durasi_peminjaman = parseInt(durasi_peminjaman)
-        if(durasi_peminjaman < 1 || durasi_peminjaman > 14 || kosong) {
-            alert("Durasi peminjaman hanya bisa 1 sampai 14 hari!")
+        if(durasi_peminjaman < 1 || durasi_peminjaman > 14) {
             return;
         }
         var isConfirmed = window.confirm("Apakah Anda yakin ingin meminjam buku ini?");
@@ -63,7 +63,6 @@ buttons.forEach((button) => {
                 if(response.ok) {
                     form.reset()
                     window.location.href = $("#url-back").data("url");
-                    alert("Terima kasih sudah meminjam buku di PageTurn, jangan lupa dikembalikan dalam " + durasi_peminjaman + " hari, ya!")
                 } else {
                     console.error('Error:', response.status);
                 }
