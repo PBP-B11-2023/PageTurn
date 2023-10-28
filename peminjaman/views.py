@@ -104,5 +104,5 @@ def add_book(request, id):
             new_item.save()
             buku.is_dipinjam = True
             buku.save()
-            return redirect('peminjaman:show_peminjaman')
+            return HttpResponse(b"CREATED", status=201)
     return HttpResponseNotFound()

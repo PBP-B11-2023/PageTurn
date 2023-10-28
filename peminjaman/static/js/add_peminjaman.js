@@ -51,10 +51,23 @@ buttons.forEach((button) => {
             return;
         }
         var isConfirmed = window.confirm("Apakah Anda yakin ingin meminjam buku ini?");
-        if (!isConfirmed) {
-            event.preventDefault();
-        } else {
-            alert("Terima kasih sudah meminjam buku di PageTurn!");
+        if (isConfirmed) {
+            let url = $("#url-add-book").data("url")
+            let id = $(this).data("id");
+            url = url.replace('0', id);
+            console.log(url)
+            fetch(url, {
+                method: "POST",
+                body: new FormData(form)
+            }).then(response => {
+                if(response.ok) {
+                    form.reset()
+                    window.location.href = $("#url-back").data("url");
+                } else {
+                    console.error('Error:', response.status);
+                }
+            })
+            return false
         }
     });
 });

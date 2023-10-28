@@ -15,7 +15,7 @@
             <input class="form-control" type="text" placeholder="Search Books and Authors" aria-label="Search" id="search-book">
         </form>
     </div>
-    <div class="row"">
+    <div class="row">
         <h4 class="card-title mb-3">Filter Buku</h4>
         <div class="col-md-2">
             <div class="card">
@@ -73,7 +73,7 @@
                         <p><strong>Deskripsi:</strong> {{ book.description | truncatechars:250 }}</p>
                     </div>
                 </div>
-                <form id="pinjamForm" method="post" action="{% url 'peminjaman:add_book' book.pk %}">
+                <form id="pinjamForm" onsubmit="return false;" >
                     {% csrf_token %}
                     <div class="form-group">
                         <strong>{{ form.durasi_peminjaman.label_tag }}</strong>
@@ -82,7 +82,7 @@
             </div>
             <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="add_button" class="btn btn-primary align-content-lg-center">Pinjam Buku</button>
+                    <button type="button" name="add_button" data-id="{{ book.id }}" class="btn btn-primary align-content-lg-center">Pinjam Buku</button>
                 </form>
             </div>
         </div>
@@ -120,6 +120,9 @@
 </div>
 {% endfor %}
 <div id="url-get-book" data-url="{% url 'peminjaman:get_book_json' %}"></div>
+<div id="url-add-book" data-url="{% url 'peminjaman:add_book' '0' %}"></div>
+<div id="url-back" data-url="{% url 'peminjaman:show_peminjaman' %}"></div>
+
 <script src="{% static 'js/add_peminjaman.js' %}"></script>
 
 {% endblock content %}
