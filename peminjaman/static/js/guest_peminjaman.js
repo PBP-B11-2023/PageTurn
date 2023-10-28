@@ -16,9 +16,7 @@ async function refreshBooks() {
         if(checkedGenres.includes(book.fields.genre) && ((book.fields.is_dipinjam && checkedReady.includes("1")) || (!book.fields.is_dipinjam && checkedReady.includes("0"))) && (book.fields.name.toLowerCase().includes(konz.toLowerCase()) || book.fields.author.toLowerCase().includes(konz.toLowerCase()))){
             htmlString += `
                 <div class="card ${book.fields.is_dipinjam ? 'bg-danger' : 'bg-white'}" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px" data-bs-toggle="modal" data-bs-target="#kosongModal${book.pk}">
-                    <a>
-                        <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
-                    </a>
+                    <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
                 </div>`
         }
     })
