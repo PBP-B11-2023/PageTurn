@@ -38,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homepage',
+<<<<<<< HEAD
     'katalog',
     'peminjaman',
     'laporan_buku_rusak',
+=======
+    'review'
+>>>>>>> e396f75b5b3b7c8fbec323fcd338ae71742f232b
 ]
 
 MIDDLEWARE = [
