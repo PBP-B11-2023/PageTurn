@@ -25,7 +25,7 @@ def show_peminjaman(request):
             'dipinjam' : dipinjam,
             'dikembalikan' : dikembalikan,
             'genres' : genres,
-            'last_login' : request.COOKIES.get("last_login")[:-10],
+            'last_login' : request.COOKIES["last_login"][:-10] if "last_login" in request.COOKIES else "",
         }
 
         return render(request, 'peminjaman.html', context)
@@ -40,7 +40,7 @@ def show_peminjaman(request):
         }
         return render(request, 'guest_peminjaman.html', context)
 
-@login_required(login_url='/login')
+@login_required(login_url='/peminjaman')
 def add_peminjaman(request):
     books = Book.objects.filter(is_dipinjam = False)
     kosong = Book.objects.filter(is_dipinjam = True)
@@ -52,11 +52,11 @@ def add_peminjaman(request):
         'genres' : genres,
         'kosong' : kosong,
         'form': PeminjamanForm(),
-        'last_login' : request.COOKIES.get("last_login")[:-10],
+        'last_login' : request.COOKIES["last_login"][:-10] if "last_login" in request.COOKIES else "",
     }
     return render(request, 'add_peminjaman.html', context)
 
-@login_required(login_url='/login')
+@login_required(login_url='/peminjaman')
 def show_history(request):
     books = Book.objects.all()
     dikembalikan = Peminjaman.objects.filter(user = request.user, is_returned = True)
@@ -68,7 +68,7 @@ def show_history(request):
         'books' : books,
         'dikembalikan' : dikembalikan,
         'genres' : genres,
-        'last_login' : request.COOKIES.get("last_login")[:-10],
+        'last_login' : request.COOKIES["last_login"][:-10] if "last_login" in request.COOKIES else "",
     }
 
     return render(request, 'history_peminjaman.html', context)

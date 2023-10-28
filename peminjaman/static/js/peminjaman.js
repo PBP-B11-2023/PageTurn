@@ -42,16 +42,19 @@ document.getElementById('search-book').addEventListener('keypress', function(eve
 async function returnBook(id) {
     const items = await getItems()
     const item = items.find(item => item.pk === parseInt(id));
+
     let date = new Date(item.fields.tgl_batas);
     let today = new Date();
 
+    console.log(date)
     date.setHours(0, 0, 0, 0);
     today.setHours(0, 0, 0, 0);
 
     if (today <= date) {
         alert("Terima kasih sudah mengembalikan buku ini tepat waktu!")
     } else {
-        alert("Lain kali jangan telat mengembalikan, ya!")
+        let monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        alert("Kamu telah mengembalikan buku ini telat dari batas waktu, yaitu " + date.getDate() + " " + monthNames[date.getMonth()] + " " + date.getFullYear() + ", maka kamu dikenai denda sebesar Rp696.969")
     }
     let url = $("#url-return-book").data("url")
     url = url.replace('0', id);
