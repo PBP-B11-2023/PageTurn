@@ -1,7 +1,7 @@
-from django.urls import include, path
 from django.contrib import admin
-from katalog.views import get_books, show_katalog, get_book_json, add_book_ajax
+from django.urls import include, path
 
+from katalog.views import add_book_ajax, get_book_json, get_books, show_katalog
 
 app_name = "katalog"
 

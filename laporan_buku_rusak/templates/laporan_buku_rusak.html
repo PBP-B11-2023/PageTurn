@@ -3,26 +3,73 @@
 {% block content %}
 <h1 style="text-align: center;">Laporan Buku Rusak Page</h1>
 
-    <table style="border-collapse: collapse; width: 100%;">
-        <tr>
-            <th style="border: 1px solid black; padding: 8px;">Nama Buku</th>
-            <th style="border: 1px solid black; padding: 8px;">Kondisi Buku</th>
-        </tr>
-    
-        {% for product in products %}
-            <tr>
-                <td style="border: 1px solid black; padding: 8px;">{{ product.name }}</td>
-                <td style="border: 1px solid black; padding: 8px;">{{ product.description }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    
-    <br />
-    
-    <a href="{% url 'laporan_buku_rusak:create_laporan' %}">
-        <button>
-            Add New Laporan
-        </button>
-    </a>
+<table id="product_table"></table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Laporan</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Laporan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Laporan by AJAX</button>
+
+    <script>
+        async function getProducts() {
+            return fetch("{% url 'laporan_buku_rusak:get_product_json' %}").then((res) => res.json())
+        }
+
+        async function refreshProducts() {
+            document.getElementById("product_table").innerHTML = ""
+            const products = await getProducts()
+            let htmlString = `<tr>
+                <th>Name</th>
+                <th>Kondisi Buku</th>
+            </tr>`
+            products.forEach((item) => {
+                htmlString += `\n<tr>
+                <td>${item.fields.name}</td>
+                <td>${item.fields.description}</td>
+            </tr>` 
+            })
+            
+            document.getElementById("product_table").innerHTML = htmlString
+        }
+
+        refreshProducts()
+
+        function addProduct() {
+            fetch("{% url 'laporan_buku_rusak:add_product_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshProducts)
+
+            document.getElementById("form").reset()
+            return false
+        }
+        document.getElementById("button_add").onclick = addProduct
+    </script>
+
     
 {% endblock content %}
