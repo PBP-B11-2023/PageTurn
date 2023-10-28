@@ -1,0 +1,91 @@
+<html>
+<style>
+    #logo {
+        display: inline-block;
+    }
+
+
+    nav {
+        background-color: #282626;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        overflow: hidden;
+        height: 110px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 4;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    nav ul li#logo {
+        float: none;
+        margin-right: auto;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-style: italic;
+        margin-right: 30px;
+        font-size: 16px;
+    }
+
+    #search {
+        order: 1;
+        margin-right: 20px;
+        width: 60px;
+    }
+
+    #shop {
+        order: 2;
+        margin-right: 40px;
+    }
+
+    #search img, #shop img {
+        width: 30px;
+        height: 30px;
+    }
+
+
+</style>
+<nav>
+    <ul>
+        <li id="logo">
+            <a href="#">
+                <img src="https://cdn.discordapp.com/attachments/1145315809846104065/1167315920117575700/page-turn-high-resolution-logo-transparent.png?ex=654daeab&is=653b39ab&hm=79907669c173716869947cfeacde9cc8e08fad6ff5f566aaa9d72ac7e517252c&" alt="Logo">
+            </a>
+        </li>
+        <li class="nav-item"><a href="#">Home</a></li>  
+        <li class="nav-item"><a href="#">Tentang Kami</a></li>
+        <li class="nav-item"><a href="#">Katalog</a></li>
+        <li class="nav-item"><a href="#">Contact</a></li>
+        <li class="nav-item"><a href="#">Login  </a></li>
+        <li id="search">
+            <a href="#">
+                <img src="https://cdn.discordapp.com/attachments/1145315809846104065/1160267712279355514/Vector.png?ex=65340a83&is=65219583&hm=af4c9516b46f6f7a78556b464452bd1020fb2eda4dc73dbdd60ee574b9168233&" alt="search">
+            </a>
+        </li>
+        <li id="shop">
+            <a href="#">
+                <img src="https://cdn.discordapp.com/attachments/1145315809846104065/1160267712589742251/Group_1.png?ex=65340a83&is=65219583&hm=c318f34d4c357efce070d8f50432c883ba7cea8898c7f2db57f9cd85b3a26e76&" alt="shop">
+            </a>
+        </li>
+    </ul>
+</nav>
+
