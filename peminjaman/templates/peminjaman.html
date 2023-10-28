@@ -2,7 +2,7 @@
 {% load static %}
 {% block meta %}
     <title>Peminjaman Buku</title>
-    <link rel="stylesheet" href="{% static 'peminjaman.css' %}">
+    <link rel="stylesheet" href="{% static 'css/peminjaman.css' %}">
 {% endblock meta %}
 
 {% block content %}
@@ -38,7 +38,7 @@
                 <a href="{% url 'peminjaman:add_peminjaman' %}" class="btn tes"><strong>Meminjam Buku</strong></a>
             </div>
             <div class="d-flex justify-content-start align-items-start mt-3">
-                <a href="{% url 'peminjaman:show_history' %}" class="btn" style="background-color: aqua;"><strong>History Peminjaman</strong></a>
+                <a href="{% url 'peminjaman:show_history' %}" class="btn"><strong>History Peminjaman</strong></a>
             </div>
         </div>
         <!-- Daftar Buku -->
@@ -82,83 +82,10 @@
     </div>
 </div>
 {% endfor %}
-
-<script>
-    var konz = "";
-    async function getItems() {
-        return fetch("{% url 'peminjaman:get_item_json' %}").then((res) => res.json())
-    }
-    async function getBooks() {
-        return fetch("{% url 'peminjaman:get_book_json' %}").then((res) => res.json())
-    }
-    async function refreshItems(){
-        const checkedBoxes = document.querySelectorAll('#filterForm input[type="checkbox"]:checked');
-        const checkedGenres = Array.from(checkedBoxes).map(checkbox => checkbox.value);
-        const filterForm = document.getElementById('filterForm');
-        document.getElementById("item-card").innerHTML = ""
-        const items = await getItems();
-        const books = await getBooks();
-        let htmlString = ``
-        items.forEach((item) => {
-            const book = books.find(book => book.pk === item.fields.book);
-            if(checkedGenres.includes(book.fields.genre) && (book.fields.name.toLowerCase().includes(konz.toLowerCase()) || book.fields.author.toLowerCase().includes(konz.toLowerCase()))){
-                htmlString += `
-                    <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px">
-                        <a data-bs-toggle="modal" data-bs-target="#pinjamModal${item.pk}">
-                            <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
-                        </a>
-                    </div>`
-            }
-        })
-        document.getElementById("item-card").innerHTML = htmlString
-    }
-    refreshItems();
-    const filterForm = document.getElementById('filterForm');
-    filterForm.addEventListener('change', function() {
-        refreshItems();
-    });
-    document.getElementById('search-book').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();  // Prevent form submission
-            konz = this.value;
-            console.log(this.value)
-            refreshItems();
-        }
-    });
-    async function returnBook(id) {
-        const items = await getItems()
-        const item = items.find(item => item.pk === parseInt(id));
-        let date = new Date(item.fields.tgl_batas);
-        let today = new Date();
-
-        date.setHours(0, 0, 0, 0);
-        today.setHours(0, 0, 0, 0);
-
-        if (today <= date) {
-            alert("Terima kasih sudah mengembalikan buku ini tepat waktu!")
-        } else {
-            alert("Lain kali jangan telat mengembalikan, ya!")
-        }
-        let url="{% url 'peminjaman:return_book' '0' %}";
-        url = url.replace('0', id);
-        fetch(url, {
-            method: "POST",
-        }).then(refreshItems);
-        return false;
-    }
-    const buttons = document.querySelectorAll('button[name="return_button"]');
-
-    buttons.forEach((button) => {
-        button.addEventListener("click", function() {
-            const isConfirmed = window.confirm("Ingin mengembalikan buku ini?");
-            if (!isConfirmed) {
-                event.preventDefault();
-            }
-            else { returnBook(this.value); }
-        });
-    });
-
-</script>
+<div id="url-get-book" data-url="{% url 'peminjaman:get_book_json' %}"></div>
+<div id="url-get-item" data-url="{% url 'peminjaman:get_item_json' %}"></div>
+<div id="url-return-book" data-url="{% url 'peminjaman:return_book' '0' %}"></div>
+<script src="{% static 'js/peminjaman.js' %}"></script>
 {% endblock content %}
 
 
