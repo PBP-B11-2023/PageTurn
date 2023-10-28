@@ -2,13 +2,14 @@
 {% load static %}
 {% block meta %}
     <title>Peminjaman Buku</title>
-    <link rel="stylesheet" href="{% static 'css/history_peminjaman.css' %}">
+    <link rel="stylesheet" href="{% static 'css/history_peminjaman.css' %}?{% now "U" %}">
 {% endblock meta %}
 
 {% block content %}
 <div class="container">
     <div class="text-center">
-        <h1 class="display-4 fw-bold mb-3">History Peminjaman</h1>
+        <h1 class="display-4 fw-bold text-center">Selamat datang, {{ user.username }}!</h1>
+        <h5 class="mt-2 mb-3 text-center">Berikut ini adalah history dari buku yang pernah kamu pinjam sebelumnya. </h5>
     </div>
     
     <div class="container w-75">
@@ -36,6 +37,9 @@
             </div>
             <div class="d-flex justify-content-start align-items-start mt-3">
                 <a href="{% url 'peminjaman:show_peminjaman' %}" class="btn btn-primary mt-3">Back</a>
+            </div>
+            <div class="d-flex justify-content-start align-items-start mt-3">
+                <h4>Last Login: <br> {{last_login}}</h4>
             </div>
         </div>
         <!-- Daftar Buku -->
@@ -82,7 +86,7 @@
 {% endfor %}
 <div id="url-get-book" data-url="{% url 'peminjaman:get_book_json' %}"></div>
 <div id="url-get-item" data-url="{% url 'peminjaman:get_item_json_returned' %}"></div>
-<script src="{% static 'js/history_peminjaman.js' %}"></script>
+<script src="{% static 'js/history_peminjaman.js' %}?{% now "U" %}"></script>
 {% endblock content %}
 
 

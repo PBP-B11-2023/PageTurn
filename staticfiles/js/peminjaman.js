@@ -19,10 +19,8 @@ async function refreshItems(){
         const book = books.find(book => book.pk === item.fields.book);
         if(checkedGenres.includes(book.fields.genre) && (book.fields.name.toLowerCase().includes(konz.toLowerCase()) || book.fields.author.toLowerCase().includes(konz.toLowerCase()))){
             htmlString += `
-                <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px">
-                    <a data-bs-toggle="modal" data-bs-target="#pinjamModal${item.pk}">
-                        <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
-                    </a>
+                <div class="card" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px" data-bs-toggle="modal" data-bs-target="#pinjamModal${item.pk}">
+                    <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
                 </div>`
         }
     })
