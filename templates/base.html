@@ -25,8 +25,11 @@
         {% include "header.html" %}
         {% endblock header %}
 
-        {% block content %}
-        {% endblock content %}
+        <div style="flex-grow: 1;">
+            {% block content %}
+            {% endblock content %}
+        </div>
+
 
         {% block footer %}
         {% include "footer.html" %}
