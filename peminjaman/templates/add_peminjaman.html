@@ -15,7 +15,7 @@
             <input class="form-control" type="text" placeholder="Search Books and Authors" aria-label="Search" id="search-book">
         </form>
     </div>
-    <div class="row" style="z-index: 0;">
+    <div class="row"">
         <h4 class="card-title mb-3">Filter Buku</h4>
         <div class="col-md-2">
             <div class="card">
@@ -137,13 +137,11 @@
         books.forEach((book) => {
             if(checkedGenres.includes(book.fields.genre) && ((book.fields.is_dipinjam && checkedReady.includes("1")) || (!book.fields.is_dipinjam && checkedReady.includes("0"))) && (book.fields.name.toLowerCase().includes(konz.toLowerCase()) || book.fields.author.toLowerCase().includes(konz.toLowerCase()))){
                 htmlString += `
-                <div class="col">
-                    <div class="card h-100 ${book.fields.is_dipinjam ? 'bg-danger' : 'bg-transparent'}" style="margin-left: 50px; padding: 10px;">
+                    <div class="card ${book.fields.is_dipinjam ? 'bg-danger' : 'bg-transparent'}" style="width: 200px; height: 300px; padding: 10px; margin-left: 50px; margin-bottom: 25px">
                         <a data-bs-toggle="modal" data-bs-target=${book.fields.is_dipinjam ? `#kosongModal${book.pk}` : `#pinjamModal${book.pk}`}>
                             <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
                         </a>
-                    </div>
-                </div>`
+                    </div>`
             }
         })
         document.getElementById("book-card").innerHTML = htmlString
