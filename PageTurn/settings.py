@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'katalog',
     'peminjaman',
     'laporan_buku_rusak',
-    'review'
+    'review',
+    'request_buku',
 ]
 
 MIDDLEWARE = [

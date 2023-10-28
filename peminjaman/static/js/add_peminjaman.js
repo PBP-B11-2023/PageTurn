@@ -43,11 +43,13 @@ buttons.forEach((button) => {
     button.addEventListener("click", function() {
         var form = this.form
         var durasi_peminjaman = form.elements['durasi_peminjaman'].value;
+        let kosong = false;
         if (durasi_peminjaman === ""){
-            return;
+            kosong = true;
         }
         durasi_peminjaman = parseInt(durasi_peminjaman)
-        if(durasi_peminjaman < 1 || durasi_peminjaman > 14) {
+        if(durasi_peminjaman < 1 || durasi_peminjaman > 14 || kosong) {
+            alert("Durasi peminjaman hanya bisa 1 sampai 14 hari!")
             return;
         }
         var isConfirmed = window.confirm("Apakah Anda yakin ingin meminjam buku ini?");
