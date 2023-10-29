@@ -172,11 +172,19 @@
         .hidden {
             display: none;
         }
-        .review-button {
+        .button-container {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 999; /* Untuk menempatkan tombol di atas konten lain */
+            z-index: 999; /* Menempatkan button di atas elemen lain */
+        }
+    
+        .custom-button {
+            background-color: #B6895B; /* Warna latar belakang */
+            color: #fff; /* Warna teks (font color) */
+            border: none; /* Menghapus border */
+            padding: 10px 20px; /* Padding untuk membuat tombol lebih besar */
+            border-radius: 5px; /* Sudut bulat */
         }
 
                 
@@ -297,10 +305,12 @@
         </div>
     </div>
 
-    <a href="{% url 'review_buku:show_main' %}">
-        <button class="btn btn-secondary">Go to Review Buku Page</button>
-    </a>
-    
+    <div class="button-container">
+        <a href="{% url 'review_buku:show_main' %}" class="custom-button">
+            Go to Review Buku Page
+        </a>
+    </div>
+
 </body>
 
 
