@@ -7,5 +7,14 @@
             "username": "admin1",
             "password": "pbkdf2_sha256$600000$RyOcFNsRi5qaJQ2BgjxzUD$F/04wl9UeueUT7DOXwn0zrrzBZzDYBxo4pNw28sBEE0="
         }
+    },
+    {
+        "pk": 2,
+        "model": "homepage.CustomUser",
+        "fields": {
+            "role": "admin",
+            "username": "admin2",
+            "password": "pbkdf2_sha256$600000$hpONVePiwOOw7V1UleUSps$srMozWWJKr0tzgEOdkfLB4gi2vY/jU2JF9Fy9X2AjJU="
+        }
     }
 ]
