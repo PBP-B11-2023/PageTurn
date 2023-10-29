@@ -58,7 +58,7 @@ class ViewTest(TestCase):
         response = self.client.get(reverse('peminjaman:add_peminjaman'))
         
         # Periksa konteks respons
-        self.assertEqual(response.context['books'].count(), 89)
+        self.assertEqual(response.context['books'].count(), len(Book.objects.all()))
         self.assertEqual(response.context['books'].first(), self.book)
         
     def test_show_history_view(self):
@@ -75,7 +75,7 @@ class ViewTest(TestCase):
         
         # Periksa konteks respons
         self.assertEqual(response.context['user'], self.user)
-        self.assertEqual(response.context['books'].count(), 89)
+        self.assertEqual(response.context['books'].count(), len(Book.objects.all()))
         self.assertEqual(response.context['books'].first(), self.book)
         self.assertEqual(response.context['dikembalikan'].count(), 1)
         self.assertEqual(response.context['dikembalikan'].first(), self.p_ret)
@@ -111,7 +111,7 @@ class ViewTest(TestCase):
         
         # Periksa konten respons
         data = json.loads(response.content)
-        self.assertEqual(len(data), 89)
+        self.assertEqual(len(data), len(Book.objects.all()))
     
     def test_return_book_view(self):
         # Log in the user
