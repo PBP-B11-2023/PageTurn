@@ -29,13 +29,13 @@ class TemplateTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'add_peminjaman.html')
 
-    def test_main_using_main_template_2(self):
+    def test_main_using_main_template_3(self):
         self.client.login(username='testuser', password='testpassword')
         response = self.client.get('/peminjaman/history/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'history_peminjaman.html')
 
-    def test_main_using_main_template_2(self):
+    def test_main_using_main_template_4(self):
         response = self.client.get('/peminjaman/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'guest_peminjaman.html')
