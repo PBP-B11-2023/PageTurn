@@ -1,0 +1,84 @@
+body {
+    margin-top: 100px;
+    background-color: #282626 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.login-container {
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    width: 600px;
+    height: auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    text-align: center;
+    font-size: 40px;
+    color: #B6895B;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin: 20px;
+}
+
+.form-group label {
+    font-size: 18px;
+    color: #696161;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #F3F3F3;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #B6895B;
+}
+
+.form-group button {
+    background-color: #B6895B;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 45%;
+    height: 45px;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #A5734D;
+}
+
+.login-description {
+    font-size: 14px;
+    color: #696161;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+

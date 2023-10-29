@@ -5,10 +5,6 @@
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}?{% now "U" %}">
 {% endblock meta %}
-
-{% block header %}
-{% endblock header %}
-
 {% block content %}
 
 <body style="background-color: #282626;">
@@ -44,11 +40,7 @@
         </ul>
     {% endif %}     
         
-    Belum punya akun? <a href="{% url 'homepage:register' %}">Register Now</a>
 
 </div>
 
 {% endblock content %}
-
-{% block footer %}
-{% endblock footer %}
