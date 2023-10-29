@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Review Buku</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <style>
+        .content {
+            margin-top: 70px; /* Sesuaikan tinggi navigation bar */
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 36px;
+            background-color: #007bff; /* Ganti warna latar belakang */
+            color: #fff; /* Ganti warna font */
+            padding: 10px; /* Menambahkan ruang di sekitar teks */
+            border-radius: 10px; /* Membuat sudut bulat */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        h5 {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+        }
+
+        .modal-header {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .modal-title {
+            font-size: 24px;
+        }
+    </style>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Review</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Nama Buku:</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Review Buku:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>Review Buku</h1>
+
+    <table id="review_table"></table>
+
+    <script>
+        async function getReview() {
+            return fetch("{% url 'review_buku:get_review_json' %}").then((res) => res.json())
+        }
+
+        async function refreshReview() {
+            document.getElementById("review_table").innerHTML = ""
+            const reviews = await getReview()
+            let htmlString = `<tr>
+                <th>Nama Buku</th>
+                <th>Review Buku</th>
+                <th>Date Added</th>
+            </tr>`
+            reviews.forEach((item) => {
+                htmlString += `<tr>
+                <td>${item.fields.name}</td>
+                <td>${item.fields.description}</td>
+                <td>${item.fields.date_added}</td>
+                </tr>`
+            })
+
+            document.getElementById("review_table").innerHTML = htmlString
+        }
+
+        refreshReview()
+
+        function addReview() {
+            fetch("{% url 'review_buku:add_review_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshReview)
+
+            document.getElementById("form").reset()
+            return false
+        }
+
+        document.getElementById("button_add").onclick = addReview
+    </script>
+
+    <a href="{% url 'review_buku:create_review' %}">
+        <button class="btn btn-primary">Add New Review</button>
+    </a>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Review by AJAX</button>
+    
+{% endblock content %}
