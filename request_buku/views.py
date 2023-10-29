@@ -1,12 +1,14 @@
-from django.shortcuts import render
-from request_buku.models import Request
-from django.http import HttpResponseRedirect, HttpResponse
-from request_buku.forms import RequestForm
-from django.urls import reverse
-from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from django.core import serializers
+from django.http import (HttpResponse, HttpResponseNotFound,
+                         HttpResponseRedirect, JsonResponse)
+from django.shortcuts import render
+from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
+
+from request_buku.forms import RequestForm
+from request_buku.models import Request
+
 
 # Create your views here.
 def show_request(request):
@@ -41,9 +43,8 @@ def add_request_ajax(request):
         title = request.POST.get("title")
         author = request.POST.get("author")
         description = request.POST.get("description")
-        user = request.user
 
-        new_request = Request(title=title, author=author, description=description, user=user)
+        new_request = Request(title=title, author=author, description=description)
         new_request.save()
 
         return HttpResponse(b"CREATED", status=201)
