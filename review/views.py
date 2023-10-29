@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from review.forms import ProductForm
 from django.urls import reverse
-from review.models import Product
+from review.models import Review
 from django.http import HttpResponse
 from django.core import serializers
 from django.shortcuts import redirect
@@ -11,12 +11,12 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 
 def show_main(request):
-    products = Product.objects.all()
+    reviews = Review.objects.all()
 
     context = {
         'name': 'Pak Bepe', # Nama kamu
         'pesan': 'PBP A', # Kelas PBP kamu
-        'products': products
+        'review': reviews
     }
 
     return render(request, "reviewbuku.html", context)
@@ -36,11 +36,11 @@ def create_review(request):
     return render(request, "create_review.html", context)
 
 def edit_review(request, id):
-    # Get product berdasarkan ID
-    product = Product.objects.get(pk = id)
+    # Get review berdasarkan ID
+    review = Review.objects.get(pk = id)
 
-    # Set product sebagai instance dari form
-    form = ProductForm(request.POST or None, instance=product)
+    # Set review sebagai instance dari form
+    form = ProductForm(request.POST or None, instance=review)
 
     if form.is_valid() and request.method == "POST":
         # Simpan form dan kembali ke halaman awal
@@ -52,15 +52,15 @@ def edit_review(request, id):
 
 def delete_review(request, id):
     # Get data berdasarkan ID
-    product = Product.objects.get(pk = id)
+    review = Review.objects.get(pk = id)
     # Hapus data
-    product.delete()
+    review.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('review_buku:show_main'))
 
 def get_review_json(request):
-    product_item = Product.objects.all()
-    return HttpResponse(serializers.serialize('json', product_item))
+    review_item = Review.objects.all()
+    return HttpResponse(serializers.serialize('json', review_item))
 
 @csrf_exempt
 def add_review_ajax(request):
@@ -68,8 +68,8 @@ def add_review_ajax(request):
         name = request.POST.get("name")
         description = request.POST.get("description")
 
-        new_product = Product(name=name, description=description,)
-        new_product.save()
+        new_review = Review(name=name, description=description,)
+        new_review.save()
 
         return HttpResponse(b"CREATED", status=201)
 
