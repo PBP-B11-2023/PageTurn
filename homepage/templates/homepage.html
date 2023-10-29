@@ -1,5 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>TES</h1>
+{% load static %}
+
+<head>
+    {% block meta %}
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}?{% now "U" %}">
+    {% endblock meta %}
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="background-container">
+        <img src="https://uiii.ac.id/assets/images/1636690539-alfons-morales-YLSwjSy7stw-unsplash-2.jpg" alt="Background Image" class="background-image">
+        <div class="background-overlay"></div>
+    </div>
+    <div class="right-section">
+        <h2>Favourite books</h2>
+        <div class="book-list">
+            {% for book in favourite_books %}
+            <div class="card">
+                <img src="{{ book.image }}" alt="{{ book.name }} Cover">
+                <h2>{{ book.name }}</h2>
+                <p>Author: {{ book.author }}</p>
+                <p>Rating: {{ book.rating }}</p>
+                <p>Borrowed : {{ book.cnt_dipinjam }}</p>
+                <p>Year: {{ book.year }}</p>
+                <p>Genre: {{ book.genre }}</p>
+                <a class="read-more-link" href="#">Read More</a>
+                <div class="description hidden">{{ book.description }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <button id="prev-button">Previous</button>
+        <button id="next-button">Next</button>
+    </div>
+    </div>
+    <div class="content-container">
+        <div class="content">
+            <p style="text-align: center;">“Perpustakaan adalah rumah berteduh bagi para <span class="highlighted-text">pencari ilmu"</span>.</p>
+        </div>
+        <div class="product-box">
+            <a href="/peminjaman/">Mulai Pinjam Buku</a>
+        </div>
+    </div>
+
+</body>
+
+<script src="{% static 'js/homepage.js' %}?{% now "U" %}"></script>
+
+
 {% endblock content %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+    <link rel="stylesheet" href="{% static 'css/laporan_buku_rusak.css' %}?{% now "U" %}">
+{% endblock meta %}
+
+{% block content %}
+{% include "header.html" %}
+
+<div id="content-container">
+    <h1 style="text-align: center; margin-bottom: 50px;">Laporan Buku Rusak Page</h1>
+    <h6>Hallo {{user}} !</h6>
+    <h5>Daftar Buku yang Dipinjam</h5>
+    <div id="daftar_buku_pinjam"></div>
+    <ul>
+        {% for peminjaman in bukupinjam %}
+            <li>{{ peminjaman.book.name }}</li>
+        {% empty %}
+            <li>Tidak ada buku yang dipinjam</li>
+        {% endfor %}
+    </ul>
+
+    <div class="d-flex justify-content-end mt-3">
+        <h7>Last Login: <br> {{last_login}}</h7>
+    </div>
+    
+</div>
+<br>
+<h3>Filter:</h3>
+<input type="checkbox" id="non-rusak-checkbox" name="non-rusak" value="1"> Non-rusak
+<input type="checkbox" id="rusak-checkbox" name="rusak" value="1"> Rusak
+<button id="filter-button">Filter</button>
+<table id="product_table"></table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Laporan</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Nama Buku:</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Alasan Rusak:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                    <input type="hidden" id="is-rusak" name="is_rusak" value="0">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Laporan</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% if bukupinjam %}
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Laporan</button>
+{% else %}
+    <p>Anda belum meminjam buku</p>
+{% endif %}
+
+<script src="{% static 'js/laporan_buku_rusak.js' %}?{% now "U" %}"></script>
+
+{% endblock content %}

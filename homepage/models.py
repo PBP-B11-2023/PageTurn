@@ -1,7 +1,10 @@
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class AdminUser(AbstractBaseUser):
-    username = models.TextField(max_length=255)
-    password = models.TextField(max_length=255)
+class CustomUser(AbstractUser):
+    ROLES = [
+        ('member', 'Member'),
+        ('admin', 'Admin'),
+    ]
+    role = models.CharField(max_length=10, choices=ROLES, default='Member')
