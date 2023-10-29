@@ -141,8 +141,8 @@
     <div class="row mt-4">
         <div class="col-md-6">
             {% if request.user.role == "admin" %}
-               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">Add Book</button>
-            {% endif %}    
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">Add Book</button>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -227,7 +227,7 @@
     books.forEach((item) => {
         htmlString += `
             <li>
-                <a href="" class="card">
+                <a href="/peminjaman/new/#${item.pk}" class="card">
                     <img src="${item.fields.image}" class="card__image" alt="" />
                     <div class="card__overlay">
                         <div class="card__header">
