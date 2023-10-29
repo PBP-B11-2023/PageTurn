@@ -103,7 +103,7 @@
     }
 
     #content-container {
-    margin-top: 100px; /* Atur jarak antara header dan konten */
+    margin-top: 10px; /* Atur jarak antara header dan konten */
     padding: 20px;
     background-color: #f2f2f2; /* Warna latar belakang konten */
     }
@@ -112,6 +112,7 @@
 
 <div id="content-container">
     <h1 style="text-align: center;">Laporan Buku Rusak Page</h1>
+    <h5>Halo {{user}} !</h5>
     <h2>Daftar Buku yang Dipinjam</h2>
     <div id="daftar_buku_pinjam"></div>
     <ul>
@@ -121,6 +122,10 @@
             <li>Tidak ada buku yang dipinjam</li>
         {% endfor %}
     </ul>
+
+    <div class="d-flex justify-content-start align-items-start mt-3">
+        <h5>Last Login: <br> {{last_login}}</h5>
+    </div>
 </div>
 <h2>Filter:</h2>
 <input type="checkbox" id="non-rusak-checkbox" name="non-rusak" value="1"> Non-rusak
@@ -155,13 +160,18 @@
         </div>
     </div>
 </div>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Laporan by AJAX</button>
+{% if bukupinjam %}
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Laporan by AJAX</button>
+{% else %}
+    <p>Anda belum meminjam buku</p>
+{% endif %}
 
 <script>
     async function getProducts() {
         return fetch("{% url 'laporan_buku_rusak:get_product_json' %}").then((res) => res.json());
     }
 
+    
     async function refreshProducts() {
         document.getElementById("product_table").innerHTML = "";
         const products = await getProducts();
