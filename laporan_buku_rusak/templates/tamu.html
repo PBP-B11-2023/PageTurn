@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include "header.html" %}
+
+<div id="content-container" style="text-align: center;">
+    <h1 style="text-align: center;">Laporan Buku Rusak Page</h1>
+    <h5 style="text-align: center;">Halo {{ user }} !</h5>
+    <h5 class="mt-2 mb-3 text-center">
+        Login <a href="/login" style="color: blue; text-decoration: underline;">di sini</a> terlebih dahulu untuk laporkan buku!
+    </h5>
+</div>
+
+{% endblock content %}
+
