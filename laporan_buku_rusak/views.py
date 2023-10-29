@@ -1,15 +1,16 @@
+from django.contrib.auth.decorators import login_required
+from django.core import serializers
+from django.http import (HttpResponse, HttpResponseNotFound,
+                         HttpResponseRedirect, JsonResponse)
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+
 from katalog.models import Book
 from laporan_buku_rusak.forms import ProductForm
-from django.urls import reverse
-from laporan_buku_rusak.models import Product
+from laporan_buku_rusak.models import Laporan
 from peminjaman.models import Peminjaman
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse, HttpResponseNotFound
-from django.core import serializers
-from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+
 
 @login_required(login_url='/login')
 def show_laporan(request):
