@@ -14,8 +14,6 @@ def get_books(request):
     content_type = "application/json")
 
 def show_katalog(request):
-    if not request.user.is_authenticated or request.user.role != "admin":
-        return redirect('homepage:show_homepage')
     book = Book.objects.all()
     
     context = {
