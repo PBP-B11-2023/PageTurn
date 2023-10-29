@@ -1,9 +1,11 @@
 from django.core import serializers
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
 from katalog.models import Book
+
+from .forms import BookForm
 
 
 def get_books(request):
@@ -15,10 +17,9 @@ def show_katalog(request):
     if not request.user.is_authenticated or request.user.role != "admin":
         return redirect('homepage:show_homepage')
     book = Book.objects.all()
-
+    
     context = {
         'book': book,
-        'books_count' : len(book),
     }
 
     return render(request, "katalog.html", context)
@@ -30,31 +31,10 @@ def get_book_json(request):
 @csrf_exempt
 def add_book_ajax(request):
     if request.method == 'POST':
-        name = request.POST.get("name")
-        author = request.POST.get("author")
-        rating = request.POST.get("rating")
-        review = request.POST.get("review")
-        price = request.POST.get("price")
-        year = request.POST.get("year")
-        genre = request.POST.get("genre")
-        image = request.POST.get("image")
-        description = request.POST.get("description")
-
-        # Create a new Book object with the received data
-        new_book = Book(
-            name=name,
-            author=author,
-            rating=rating,
-            review=review,
-            price=price,
-            year=year,
-            genre=genre,
-            image=image,
-            description=description
-        )
-
-        # Save the new book to the database
-        new_book.save()
-        return HttpResponse(b"CREATED", status=201)
-    
-    return HttpResponseNotFound()
+        form = BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({"status": "CREATED"}, status=201)
+        else:
+            return JsonResponse({"status": "error", "FORM NOT VALID": form.errors}, status=400)
+    return JsonResponse({"status": "error"}, status=400)

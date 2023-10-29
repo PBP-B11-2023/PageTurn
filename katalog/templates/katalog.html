@@ -24,7 +24,7 @@
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
             margin: 4rem 5vw;
             padding: 0;
@@ -39,11 +39,12 @@
             border-radius: calc(var(--curve) * 1px);
             overflow: hidden;
             text-decoration: none;
+            /* margin: 0 150px; */
         }
 
         .card__image {
-            width: 400px;
-            height: 600px;
+            width: 100%;
+            height: auto;
         }
 
         .card__overlay {
@@ -58,8 +59,17 @@
             transition: 0.2s ease-in-out;
         }
 
+        .card__overlay::-webkit-scrollbar {
+            width: 10px; /* Adjust scrollbar width as needed */
+        }
+
+        .card__overlay::-webkit-scrollbar-track {
+            border-radius: 10px; /* Rounded corners for the track */
+        }
+
         .card:hover .card__overlay {
             transform: translateY(0);
+            overflow-y: auto; /* Make the overlay scrollable */
         }
 
         .card__header {
@@ -68,7 +78,7 @@
             align-items: center;
             gap: 2em;
             padding: 2em;
-            border-radius: calc(var(--curve) * 1px) 0 0 0;
+            border-radius: calc(var(--curve) * 1px);
             background-color: var(--surface-color);
             transform: translateY(-100%);
             transition: 0.2s ease-in-out;
@@ -83,31 +93,21 @@
             z-index: 1;
         }
 
-        .card__arc path {
-            fill: var(--surface-color);
-            d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-        }
-
         .card:hover .card__header {
             transform: translateY(0);
         }
 
-        .card__thumb {
-            flex-shrink: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
         .card__title {
             font-size: 1em;
-            margin: 0 0 0.3em;
+            margin: 0;
             color: #6a515e;
             margin: 0 0 0.3em;
             color: #6a515e;
             overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+
         }
 
         .card__tagline {
@@ -124,14 +124,13 @@
         }
 
         .card__description {
-            padding: 0 2em 2em;
+            padding: 0 2em;
             margin: 0;
             color: #d7bdca;
             font-family: "MockFlowFont";
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 3;
-            overflow: hidden;
         }
     </style>
 </head>
@@ -139,17 +138,11 @@
 <body>
 
 <div class="container mt-5" style="padding-bottom: 30px;">
-    <h1 class="mb-4">Page Turn</h1>
-
-    <div class="row">
-        <div class="col-md-6">
-            <h5>Anda memiliki {{ books_count }} buku</h5>
-        </div>
-    </div>
-
     <div class="row mt-4">
         <div class="col-md-6">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">Add Book</button>
+            {% if request.user.role == "admin" %}
+               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">Add Book</button>
+            {% endif %}    
         </div>
     </div>
 </div>
@@ -222,31 +215,55 @@
     async function refreshBooks() {
         document.getElementById("book_table").innerHTML = "";
         const books = await getBooks();
-        let htmlString = ``;
-        books.forEach((item) => {
-            htmlString += `
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="${item.fields.image}" class="card__image" />
-                        <div class="card__overlay">
-                            <div class="card__header">
-                                <div class="card__header-text">
-                                    <h3 class="card__title">${item.fields.name}</h3>
-                                    <span class="card__status">${item.fields.author}</span>
-                                </div>
-                            </div>
-                            <table>
-                                <tr>
-                                    <td><p class="card__description">${item.fields.description}</p></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            `;
-        });
+        let htmlString = `
+    <div class="row">
+        <div class="text-center">
+            <h2> Setiap halaman berisi petualangan dan pengetahuan yang menunggu untuk ditemukan. </h2>
+            <h2> Segera  jelajahi ${books.length} pilihan buku dalam koleksi kami! </h2>
+        </div>
+    </div>
+    <ul class="cards">`;  // Open the <ul> for the cards
 
-        document.getElementById("book_table").innerHTML = htmlString;
+    books.forEach((item) => {
+        htmlString += `
+            <li>
+                <a href="" class="card">
+                    <img src="${item.fields.image}" class="card__image" alt="" />
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <svg class="card__arc"</svg>
+                            <div class="card__header-text">
+                                <h3 class="card__title">${item.fields.name}</h3>
+                                <span class="card__status">${item.fields.author}</span>
+                            </div>
+                        </div>
+                        <table>
+                            <tr>
+                                <td><p class="card__description">Year: ${item.fields.year}</p></td>
+                            </tr>
+
+                            <tr>
+                                <td><p class="card__description">Genre: ${item.fields.genre}</p></td>
+                            </tr>   
+
+                            <tr>
+                                <td><p class="card__description">User Rating: ${item.fields.rating}⭐ (${item.fields.review}) </p></td>
+                            </tr>
+                            <tr>
+                                <td><p class="card__description">${item.fields.description}</p></td>
+                            </tr>
+                        </table>
+                    </div>
+                </a>
+            </li>`;  // Add each book card as an <li> within the <ul>
+    });
+
+    htmlString += `
+        </ul>
+        `;
+
+    document.getElementById("book_table").innerHTML = htmlString;
+
     }
 
     refreshBooks();
