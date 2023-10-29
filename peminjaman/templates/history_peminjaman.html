@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+{% block meta %}
+    <title>Peminjaman Buku</title>
+    <link rel="stylesheet" href="{% static 'css/history_peminjaman.css' %}?{% now "U" %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold text-center">Selamat datang, {{ user.username }}!</h1>
+        <h5 class="mt-2 mb-3 text-center">Berikut ini adalah history dari buku yang pernah kamu pinjam sebelumnya. </h5>
+    </div>
+    
+    <div class="container w-75">
+        <form class="d-flex rounded border">
+            <input class="form-control" type="text" placeholder="Search Books and Authors" aria-label="Search" id="search-book">
+        </form>
+    </div>
+    <!-- <div class="row" id="item_card"> </div> -->
+    <div class="row">
+        <!-- Filter Buku -->
+        <h4 class="card-title mb-3">Filter Buku</h4>
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Genre</h5>
+                    <form id="filterForm">
+                        {% for genre in genres %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="{{ genre }}" id="{{ genre }}" checked>
+                            <label class="form-check-label" for="{{ genre }}">{{ genre }}</label>
+                        </div>
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+            <div class="d-flex justify-content-start align-items-start mt-3">
+                <a href="{% url 'peminjaman:show_peminjaman' %}" class="btn btn-primary mt-3">Back</a>
+            </div>
+            <div class="d-flex justify-content-start align-items-start mt-3">
+                <h4>Last Login: <br> {{last_login}}</h4>
+            </div>
+        </div>
+        <!-- Daftar Buku -->
+        <div class="col-md-10">
+            <div id="item-card" class="row row-cols-1 row-cols-md-2 g-4">
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% for peminjaman in dikembalikan %}
+<div class="modal fade" id="pinjamModal{{ peminjaman.pk }}" tabindex="-1" aria-labelledby="pinjamModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="pinjamModal">{{ peminjaman.book.name }}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Gambar Buku -->
+                        <img src="{{ peminjaman.book.image }}" alt="{{ book.name }} Cover" style="width: 100%;">
+                    </div>
+                    <div class="col-md-7">
+                        <!-- Detail Buku -->
+                        <div style="line-height: 4;">
+                            <span><strong>Dipinjam oleh: </strong>{{ user.username }}</span>
+                            <br>
+                            <span><strong>Dipinjam tanggal: </strong>{{ peminjaman.tgl_dipinjam }}</span>
+                            <br>
+                            <span><strong>dikembalikan Pada: </strong>{{ peminjaman.tgl_dikembalikan}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<div id="url-get-book" data-url="{% url 'peminjaman:get_book_json' %}"></div>
+<div id="url-get-item" data-url="{% url 'peminjaman:get_item_json_returned' %}"></div>
+<script src="{% static 'js/history_peminjaman.js' %}?{% now "U" %}"></script>
+{% endblock content %}
+
+
+
+
+
+

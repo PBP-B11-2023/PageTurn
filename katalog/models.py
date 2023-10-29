@@ -6,8 +6,8 @@ from django.db import models
 class Book(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     author = models.CharField(max_length=255, null=True, blank=True)
-    rating =  models.FloatField(null=True, blank=True)
-    review =   models.IntegerField(null=True, blank=True)
+    rating =  models.FloatField(null=True, blank=True, default=0)
+    review =   models.IntegerField(null=True, blank=True, default=0)
     price = models.IntegerField(null=True, blank=True)
     year = models.IntegerField(null=True, blank=True)
     genre = models.CharField(max_length=255, null=True, blank=True)

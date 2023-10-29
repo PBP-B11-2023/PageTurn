@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    h1 {
+        margin: 20px;
+        margin-top: 10px;
+        font-size: 30px;
+    }
+    .btn {
+        margin: 20px;
+        padding: 3px;
+    }
+</style>
+
+<h1>Book Request</h1>
+
+<div class="card-container">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Create Book Request</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="col-form-label">Title</label>
+                                <input type="text" class="form-control" id="title" name="title"></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="author" class="col-form-label">Author</label>
+                                <input class="form-control" id="author" name="author"></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="col-form-label">Description</label>
+                                <textarea class="form-control" id="description" name="description"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="button_add">Create Book Request</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" id="openModalButton" onclick="window.location.href='create-request'">Create Book Request</button>
+    <button class="delete-button" data-request-id="{{ item.pk }}" onclick="deleteRequest('{ item.pk }')">Remove</button>
+</div>
+
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 20px;
+        margin: 20px;
+    }
+    .card {
+        width: 150px;
+        margin: 10px 10px;
+        padding: 10px;
+        border: 1px solid #2e88a3;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: rgb(238, 243, 245);
+    }
+    .card h2 {
+        font-size: 1.3rem;
+        margin-top: 0px;
+    }
+    .card h3 {
+        font-size: 1.0rem;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+    .card p {
+        font-size: 1rem;
+    }
+    .card-ellipsis::before {
+        content: "\2026";
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 1.2rem;
+        color: #555;
+    }
+    .delete-button {
+        display: none;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #2e88a3;
+        color: white;
+        padding: 5px 5px;
+        cursor: pointer;
+    }
+</style>
+
+    <script>
+        async function getRequests() {
+            return fetch("{% url 'request_buku:get_request_json' %}").then((res) => res.json());
+        }
+
+        async function refreshRequests() {
+            const requestContainer = document.querySelector(".card-container");
+            requestContainer.innerHTML = "";
+
+            const requests = await getRequests();
+    
+            requests.forEach((item) => {
+                const card = document.createElement("div");
+                card.classList.add("card", "card-ellipsis");
+                card.addEventListener("mouseenter", () => showDeleteButton(card));
+                card.addEventListener("mouseleave", () => hideDeleteButton(card));
+
+                const title = document.createElement("h2");
+                title.textContent = item.fields.title;
+
+                const author= document.createElement("h3");
+                author.textContent = item.fields.author;
+
+                const description = document.createElement("p");
+                description.textContent = item.fields.description;
+
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Remove";
+                deleteButton.classList.add("delete-button");
+                deleteButton.setAttribute("data-request-id", item.pk);
+                deleteButton.addEventListener("click", () => deleteRequest(item.pk));
+
+                card.appendChild(title);
+                card.appendChild(author);
+                card.appendChild(description);
+                card.appendChild(deleteButton);
+                requestContainer.appendChild(card);
+            });
+        }
+
+        refreshRequests()
+
+        function addRequest() {
+            fetch("{% url 'request_buku:add_request_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            })
+            .then(() => {
+                refreshRequests();
+                document.getElementById("form").reset();
+                $('#exampleModal').modal('hide'); // Hide the modal after submission
+            })
+            .catch((error) => {
+                console.error("Error submitting the request:", error);
+            });
+        }
+        document.getElementById("button_add").onclick = addRequest;
+        document.getElementById("openModalButton").onclick = function () {
+            $('#exampleModal').modal('show'); // Show the modal when the button is clicked
+
+        };
+
+        // Refresh requests when the page loads
+        refreshRequests();
+
+        function showDeleteButton(card) {
+            const deleteButton = card.querySelector(".delete-button");
+            if (deleteButton) {
+                deleteButton.style.display = "block";
+            }
+        }
+
+        function hideDeleteButton(card) {
+            const deleteButton = card.querySelector(".delete-button");
+            if (deleteButton) {
+                deleteButton.style.display = "none";
+            }
+        }
+
+        async function deleteRequest(requestId) {
+            try {
+                const deleteButton = document.querySelector(`[data-request-id="${requestId}"]`);
+                if (deleteButton) {
+                    const deleteUrl = `/request_buku/delete/${requestId}`;
+                    await fetch(deleteUrl, {
+                        method: "DELETE",
+                    });
+                    // Hapus card dari DOM
+                    const card = deleteButton.parentElement;
+                    card.remove();
+                }
+            } catch (error) {
+                console.error('Error deleting request:', error);
+            }
+        }
+    </script>
+{% endblock content %}
