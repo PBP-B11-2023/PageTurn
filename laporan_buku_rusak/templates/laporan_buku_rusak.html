@@ -1,10 +1,132 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 style="text-align: center;">Laporan Buku Rusak Page</h1>
+{% include "header.html" %}
+<style>
+    /* Style for the header */
+    #header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
 
+    /* Style for the h1 */
+    h1 {
+        text-align: center;
+    }
+
+    /* Style for the h2 */
+    h2 {
+        font-size: 1.5em;
+        margin-top: 20px;
+    }
+
+    /* Style for the ul */
+    ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    /* Style for the checkboxes and filter button */
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
+    #filter-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    /* Style for the table */
+    #product_table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    #product_table th, #product_table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    #product_table th {
+        background-color: #f2f2f2;
+    }
+
+    /* Style for the modal */
+    .modal-content {
+        border-radius: 0;
+    }
+
+    .modal-header {
+        background-color: #333;
+        color: #fff;
+        border: none;
+    }
+
+    .modal-title {
+        font-size: 1.5em;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .modal-footer {
+        border: none;
+        padding: 10px;
+        background-color: #f2f2f2;
+    }
+
+    /* Style for the "Add Laporan by AJAX" button */
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+
+    /* Style for the "Add Laporan" button in the modal */
+    #button_add {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    #content-container {
+    margin-top: 100px; /* Atur jarak antara header dan konten */
+    padding: 20px;
+    background-color: #f2f2f2; /* Warna latar belakang konten */
+    }
+
+</style>
+
+<div id="content-container">
+    <h1 style="text-align: center;">Laporan Buku Rusak Page</h1>
+    <h2>Daftar Buku yang Dipinjam</h2>
+    <div id="daftar_buku_pinjam"></div>
+    <ul>
+        {% for peminjaman in bukupinjam %}
+            <li>{{ peminjaman.book.name }}</li>
+        {% empty %}
+            <li>Tidak ada buku yang dipinjam</li>
+        {% endfor %}
+    </ul>
+</div>
+<h2>Filter:</h2>
+<input type="checkbox" id="non-rusak-checkbox" name="non-rusak" value="1"> Non-rusak
+<input type="checkbox" id="rusak-checkbox" name="rusak" value="1"> Rusak
+<button id="filter-button">Filter</button>
 <table id="product_table"></table>
-
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -16,13 +138,14 @@
                 <form id="form" onsubmit="return false;">
                     {% csrf_token %}
                     <div class="mb-3">
-                        <label for="name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name"></input>
+                        <label for="name" class="col-form-label">Nama Buku:</label>
+                        <input type="text" class="form-control" id="name" name="name">
                     </div>
                     <div class="mb-3">
-                        <label for="description" class="col-form-label">Description:</label>
+                        <label for="description" class="col-form-label">Alasan Rusak:</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
                     </div>
+                    <input type="hidden" id="is-rusak" name="is_rusak" value="0">
                 </form>
             </div>
             <div class="modal-footer">
@@ -32,44 +155,89 @@
         </div>
     </div>
 </div>
-
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Laporan by AJAX</button>
 
-    <script>
-        async function getProducts() {
-            return fetch("{% url 'laporan_buku_rusak:get_product_json' %}").then((res) => res.json())
-        }
+<script>
+    async function getProducts() {
+        return fetch("{% url 'laporan_buku_rusak:get_product_json' %}").then((res) => res.json());
+    }
 
-        async function refreshProducts() {
-            document.getElementById("product_table").innerHTML = ""
-            const products = await getProducts()
-            let htmlString = `<tr>
-                <th>Name</th>
-                <th>Kondisi Buku</th>
-            </tr>`
-            products.forEach((item) => {
-                htmlString += `\n<tr>
+    async function refreshProducts() {
+        document.getElementById("product_table").innerHTML = "";
+        const products = await getProducts();
+        let htmlString = `<tr>
+            <th>Name</th>
+            <th>Kondisi Buku</th>
+            <th>Alasan Rusak</th>
+        </tr>`;
+        products.forEach((item) => {
+            htmlString += `\n<tr>
                 <td>${item.fields.name}</td>
+                <td>${item.fields.is_rusak ? "Rusak" : "Non-rusak"}</td>
                 <td>${item.fields.description}</td>
-            </tr>` 
-            })
-            
-            document.getElementById("product_table").innerHTML = htmlString
-        }
+            </tr>`;
+        });
 
-        refreshProducts()
+        document.getElementById("product_table").innerHTML = htmlString;
+        document.getElementById("product_table").style.display = "table";
+    }
 
-        function addProduct() {
-            fetch("{% url 'laporan_buku_rusak:add_product_ajax' %}", {
-                method: "POST",
-                body: new FormData(document.querySelector('#form'))
-            }).then(refreshProducts)
+    refreshProducts();
 
-            document.getElementById("form").reset()
-            return false
-        }
-        document.getElementById("button_add").onclick = addProduct
-    </script>
+    function addProduct() {
+        const isRusak = document.getElementById("is-rusak").value;
+        const formData = new FormData(document.querySelector('#form'));
+        formData.append("is_rusak", isRusak);
 
-    
+        fetch("{% url 'laporan_buku_rusak:add_product_ajax' %}", {
+            method: "POST",
+            body: formData
+        }).then(refreshProducts);
+        document.getElementById("form").reset();
+        return false;
+    }
+
+    document.getElementById("button_add").addEventListener("click", addProduct);
+
+    document.getElementById("filter-button").addEventListener("click", filterProducts);
+
+    async function filterProducts() {
+        const nonRusak = document.getElementById("non-rusak-checkbox").checked;
+        const rusak = document.getElementById("rusak-checkbox").checked;
+
+        const products = await getProducts();
+        const filteredProducts = products.filter((item) => {
+            const isRusak = item.fields.is_rusak;
+
+            if (nonRusak && rusak) {
+                return true; // Tampilkan semua buku
+            } else if (nonRusak) {
+                return !isRusak; // Tampilkan yang non-rusak
+            } else if (rusak) {
+                return isRusak; // Tampilkan yang rusak
+            }
+
+            return false; // Tidak ada yang dipilih
+        });
+        document.getElementById("filter-button").addEventListener("click", filterProducts);
+        // Buat tabel hasil filter
+        document.getElementById("product_table").innerHTML = "";
+        let htmlString = `<tr>
+            <th>Name</th>
+            <th>Kondisi Buku</th>
+            <th>Alasan Rusak</th>
+        </tr>`;
+        filteredProducts.forEach((item) => {
+            htmlString += `\n<tr>
+                <td>${item.fields.name}</td>
+                <td>${item.fields.is_rusak ? "Rusak" : "Non-rusak"}</td>
+                <td>${item.fields.description}</td>
+            </tr>`;
+        });
+        document.getElementById("product_table").innerHTML = htmlString;
+    }
+    refreshProducts();
+
+</script>
+
 {% endblock content %}
