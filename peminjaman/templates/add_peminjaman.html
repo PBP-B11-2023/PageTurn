@@ -1,20 +1,20 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block meta %}
     <title>Peminjaman Buku</title>
+    <link rel="stylesheet" href="{% static 'css/add_peminjaman.css' %}?{% now "U" %}">
 {% endblock meta %}
 
 {% block content %}
-{% include "header.html" %}
-<div class="container" style="margin-top: 130px;">
-    <h1 class="display-4 text-center fw-bold">Peminjaman Buku</h1>
-    <h4 class="mt-2 mb-3 text-center">Klik gambar buku untuk meminjamnya </h4>
+<div class="container">
+    <h1 class="display-4 fw-bold text-center">Selamat datang, {{ user.username }}!</h1>
+    <h5 class="mt-2 mb-3 text-center">Berikut adalah daftar buku, klik gambar buku untuk meminjamnya, warna merah artinya tidak tersedia. </h5>
     <div class="container w-75">
         <form class="d-flex rounded border">
             <input class="form-control" type="text" placeholder="Search Books and Authors" aria-label="Search" id="search-book">
         </form>
     </div>
-    <div class="row" style="z-index: 0;">
+    <div class="row">
         <h4 class="card-title mb-3">Filter Buku</h4>
         <div class="col-md-2">
             <div class="card">
@@ -39,7 +39,12 @@
                     </form>
                 </div>
             </div>
-            <a href="{% url 'peminjaman:show_peminjaman' %}" class="btn btn-primary mt-3">Back</a>
+            <div class="d-flex justify-content-start align-items-start mt-3">
+                <a href="{% url 'peminjaman:show_peminjaman' %}" class="btn" style="color: #be6933;"><strong>Back</strong></a>
+            </div>
+            <div class="d-flex justify-content-start align-items-start mt-3">
+                <h4>Last Login: <br> {{last_login}}</h4>
+            </div>
         </div>
 
         <!-- Daftar Buku -->
@@ -70,7 +75,7 @@
                         <p><strong>Deskripsi:</strong> {{ book.description | truncatechars:250 }}</p>
                     </div>
                 </div>
-                <form id="pinjamForm" method="post" action="{% url 'peminjaman:add_book' book.pk %}">
+                <form id="pinjamForm" onsubmit="return false;" >
                     {% csrf_token %}
                     <div class="form-group">
                         <strong>{{ form.durasi_peminjaman.label_tag }}</strong>
@@ -79,7 +84,7 @@
             </div>
             <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="add_button" class="btn btn-primary align-content-lg-center">Pinjam Buku</button>
+                    <button type="button" name="add_button" data-id="{{ book.id }}" class="btn btn-primary align-content-lg-center">Pinjam Buku</button>
                 </form>
             </div>
         </div>
@@ -91,7 +96,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="kosongModal"><strong>Maaf buku ini sedang dipinjam!</strong><br>{{ book.name }}</h5>
+                <h5 class="modal-title" id="kosongModal"><strong>Maaf, buku ini sedang dipinjam!</strong><br>{{ book.name }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -116,69 +121,11 @@
     </div>
 </div>
 {% endfor %}
+<div id="url-get-book" data-url="{% url 'peminjaman:get_book_json' %}"></div>
+<div id="url-add-book" data-url="{% url 'peminjaman:add_book' '0' %}"></div>
+<div id="url-back" data-url="{% url 'peminjaman:show_peminjaman' %}"></div>
 
-<script>
-    var konz = "";
-    async function getBooks() {
-        return fetch("{% url 'peminjaman:get_book_json' %}").then((res) => res.json())
-    }
-    async function refreshBooks() {
-        const checkedBoxesGenres = document.querySelectorAll('#filterForm input[type="checkbox"][name="genre"]:checked');
-        const checkedGenres = Array.from(checkedBoxesGenres).map(checkbox => checkbox.value);
-        const checkedBoxesReady = document.querySelectorAll('#filterForm input[type="checkbox"][name="isReady"]:checked');
-        const checkedReady = Array.from(checkedBoxesReady).map(checkbox => checkbox.value);
-        const filterForm = document.getElementById('filterForm');
-        document.getElementById("book-card").innerHTML = ""
-        const books = await getBooks();
-        let htmlString = ``
-        books.forEach((book) => {
-            if(checkedGenres.includes(book.fields.genre) && ((book.fields.is_dipinjam && checkedReady.includes("1")) || (!book.fields.is_dipinjam && checkedReady.includes("0"))) && (book.fields.name.toLowerCase().includes(konz.toLowerCase()) || book.fields.author.toLowerCase().includes(konz.toLowerCase()))){
-                htmlString += `
-                <div class="col">
-                    <div class="card h-100 ${book.fields.is_dipinjam ? 'bg-danger' : 'bg-transparent'}" style="margin-left: 50px; padding: 10px;">
-                        <a data-bs-toggle="modal" data-bs-target=${book.fields.is_dipinjam ? `#kosongModal${book.pk}` : `#pinjamModal${book.pk}`}>
-                            <img src="${book.fields.image}" class="card-img-top" alt="${book.fields.name} Cover" style="object-fit: contain; width: 100%; height: 100%;">
-                        </a>
-                    </div>
-                </div>`
-            }
-        })
-        document.getElementById("book-card").innerHTML = htmlString
-    }
-    refreshBooks();
-    const filterForm = document.getElementById('filterForm');
-    filterForm.addEventListener('change', function() {
-        refreshBooks();
-    });
-
-    document.getElementById('search-book').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();  // Prevent form submission
-            konz = this.value;
-            refreshBooks();
-        }
-    });
-    const buttons = document.querySelectorAll('button[name="add_button"]');
-    
-    buttons.forEach((button) => {
-    button.addEventListener("click", function() {
-        var form = this.form
-        var durasi_peminjaman = form.elements['durasi_peminjaman'].value;
-        if (durasi_peminjaman === ""){
-            return;
-        }
-        durasi_peminjaman = parseInt(durasi_peminjaman)
-        if(durasi_peminjaman < 1 || durasi_peminjaman > 14) {
-            return;
-        }
-        var isConfirmed = window.confirm("Apakah Anda yakin ingin meminjam buku ini?");
-        if (!isConfirmed) {
-            event.preventDefault();
-        } else {
-            alert("Terima kasih sudah meminjam buku di PageTurn!");
-        }
-    });
-});
-</script>
+<script src="{% static 'js/add_peminjaman.js' %}?{% now "U" %}"></script>
 
 {% endblock content %}
+

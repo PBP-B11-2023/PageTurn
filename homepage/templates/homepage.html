@@ -97,6 +97,7 @@
             opacity: 0.5; /* Adjust the opacity as needed */
         }
         .right-section {
+            z-index: 0;
             position: fixed;
             top: 120px;
             right: 300px;
@@ -261,10 +262,8 @@
     </div>
     <hr class="section-break">
     <div class="right-section">
-        <!-- Loop through Michelle Obama's books and create a card for each book -->
         <h2>Favourite books</h2>
         <div class="book-list">
-            <!-- Loop through Michelle Obama's books and create a card for each book -->
             {% for book in favourite_books %}
             <div class="card">
                 <img src="{{ book.image }}" alt="{{ book.name }} Cover">
@@ -281,13 +280,13 @@
         </div>
         <button id="prev-button">Previous</button>
         <button id="next-button">Next</button>
-    </div>        
+    </div>
     <div class="content-container">
         <div class="content">
             <p style="text-align: center;">“Perpustakaan adalah rumah berteduh bagi para <span class="highlighted-text">pencari ilmu"</span>.</p>
         </div>
         <div class="product-box">
-            <a href="#">Lihat Katalog</a>
+            <a href="/peminjaman/">Mulai Pinjam Buku</a>
         </div>
     </div>
 </body>
