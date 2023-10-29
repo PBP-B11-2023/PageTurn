@@ -33,7 +33,9 @@ def show_homepage(request):
     return render(request, 'homepage.html', {'favourite_books': books_with_highest_cnt_dipinjam})
 
 def register(request):
-    form = CustomUserCreationForm() #CustomUserCreationForm() imported from forms.py
+    if request.user.is_authenticated:
+        return redirect('homepage:show_homepage')
+    form = CustomUserCreationForm()
 
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
@@ -45,6 +47,8 @@ def register(request):
     return render(request, 'register.html', context)
 
 def login_user(request):
+    if request.user.is_authenticated:
+        return redirect('homepage:show_homepage')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')

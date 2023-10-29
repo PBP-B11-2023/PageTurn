@@ -1,6 +1,6 @@
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
 from katalog.models import Book
@@ -8,15 +8,17 @@ from katalog.models import Book
 
 def get_books(request):
     data = Book.objects.all()
-    return HttpResponse(serializers.serialize("json", data)),
-    content_type = "application/json"
+    return HttpResponse(serializers.serialize("json", data),
+    content_type = "application/json")
 
 def show_katalog(request):
-    book = Book.objects.all
+    if not request.user.is_authenticated or request.user.role != "admin":
+        return redirect('homepage:show_homepage')
+    book = Book.objects.all()
 
     context = {
         'book': book,
-        # 'products_count' : len(book),
+        'books_count' : len(book),
     }
 
     return render(request, "katalog.html", context)
@@ -56,6 +58,3 @@ def add_book_ajax(request):
         return HttpResponse(b"CREATED", status=201)
     
     return HttpResponseNotFound()
-    return HttpResponse(serializers.serialize("json", data),
-    content_type = "application/json")
-    
