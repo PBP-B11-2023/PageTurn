@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from laporan_buku_rusak.models import Laporan
+
+# # Register your models here.
+admin.site.register(Laporan)
