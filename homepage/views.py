@@ -29,11 +29,12 @@ def get_favourite_books(request):
 
 def show_homepage(request):
     highest_cnt_dipinjam = Book.objects.aggregate(max_cnt_dipinjam=Max('cnt_dipinjam'))['max_cnt_dipinjam']
+    print(highest_cnt_dipinjam)
     books_with_highest_cnt_dipinjam = Book.objects.filter(cnt_dipinjam=highest_cnt_dipinjam)
     return render(request, 'homepage.html', {'favourite_books': books_with_highest_cnt_dipinjam})
 
 def register(request):
-    form = CustomUserCreationForm() #CustomUserCreationForm() imported from forms.py
+    form = CustomUserCreationForm()
 
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
@@ -51,7 +52,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            response = HttpResponseRedirect(reverse("homepage:show_homepage")) 
+            response = HttpResponseRedirect(reverse("homepage:show_homepage"))
             response.set_cookie('last_login', str(datetime.datetime.now()))
             return response
         else:
