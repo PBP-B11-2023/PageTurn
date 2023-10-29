@@ -71,3 +71,20 @@ buttons.forEach((button) => {
         }
     });
 });
+
+$(document).ready(async function() {
+    var hash = window.location.hash.substring(1);
+    if (hash) {
+        books = await getBooks()
+        console.log(books)
+        console.log(hash)
+        var x = document.getElementById("kosongModal" + hash)
+        var bootstrapModal = new bootstrap.Modal(x);
+        x.addEventListener('click', function (event) {
+            if (event.target.dataset.bsDismiss === 'modal') {
+                bootstrapModal.hide();
+            }
+        });
+        bootstrapModal.show();
+    }
+});

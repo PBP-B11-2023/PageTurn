@@ -9,18 +9,11 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core import serializers
-from django.db.models import Max
+from django.db.models import F, Max
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-from katalog.models import Book
-from django.db.models import Max
-from django.http import JsonResponse
-from django.db.models import F
-from django.http import JsonResponse
-
-
 
 from homepage.models import *
 from katalog.models import Book
@@ -30,17 +23,13 @@ from .forms import CustomUserCreationForm
 
 
 def get_favourite_books(request):
-    # Order the books by cnt_dipinjam in descending order and select the top 5
     books_with_highest_cnt_dipinjam = Book.objects.order_by('-cnt_dipinjam')[:5]  
-    # Convert the selected books to a list of dictionaries
     book_list = list(books_with_highest_cnt_dipinjam.values())
     
     return JsonResponse({'favourite_books': book_list})
 
 def show_homepage(request):
-    highest_cnt_dipinjam = Book.objects.aggregate(max_cnt_dipinjam=Max('cnt_dipinjam'))['max_cnt_dipinjam']
-    books_with_highest_cnt_dipinjam = Book.objects.filter(cnt_dipinjam=highest_cnt_dipinjam)
-    return render(request, 'homepage.html', {'favourite_books': books_with_highest_cnt_dipinjam})
+    return render(request, 'homepage.html')
 
 def register(request):
     if request.user.is_authenticated:

@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}?{% now "U" %}">
 {% endblock meta %}
 
+{% block header %}
+{% endblock header %}
+
 {% block content %}
 
 <body style="background-color: #282626;">
@@ -37,11 +40,15 @@
             <ul>
                 {% for message in messages %}
                 <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-    </div>
-</body>
+            {% endfor %}
+        </ul>
+    {% endif %}     
+        
+    Belum punya akun? <a href="{% url 'homepage:register' %}">Register Now</a>
+
+</div>
 
 {% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

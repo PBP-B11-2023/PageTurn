@@ -23,7 +23,7 @@ $(document).ready(function() {
                 <h2>${book.name}</h2>
                 <p>Author: ${book.author}</p>
                 <p>Rating: ${book.rating}</p>
-                <p>Price: $${book.price}</p>
+                <p>Borrowed: ${book.cnt_dipinjam}</p>
                 <p>Year: ${book.year}</p>
                 <p>Genre: ${book.genre}</p>
                 <a class="read-more-link" href="#">Read More</a>
