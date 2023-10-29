@@ -11,36 +11,25 @@ from peminjaman.forms import PeminjamanForm
 from peminjaman.models import Peminjaman
 
 
+@login_required(login_url='/login')
 def show_peminjaman(request):
-    if request.user.is_authenticated:
-        books = Book.objects.all()
-        dipinjam = Peminjaman.objects.filter(user = request.user, is_returned = False)
-        dikembalikan = Peminjaman.objects.filter(user = request.user, is_returned = True)
-        genres = set()
-        for book in Book.objects.all():
-            genres.add(book.genre)
-        context = {
-            'user' : request.user,
-            'books' : books,
-            'dipinjam' : dipinjam,
-            'dikembalikan' : dikembalikan,
-            'genres' : genres,
-            'last_login' : request.COOKIES["last_login"][:-10] if "last_login" in request.COOKIES else "",
-        }
+    books = Book.objects.all()
+    dipinjam = Peminjaman.objects.filter(user = request.user, is_returned = False)
+    dikembalikan = Peminjaman.objects.filter(user = request.user, is_returned = True)
+    genres = set()
+    for book in Book.objects.all():
+        genres.add(book.genre)
+    context = {
+        'user' : request.user,
+        'books' : books,
+        'dipinjam' : dipinjam,
+        'dikembalikan' : dikembalikan,
+        'genres' : genres,
+    }
 
-        return render(request, 'peminjaman.html', context)
-    else:
-        books = Book.objects.filter()
-        genres = set()
-        for book in Book.objects.all():
-            genres.add(book.genre)
-        context = {
-            'books' : books,
-            'genres' : genres,
-        }
-        return render(request, 'guest_peminjaman.html', context)
+    return render(request, 'peminjaman.html', context)
 
-@login_required(login_url='/peminjaman')
+@login_required
 def add_peminjaman(request):
     books = Book.objects.filter(is_dipinjam = False)
     kosong = Book.objects.filter(is_dipinjam = True)
@@ -52,11 +41,10 @@ def add_peminjaman(request):
         'genres' : genres,
         'kosong' : kosong,
         'form': PeminjamanForm(),
-        'last_login' : request.COOKIES["last_login"][:-10] if "last_login" in request.COOKIES else "",
     }
     return render(request, 'add_peminjaman.html', context)
 
-@login_required(login_url='/peminjaman')
+@login_required(login_url='/login')
 def show_history(request):
     books = Book.objects.all()
     dikembalikan = Peminjaman.objects.filter(user = request.user, is_returned = True)
@@ -68,7 +56,6 @@ def show_history(request):
         'books' : books,
         'dikembalikan' : dikembalikan,
         'genres' : genres,
-        'last_login' : request.COOKIES["last_login"][:-10] if "last_login" in request.COOKIES else "",
     }
 
     return render(request, 'history_peminjaman.html', context)
@@ -106,7 +93,7 @@ def add_book(request, id):
         form = PeminjamanForm(request.POST)
         if form.is_valid():
             buku = Book.objects.get(pk=id)
-            new_item = Peminjaman.objects.create(
+            new_item = Peminjaman(
                 user=request.user,
                 book=buku,
                 tgl_dipinjam=datetime.now().date(),

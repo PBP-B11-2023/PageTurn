@@ -1,6 +1,6 @@
-from django.core import serializers
-from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseNotFound
+from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 
 from katalog.models import Book
@@ -8,8 +8,8 @@ from katalog.models import Book
 
 def get_books(request):
     data = Book.objects.all()
-    return HttpResponse(serializers.serialize("json", data)),
-    content_type = "application/json"
+    return HttpResponse(serializers.serialize("json", data),
+    content_type = "application/json")
 
 def show_katalog(request):
     book = Book.objects.all()

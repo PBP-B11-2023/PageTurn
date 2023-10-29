@@ -21,18 +21,7 @@
     </head>
 
     <body style="background-color: antiquewhite;">
-        {% block header %}
-        {% include "header.html" %}
-        {% endblock header %}
-
-        <div style="flex-grow: 1;">
-            {% block content %}
-            {% endblock content %}
-        </div>
-
-
-        {% block footer %}
-        {% include "footer.html" %}
-        {% endblock footer %}
+        {% block content %}
+        {% endblock content %}
     </body>
 </html>
