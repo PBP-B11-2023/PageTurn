@@ -1,51 +1,47 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
     <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}?{% now "U" %}">
 {% endblock meta %}
-
-{% block header %}
-{% endblock header %}
 
 {% block content %}
 
-<div class = "login">
-
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
+<body style="background-color: #282626;">
+    <div class="title">Login</div>   
+    <div class="login-container">
+        <form method="POST" action="{% url 'homepage:login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <div class="remember-checkbox">
+                <input type="checkbox" id="rememberPassword" name="rememberPassword">
+                <label for="rememberPassword">Remember Me</label>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <div class="register-link">
+            Don't have an account? <a href="{% url 'homepage:register' %}" style="color: white; text-decoration: underline;">Register</a>
+        </div>
+        {% if messages %}
+        <div class="login-failed">
+            <ul>
+                {% for message in messages %}
                 <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Belum punya akun? <a href="{% url 'homepage:register' %}">Register Now</a>
-
-</div>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
 
 {% endblock content %}
-
-{% block footer %}
-{% endblock footer %}
