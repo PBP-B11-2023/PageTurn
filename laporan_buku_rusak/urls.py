@@ -1,5 +1,7 @@
 from django.urls import path
-from laporan_buku_rusak.views import show_laporan, get_product_json, add_product_ajax,filter_products
+
+from laporan_buku_rusak.views import (add_product_ajax, filter_products,
+                                      get_product_json, show_laporan)
 
 app_name = 'laporan_buku_rusak'
 
