@@ -1,9 +1,27 @@
 {% extends 'base.html' %} 
 
 {% block content %}
+<style>
+    h1 {
+        margin: 20px;
+        margin-top: 10px;
+        font-size: 30px;
+    }
+    h3 {
+        margin: 20px;
+        font-size: large;
+        margin-bottom: 1px;
+        margin-top: 1px;
+    }
+    input {
+        margin: 20px;
+        margin-top: 1px;
+    }
+</style>
+
 <h1>Book Request Form</h1>
 
-<form method="POST">
+<form method="POST" >
     {% csrf_token %}
     <div>
         <h3>{{ form.title.label_tag }}</h3>
@@ -24,7 +42,14 @@
 
 <style>
     input[type="text"], textarea {
-        width: 40%;
+        width: 35%;
+        margin: 20px;
+        margin-top: 1px;
+        padding: 1px; /* Menambahkan ruang di dalam input */
+        border: 1px solid #2b6fa7; /* Menambahkan border dengan warna abu-abu */
+        border-radius: 5px; /* Membuat sudut-sudut elemen lebih lembut */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Menambahkan shadow */
+        background-color: #f5f5f5; /* Menambahkan warna latar belakang */
     }
 </style>
 

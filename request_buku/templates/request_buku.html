@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    h1 {
+        margin: 20px;
+        margin-top: 10px;
+        font-size: 30px;
+    }
+    .btn {
+        margin: 20px;
+        padding: 3px;
+    }
+</style>
+
 <h1>Book Request</h1>
 
 <div class="card-container">
@@ -37,32 +49,54 @@
         </div>
     </div>
     <button type="button" class="btn btn-primary" id="openModalButton" onclick="window.location.href='create-request'">Create Book Request</button>
+    <button class="delete-button" data-request-id="{{ item.pk }}" onclick="deleteRequest('{ item.pk }')">Remove</button>
 </div>
 
 <style>
     .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 20px;
+        margin: 20px;
     }
     .card {
-      width: 300px;
-      margin: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 150px;
+        margin: 10px 10px;
+        padding: 10px;
+        border: 1px solid #2e88a3;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: rgb(238, 243, 245);
     }
     .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+        font-size: 1.3rem;
+        margin-top: 0px;
     }
     .card h3 {
-      font-size: 1.0rem;
-      margin-bottom: 10px;
+        font-size: 1.0rem;
+        margin-bottom: 10px;
+        margin-top: 0px;
     }
     .card p {
-      font-size: 1rem;
+        font-size: 1rem;
+    }
+    .card-ellipsis::before {
+        content: "\2026";
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 1.2rem;
+        color: #555;
+    }
+    .delete-button {
+        display: none;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #2e88a3;
+        color: white;
+        padding: 5px 5px;
+        cursor: pointer;
     }
 </style>
 
@@ -79,7 +113,9 @@
     
             requests.forEach((item) => {
                 const card = document.createElement("div");
-                card.classList.add("card");
+                card.classList.add("card", "card-ellipsis");
+                card.addEventListener("mouseenter", () => showDeleteButton(card));
+                card.addEventListener("mouseleave", () => hideDeleteButton(card));
 
                 const title = document.createElement("h2");
                 title.textContent = item.fields.title;
@@ -90,9 +126,16 @@
                 const description = document.createElement("p");
                 description.textContent = item.fields.description;
 
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Remove";
+                deleteButton.classList.add("delete-button");
+                deleteButton.setAttribute("data-request-id", item.pk);
+                deleteButton.addEventListener("click", () => deleteRequest(item.pk));
+
                 card.appendChild(title);
                 card.appendChild(author);
                 card.appendChild(description);
+                card.appendChild(deleteButton);
                 requestContainer.appendChild(card);
             });
         }
@@ -121,5 +164,36 @@
 
         // Refresh requests when the page loads
         refreshRequests();
+
+        function showDeleteButton(card) {
+            const deleteButton = card.querySelector(".delete-button");
+            if (deleteButton) {
+                deleteButton.style.display = "block";
+            }
+        }
+
+        function hideDeleteButton(card) {
+            const deleteButton = card.querySelector(".delete-button");
+            if (deleteButton) {
+                deleteButton.style.display = "none";
+            }
+        }
+
+        async function deleteRequest(requestId) {
+            try {
+                const deleteButton = document.querySelector(`[data-request-id="${requestId}"]`);
+                if (deleteButton) {
+                    const deleteUrl = `/request_buku/delete/${requestId}`;
+                    await fetch(deleteUrl, {
+                        method: "DELETE",
+                    });
+                    // Hapus card dari DOM
+                    const card = deleteButton.parentElement;
+                    card.remove();
+                }
+            } catch (error) {
+                console.error('Error deleting request:', error);
+            }
+        }
     </script>
 {% endblock content %}

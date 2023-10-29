@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 # Create your views here.
 def show_request(request):
@@ -48,3 +49,8 @@ def add_request_ajax(request):
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
+
+def delete_request(request, id):
+    request = Request.objects.get(pk = id)
+    request.delete()
+    return HttpResponseRedirect(reverse('request_buku:show_request'))
