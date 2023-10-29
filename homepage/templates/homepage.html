@@ -172,6 +172,12 @@
         .hidden {
             display: none;
         }
+        .review-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999; /* Untuk menempatkan tombol di atas konten lain */
+        }
 
                 
         
@@ -290,7 +296,13 @@
             <a href="#">Lihat Katalog</a>
         </div>
     </div>
+
+    <a href="{% url 'review_buku:show_main' %}">
+        <button class="btn btn-secondary">Go to Review Buku Page</button>
+    </a>
+    
 </body>
+
 
 
 
