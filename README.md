@@ -10,7 +10,8 @@
 
 Link Deploy = http://pageturn-b11-tk.pbp.cs.ui.ac.id/
 
-Pipeline Status = 
+Pipeline Status = ![Image Alt Text](Pictures/Untitled.png)
+
 
   
 ### Cerita dan Manfaat Aplikasi
