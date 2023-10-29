@@ -64,14 +64,14 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for opacity */
+    background: rgba(0, 0, 0, 0.5) ; /* Adjust the last value (0.5) for opacity */
     pointer-events: none; /* Allows interaction with elements behind the overlay */
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #282626;
+    background-color: #282626 !important;;
     color: #fff; /* Text color or other styles */
     /* Additional styles for your content */
 }

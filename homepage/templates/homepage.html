@@ -1,7 +1,7 @@
-    {% extends 'base.html' %}
+{% extends 'base.html' %}
 
-    {% block content %}
-    {% load static %}
+{% block content %}
+{% load static %}
 
 <head>
     {% block meta %}
@@ -23,7 +23,7 @@
                 <h2>{{ book.name }}</h2>
                 <p>Author: {{ book.author }}</p>
                 <p>Rating: {{ book.rating }}</p>
-                <p>Price: ${{ book.price }}</p>
+                <p>Borrowed : {{ book.cnt_dipinjam }}</p>
                 <p>Year: {{ book.year }}</p>
                 <p>Genre: {{ book.genre }}</p>
                 <a class="read-more-link" href="#">Read More</a>
@@ -33,6 +33,7 @@
         </div>
         <button id="prev-button">Previous</button>
         <button id="next-button">Next</button>
+    </div>
     </div>
     <div class="content-container">
         <div class="content">

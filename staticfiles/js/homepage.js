@@ -16,13 +16,14 @@ $(document).ready(function() {
         // Clear existing book list
         bookListElement.empty();
 
+        // Render new book cards
         books.forEach((book, index) => {
             const cardHtml = `<div class="card" id="card-${index}">
                 <img src="${book.image}" alt="${book.name} Cover">
                 <h2>${book.name}</h2>
                 <p>Author: ${book.author}</p>
                 <p>Rating: ${book.rating}</p>
-                <p>Price: $${book.price}</p>
+                <p>Borrowed: ${book.cnt_dipinjam}</p>
                 <p>Year: ${book.year}</p>
                 <p>Genre: ${book.genre}</p>
                 <a class="read-more-link" href="#">Read More</a>
@@ -31,7 +32,7 @@ $(document).ready(function() {
             bookListElement.append(cardHtml);
         });
 
-
+        // Now show and hide books like before
         const cards = $('.card');
         const totalCards = cards.length;
         $(cards[currentCardIndex]).show();
@@ -48,7 +49,7 @@ $(document).ready(function() {
             $(cards[currentCardIndex]).show();
         });
 
-
+        // Add a click event to show the description popup
         $('.read-more-link').click(function() {
             console.log('Script is running');
             const description = $(this).siblings('.description').html();
@@ -56,12 +57,15 @@ $(document).ready(function() {
             popup.className = 'popup';
             popup.innerHTML = '<div class="popup-content">' + description + '</div';
 
+            // Append the popup to the body
             document.body.appendChild(popup);
 
-            popup.style.display = 'block'; 
+            // Show the popup
+            popup.style.display = 'block'; // Add this line to make the popup visible
 
+            // Close the popup when clicking on it
             popup.addEventListener('click', () => {
-                popup.style.display = 'none'; 
+                popup.style.display = 'none'; // Add this line to hide the popup
                 popup.remove();
             });
         });

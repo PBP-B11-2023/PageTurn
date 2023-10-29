@@ -11,9 +11,8 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('katalog', '0003_auto_20231029_0924'),
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('katalog', '0001_initial'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
