@@ -26,6 +26,11 @@ def get_book_json(request):
     book_item = Book.objects.all()
     return HttpResponse(serializers.serialize('json', book_item))
 
+def get_book_json_genre(request, genre):
+    print(request.user.username)
+    book_item = Book.objects.filter(genre = genre)
+    return HttpResponse(serializers.serialize('json', book_item))
+
 @csrf_exempt
 def add_book_ajax(request):
     if request.method == 'POST':
