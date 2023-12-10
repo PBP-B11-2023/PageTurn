@@ -1,14 +1,18 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+
+from homepage.models import CustomUser
 
 
 @csrf_exempt
 def login(request):
     username = request.POST['username']
     password = request.POST['password']
+    print(username, password)
     print(username)
     print(password)
     user = authenticate(username=username, password=password)
@@ -33,3 +37,47 @@ def login(request):
             "status": False,
             "message": "Login gagal, periksa kembali email atau kata sandi."
         }, status=401)
+    
+@csrf_exempt
+def logout(request):
+    username = request.user.username
+
+    try:
+        auth_logout(request)
+        return JsonResponse({
+            "username": username,
+            "status": True,
+            "message": "Logout berhasil!"
+        }, status=200)
+    except:
+        return JsonResponse({
+        "status": False,
+        "message": "Logout gagal."
+        }, status=401)
+    
+@csrf_exempt
+def register(request):
+    print(69)
+    username = request.POST['username']
+    password1 = request.POST['password1']
+    password2 = request.POST['password2']
+    if CustomUser.objects.filter(username=username).exists():
+        return JsonResponse({
+            "status": False,
+            "message": "Username sudah terdaftar."
+        }, status=400)
+
+    if password1 != password2:
+        return JsonResponse({
+            "status": False,
+            "message": "Password dan Konfirmasi Password berbeda."
+        }, status=400)
+    
+    user = CustomUser.objects.create_user(username=username, password=password1, role='member')
+    user.save()
+
+    return JsonResponse({
+        "username": user.username,
+        "status": True,
+        "message": "Registrasi berhasil!"
+    }, status=201)
