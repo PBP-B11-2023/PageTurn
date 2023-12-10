@@ -7,3 +7,4 @@ urllib3
 coverage
 django-environ
 whitenoise
+django-cors-headers
