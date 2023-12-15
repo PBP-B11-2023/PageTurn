@@ -43,5 +43,12 @@ def add_product_ajax(request):
 
     return HttpResponseNotFound()
 
+def show_json(request):
+    data = Laporan.objects.filter(user=request.user)
+
+def show_json(request):
+    data = Laporan.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
 
 
