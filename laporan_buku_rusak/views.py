@@ -1,16 +1,24 @@
+from django.contrib.auth.decorators import login_required
+from django.core import serializers
+from django.http import (HttpResponse, HttpResponseNotFound,
+                         HttpResponseRedirect, JsonResponse)
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+
 from katalog.models import Book
 from laporan_buku_rusak.forms import ProductForm
+<<<<<<< HEAD
 from django.urls import reverse
+=======
+>>>>>>> 0831863604b29370ccf99c9f6f27fee495059be8
 from laporan_buku_rusak.models import Laporan
 from peminjaman.models import Peminjaman
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse, HttpResponseNotFound
-from django.core import serializers
-from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0831863604b29370ccf99c9f6f27fee495059be8
 def show_laporan(request):
     if request.user.is_authenticated:
         bukupinjam = Peminjaman.objects.filter(user=request.user, is_returned=False)
@@ -46,9 +54,13 @@ def add_product_ajax(request):
 def show_json(request):
     data = Laporan.objects.filter(user=request.user)
 
+<<<<<<< HEAD
 def show_json(request):
     data = Laporan.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 
 
+=======
+
+>>>>>>> 0831863604b29370ccf99c9f6f27fee495059be8
