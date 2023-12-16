@@ -75,9 +75,9 @@ def register(request):
     
     user = CustomUser.objects.create_user(username=username, password=password1, role='member')
     user.save()
-
+    print(username, password1)
     return JsonResponse({
         "username": user.username,
         "status": True,
-        "message": "Registrasi berhasil!"
+        "message": f"Berhasil membuat akun dengan username: {username}"
     }, status=201)
