@@ -11,4 +11,5 @@ urlpatterns = [
     path('create-book-ajax/', add_book_ajax, name='add_book_ajax'),
     path('get-genres/', get_genre_json, name='get_genre_json'),
     path('get-books-genre/', get_books_by_genre, name='get-books-by-genre'),
+    path('create-flutter/', create_product_flutter, name='create_product_flutter'),
 ]
