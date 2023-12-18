@@ -57,7 +57,6 @@ def logout(request):
     
 @csrf_exempt
 def register(request):
-    print(69)
     username = request.POST['username']
     password1 = request.POST['password1']
     password2 = request.POST['password2']
@@ -81,3 +80,10 @@ def register(request):
         "status": True,
         "message": f"Berhasil membuat akun dengan username: {username}"
     }, status=201)
+
+def get_user(request):
+    res = {
+        'role': request.user.role,
+        'username' : request.user.username,
+    }
+    return JsonResponse(res)
