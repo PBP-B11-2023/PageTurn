@@ -1,0 +1,109 @@
+/* Style for the header */
+#header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Style for the h1 */
+h1 {
+    text-align: center;
+}
+
+/* Style for the h2 */
+h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+/* Style for the ul */
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Style for the checkboxes and filter button */
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#filter-button {
+    background-color: #806649;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+/* Style for the table */
+#product_table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#product_table th, #product_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#product_table th {
+    background-color: #f2f2f2;
+}
+
+/* Style for the modal */
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-header {
+    background-color: #333;
+    color: #fff;
+    border: none;
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    border: none;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+/* Style for the "Add Laporan by AJAX" button */
+.btn-primary {
+    background-color: #4e2c0a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Style for the "Add Laporan" button in the modal */
+#button_add {
+    background-color: #917157;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#content-container {
+margin-top: 10px; /* Atur jarak antara header dan konten */
+padding: 20px;
+background-color: #f2f2f2; /* Warna latar belakang konten */
+}
+
+
+

@@ -1,26 +1,48 @@
+from django.contrib.auth.decorators import login_required
+from django.core import serializers
+from django.http import (HttpResponse, HttpResponseNotFound,
+                         HttpResponseRedirect, JsonResponse)
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from laporan_buku_rusak.forms import ProductForm
 from django.urls import reverse
-from laporan_buku_rusak.models import Product
+from django.views.decorators.csrf import csrf_exempt
 
-# Create your views here.
+from katalog.models import Book
+from laporan_buku_rusak.forms import ProductForm
+from laporan_buku_rusak.models import Laporan
+from peminjaman.models import Peminjaman
+
+
 def show_laporan(request):
-    products = Product.objects.all()
-    context = {
-        'products': products
-    }
+    if request.user.is_authenticated:
+        bukupinjam = Peminjaman.objects.filter(user=request.user, is_returned=False)
+        context = {
+            'user' : request.user,
+            'bukupinjam': bukupinjam,
+            'last_login' : request.COOKIES["last_login"][:-10] if "last_login" in request.COOKIES else "",
+        }
+        return render(request, 'laporan_buku_rusak.html', context)
+    else:
+        context = {
+            'user' : 'tamu',
+        }
+        return render(request, 'tamu.html', context)
 
-    return render(request, "laporan_buku_rusak.html", context)
+def get_product_json(request):
+    product_item = Laporan.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
 
-def create_laporan(request):
-    form = ProductForm(request.POST or None)
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        description = request.POST.get("description")
 
-    if form.is_valid() and request.method == "POST":
-        form.save()
-        return HttpResponseRedirect(reverse('laporan_buku_rusak:show_laporan'))
+        user = request.user
+        new_product = Laporan(name=name, description=description, user=user, is_rusak=True)
+        new_product.save()
+        return HttpResponse(b"CREATED", status=201)
 
-    context = {'form': form}
-    return render(request, "create_laporan.html", context)
+    return HttpResponseNotFound()
+
 
 

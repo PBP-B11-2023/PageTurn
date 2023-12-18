@@ -1,7 +1,7 @@
-from django.urls import include, path
 from django.contrib import admin
-from katalog.views import get_books, show_katalog, get_book_json, add_book_ajax
+from django.urls import include, path
 
+from katalog.views import *
 
 app_name = "katalog"
 
@@ -9,4 +9,7 @@ urlpatterns = [
     path('', show_katalog, name='show_katalog'),
     path('get-book/', get_book_json, name='get_book_json'),
     path('create-book-ajax/', add_book_ajax, name='add_book_ajax'),
+    path('get-genres/', get_genre_json, name='get_genre_json'),
+    path('get-books-genre/', get_books_by_genre, name='get-books-by-genre'),
+    path('create-flutter/', create_product_flutter, name='create_product_flutter'),
 ]

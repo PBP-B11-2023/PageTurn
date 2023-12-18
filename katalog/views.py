@@ -1,10 +1,12 @@
+import json
 from django.core import serializers
-from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
 
 from katalog.models import Book
+
 from .forms import BookForm
 
 
@@ -26,6 +28,31 @@ def get_book_json(request):
     book_item = Book.objects.all()
     return HttpResponse(serializers.serialize('json', book_item))
 
+def get_books_by_genre(request):
+    search_query = request.GET.get('search', '')
+    genres = request.GET.getlist('genres')
+    if genres:
+        books = Book.objects.filter(genre__in=genres)
+    else:
+        books = Book.objects.all()
+    books_ret = []
+    for book in books:
+        if search_query.lower() in book.name.lower() or search_query.lower() in book.author.lower():
+            books_ret.append(book)
+    print(search_query)
+    # Serialisasi data buku ke JSON
+    return HttpResponse(serializers.serialize('json', books_ret))
+
+def get_genre_json(request):
+    book_item = Book.objects.all()
+    tmp = set()
+    for x in book_item:
+        tmp.add(x.genre)
+    genres = []
+    for x in tmp:
+        genres.append(x)
+    return JsonResponse({'genres': genres})
+
 @csrf_exempt
 def add_book_ajax(request):
     if request.method == 'POST':
@@ -36,3 +63,28 @@ def add_book_ajax(request):
         else:
             return JsonResponse({"status": "error", "FORM NOT VALID": form.errors}, status=400)
     return JsonResponse({"status": "error"}, status=400)
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_product = Book.objects.create(
+            # user = request.user,
+            name = data["name"],
+            author = data["author"],
+            rating = int(data["rating"]),
+            review = int(data["review"]),
+            price = int(data["price"]),
+            year = int(data["year"]),
+            genre = data["genre"],
+            image = data["image"],
+            description = data["description"]
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
