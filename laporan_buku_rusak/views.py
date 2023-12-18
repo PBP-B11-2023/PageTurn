@@ -5,6 +5,7 @@ from django.http import (HttpResponse, HttpResponseNotFound,
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from PageTurn.review.models import Product
 
 from katalog.models import Book
 from laporan_buku_rusak.forms import ProductForm

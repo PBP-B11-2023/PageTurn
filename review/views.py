@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from review.forms import ProductForm
 from django.urls import reverse
-from review.models import Review
+from review.models import Product
 from django.http import HttpResponse
 from django.core import serializers
 from django.shortcuts import redirect
@@ -11,12 +11,12 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 
 def show_main(request):
-    reviews = Review.objects.all()
+    products = Product.objects.all()
 
     context = {
         'name': 'Pak Bepe', # Nama kamu
         'pesan': 'PBP A', # Kelas PBP kamu
-        'review': reviews
+        'product': products
     }
 
     return render(request, "reviewbuku.html", context)
@@ -37,10 +37,10 @@ def create_review(request):
 
 def edit_review(request, id):
     # Get review berdasarkan ID
-    review = Review.objects.get(pk = id)
+    product = Product.objects.get(pk = id)
 
     # Set review sebagai instance dari form
-    form = ProductForm(request.POST or None, instance=review)
+    form = ProductForm(request.POST or None, instance=product)
 
     if form.is_valid() and request.method == "POST":
         # Simpan form dan kembali ke halaman awal
@@ -52,14 +52,14 @@ def edit_review(request, id):
 
 def delete_review(request, id):
     # Get data berdasarkan ID
-    review = Review.objects.get(pk = id)
+    product = Product.objects.get(pk = id)
     # Hapus data
-    review.delete()
+    product.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('review_buku:show_main'))
 
 def get_review_json(request):
-    review_item = Review.objects.all()
+    review_item = Product.objects.all()
     return HttpResponse(serializers.serialize('json', review_item))
 
 @csrf_exempt
@@ -68,8 +68,8 @@ def add_review_ajax(request):
         name = request.POST.get("name")
         description = request.POST.get("description")
 
-        new_review = Review(name=name, description=description,)
-        new_review.save()
+        new_product = Product(name=name, description=description,)
+        new_product.save()
 
         return HttpResponse(b"CREATED", status=201)
 

@@ -3,9 +3,9 @@ from katalog.models import Book
 from PageTurn import settings
 
 
-class Review(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+class Product(models.Model):
+    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name= "review_buku")
     name = models.CharField(max_length=255)
     date_added = models.DateField(auto_now_add=True)
     description = models.TextField()
