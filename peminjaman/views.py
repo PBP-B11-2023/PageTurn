@@ -163,7 +163,6 @@ def get_selected_books(request):
 
 @csrf_exempt
 def return_book_flutter(request, id):
-    print(69, id)
     if request.method == 'POST':
         item = Peminjaman.objects.get(pk=id)
         item.is_returned = True
