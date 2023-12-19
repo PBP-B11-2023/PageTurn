@@ -1,3 +1,4 @@
+import json
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.http import (HttpResponse, HttpResponseNotFound,
@@ -45,9 +46,29 @@ def add_product_ajax(request):
 
     return HttpResponseNotFound()
 
+
 def show_json(request):
-    data = Laporan.objects.filter(user=request.user)
+    data = Laporan.objects.filter(user=request.user)  
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_product = Laporan.objects.create(
+            user = request.user,
+            name = data["name"],
+            description = data["description"]
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
 
 
 
