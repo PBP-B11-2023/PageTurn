@@ -1,3 +1,5 @@
+import json
+
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import redirect, render
@@ -62,3 +64,25 @@ def add_book_ajax(request):
         else:
             return JsonResponse({"status": "error", "FORM NOT VALID": form.errors}, status=400)
     return JsonResponse({"status": "error"}, status=400)
+
+@csrf_exempt
+def create_flutter(request):
+    print(6)
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        print(data)
+        Book.objects.create(
+            name=data['name'],
+            author=data['author'],
+            year=data['year'],
+            rating=data['rating'],
+            review=data['review'],
+            price=data['price'],
+            genre=data['genre'],
+            image=data['image'],
+            description=data['description'],
+            is_dipinjam = False,
+            cnt_dipinjam = 0,
+        )
+        return JsonResponse({"status": "success"}, status=200)
+    return JsonResponse({"status": "error"}, status=401)

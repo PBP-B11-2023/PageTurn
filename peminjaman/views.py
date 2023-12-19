@@ -132,10 +132,9 @@ def get_selected_books(request):
     except:
         return JsonResponse({
                 "status": False,
-                "message": "Durasi hanya bisa berupa angka antara 1-14!"
+                "message": "Durasi hanya dapat berupa angka antara 1-14!"
             }, status=400)
-
-    print(durasi)
+    
     selected_books = json.loads(selected_books)
     if selected_books:
         for id in selected_books:
@@ -163,7 +162,6 @@ def get_selected_books(request):
 
 @csrf_exempt
 def return_book_flutter(request, id):
-    print(69, id)
     if request.method == 'POST':
         item = Peminjaman.objects.get(pk=id)
         item.is_returned = True

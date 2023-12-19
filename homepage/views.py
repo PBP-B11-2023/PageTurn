@@ -30,6 +30,8 @@ def get_favourite_books(request):
     return JsonResponse({'favourite_books': book_list})
 
 def show_homepage(request):
+    for item in Book.objects.filter(name = 'Judy Hopps'):
+        item.delete()
     highest_cnt_dipinjam = Book.objects.aggregate(max_cnt_dipinjam=Max('cnt_dipinjam'))['max_cnt_dipinjam']
     books_with_highest_cnt_dipinjam = Book.objects.filter(cnt_dipinjam=highest_cnt_dipinjam)
     return render(request, 'homepage.html', {'favourite_books': books_with_highest_cnt_dipinjam})

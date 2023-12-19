@@ -1,9 +1,6 @@
 from django.urls import path
-from review.views import show_main
-from review.views import show_main, create_review
-from review.views import edit_review
-from review.views import delete_review
-from review.views import get_review_json, add_review_ajax
+
+from review.views import *
 
 app_name = 'review_buku'
 
@@ -13,7 +10,6 @@ urlpatterns = [
     path('edit-review/<int:id>', edit_review, name='edit_review'),
     path('delete/<int:id>', delete_review, name='delete_review'), # sesuaikan dengan nama fungsi yang dibuat
     path('get-review/', get_review_json, name='get_review_json'),
-    path('create-product-ajax/', add_review_ajax, name='add_review_ajax')
-
-
+    path('create-product-ajax/', add_review_ajax, name='add_review_ajax'),
+    path('create-flutter/', create_product_flutter, name='create_product_flutter'),
 ]

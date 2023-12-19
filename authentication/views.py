@@ -10,7 +10,7 @@ from homepage.models import CustomUser
 
 @csrf_exempt
 def login(request):
-    username = request.POST['username']
+    username = request.POST['username'].strip()
     password = request.POST['password']
     print(username, password)
     print(username)
@@ -57,8 +57,7 @@ def logout(request):
     
 @csrf_exempt
 def register(request):
-    print(69)
-    username = request.POST['username']
+    username = request.POST['username'].strip()
     password1 = request.POST['password1']
     password2 = request.POST['password2']
     if CustomUser.objects.filter(username=username).exists():
@@ -81,3 +80,10 @@ def register(request):
         "status": True,
         "message": f"Berhasil membuat akun dengan username: {username}"
     }, status=201)
+
+def get_user(request):
+    res = {
+        'role': request.user.role,
+        'username' : request.user.username,
+    }
+    return JsonResponse(res)
