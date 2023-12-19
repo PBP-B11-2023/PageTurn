@@ -14,4 +14,8 @@ urlpatterns = [
     path('get-book/', get_book_json, name='get_book_json'),
     path('return-book/<int:id>/', return_book, name='return_book'),
     path('add-book/<int:id>/', add_book, name='add_book'),
+    path('get-selected/', get_selected_books, name='get_selected_books'),
+    path('get-items/', get_items_filter, name='get_items_filter'),
+    path('return-book-flutter/<int:id>/', return_book_flutter, name='return_book_flutter'),
+    path('get-history/', get_history, name='get_history'),
 ]

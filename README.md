@@ -8,6 +8,11 @@
 - Rifdah Nabilah Rahma
 - Faiz Abdurrachman
 
+Link Deploy = http://pageturn-b11-tk.pbp.cs.ui.ac.id/
+
+Pipeline Status = ![Image Alt Text](Pictures/Untitled.png)
+
+
   
 ### Cerita dan Manfaat Aplikasi
 Minat baca masyarakat di Indonesia masih tergolong rendah. Menurut data yang ada, persentase masyarakat yang gemar membaca di Indonesia masih jauh di bawah negara-negara maju. Hal ini menjadi tantangan tersendiri dalam meningkatkan literasi di Indonesia. Oleh karena itu, PageTurn hadir sebagai solusi inovatif untuk mengatasi masalah ini.
@@ -16,7 +21,7 @@ PageTurn adalah sebuah aplikasi perpustakaan digital yang memungkinkan pengguna 
 
 ### Daftar Modul
 - Modul Authentikasi mengimplementasikan user dapat Register akun baru dan Login dengan akun yang sudah didaftarkan.
-- Modul Homepage mengimplementasikan halaman home yang menampilkan semua daftar modul yang ada di dalam aplikasi.
+- Modul Homepage mengimplementasikan halaman home yang menampilkan semua daftar modul yang ada di dalam aplikasi. : Faiz
 - Modul Katalog Buku yang mengimplementasikan informasi dari setiap buku (Nama buku, Penulis, Rating, Genre, Tahun terbit) : Arya
 - Modul Request Buku yang mengimplementasikan request buku yang ingin di pinjam namun tidak terdapat di katalog : Fern
 - Modul Peminjaman Buku yang mengimplementasikan Buku yang ingin dipinjam atau dikembalikan : Irfan

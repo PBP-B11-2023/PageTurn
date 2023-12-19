@@ -1,22 +1,21 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from review.forms import ProductForm
-from django.urls import reverse
-from review.models import Product
-from django.http import HttpResponse
-from django.core import serializers
-from django.shortcuts import redirect
+import json
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages  
+from django.core import serializers
+from django.http import (HttpResponse, HttpResponseNotFound,
+                         HttpResponseRedirect, JsonResponse)
+from django.shortcuts import redirect, render
+from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
-def show_main(request):
-    products = Product.objects.all()
+from review.forms import ProductForm
+from review.models import Product
 
+
+def show_main(request):
+    reviews = Product.objects.all()
     context = {
-        'name': 'Pak Bepe', # Nama kamu
-        'pesan': 'PBP A', # Kelas PBP kamu
-        'product': products
+        'review': reviews
     }
 
     return render(request, "reviewbuku.html", context)
@@ -25,6 +24,7 @@ def create_review(request):
     form = ProductForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
+        form.instance.user = request.user
         form.save()
         return HttpResponseRedirect(reverse('review_buku:show_main'))
         # review = form.save(commit=False)
@@ -37,10 +37,10 @@ def create_review(request):
 
 def edit_review(request, id):
     # Get review berdasarkan ID
-    product = Product.objects.get(pk = id)
+    review = Product.objects.get(pk = id)
 
     # Set review sebagai instance dari form
-    form = ProductForm(request.POST or None, instance=product)
+    form = ProductForm(request.POST or None, instance=review)
 
     if form.is_valid() and request.method == "POST":
         # Simpan form dan kembali ke halaman awal
@@ -52,9 +52,9 @@ def edit_review(request, id):
 
 def delete_review(request, id):
     # Get data berdasarkan ID
-    product = Product.objects.get(pk = id)
+    review = Product.objects.get(pk = id)
     # Hapus data
-    product.delete()
+    review.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('review_buku:show_main'))
 
@@ -68,13 +68,30 @@ def add_review_ajax(request):
         name = request.POST.get("name")
         description = request.POST.get("description")
 
-        new_product = Product(name=name, description=description,)
-        new_product.save()
+        new_review = Product(user=request.user,name=name, description=description)
+        new_review.save()
 
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
 
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_product = Product.objects.create(
+            user = request.user,
+            name = data["name"],
+            description = data["description"]
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
 
 
 

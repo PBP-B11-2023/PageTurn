@@ -1,118 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+    <link rel="stylesheet" href="{% static 'css/laporan_buku_rusak.css' %}?{% now "U" %}">
+{% endblock meta %}
 
 {% block content %}
 {% include "header.html" %}
-<style>
-    /* Style for the header */
-    #header {
-        background-color: #333;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
-    }
-
-    /* Style for the h1 */
-    h1 {
-        text-align: center;
-    }
-
-    /* Style for the h2 */
-    h2 {
-        font-size: 1.5em;
-        margin-top: 20px;
-    }
-
-    /* Style for the ul */
-    ul {
-        list-style-type: disc;
-        margin-left: 20px;
-    }
-
-    /* Style for the checkboxes and filter button */
-    input[type="checkbox"] {
-        margin-right: 5px;
-    }
-
-    #filter-button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
-
-    /* Style for the table */
-    #product_table {
-        border-collapse: collapse;
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    #product_table th, #product_table td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-
-    #product_table th {
-        background-color: #f2f2f2;
-    }
-
-    /* Style for the modal */
-    .modal-content {
-        border-radius: 0;
-    }
-
-    .modal-header {
-        background-color: #333;
-        color: #fff;
-        border: none;
-    }
-
-    .modal-title {
-        font-size: 1.5em;
-    }
-
-    .modal-body {
-        padding: 20px;
-    }
-
-    .modal-footer {
-        border: none;
-        padding: 10px;
-        background-color: #f2f2f2;
-    }
-
-    /* Style for the "Add Laporan by AJAX" button */
-    .btn-primary {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        margin-top: 20px;
-        cursor: pointer;
-    }
-
-    /* Style for the "Add Laporan" button in the modal */
-    #button_add {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
-
-    #content-container {
-    margin-top: 100px; /* Atur jarak antara header dan konten */
-    padding: 20px;
-    background-color: #f2f2f2; /* Warna latar belakang konten */
-    }
-
-</style>
 
 <div id="content-container">
-    <h1 style="text-align: center;">Laporan Buku Rusak Page</h1>
-    <h2>Daftar Buku yang Dipinjam</h2>
+    <h1 style="text-align: center; margin-bottom: 50px;">Laporan Buku Rusak Page</h1>
+    <h6>Hallo {{user}} !</h6>
+    <h5>Daftar Buku yang Dipinjam</h5>
     <div id="daftar_buku_pinjam"></div>
     <ul>
         {% for peminjaman in bukupinjam %}
@@ -121,8 +19,14 @@
             <li>Tidak ada buku yang dipinjam</li>
         {% endfor %}
     </ul>
+
+    <div class="d-flex justify-content-end mt-3">
+        <h7>Last Login: <br> {{last_login}}</h7>
+    </div>
+    
 </div>
-<h2>Filter:</h2>
+<br>
+<h3>Filter:</h3>
 <input type="checkbox" id="non-rusak-checkbox" name="non-rusak" value="1"> Non-rusak
 <input type="checkbox" id="rusak-checkbox" name="rusak" value="1"> Rusak
 <button id="filter-button">Filter</button>
@@ -155,89 +59,12 @@
         </div>
     </div>
 </div>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Laporan by AJAX</button>
+{% if bukupinjam %}
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Laporan</button>
+{% else %}
+    <p>Anda belum meminjam buku</p>
+{% endif %}
 
-<script>
-    async function getProducts() {
-        return fetch("{% url 'laporan_buku_rusak:get_product_json' %}").then((res) => res.json());
-    }
-
-    async function refreshProducts() {
-        document.getElementById("product_table").innerHTML = "";
-        const products = await getProducts();
-        let htmlString = `<tr>
-            <th>Name</th>
-            <th>Kondisi Buku</th>
-            <th>Alasan Rusak</th>
-        </tr>`;
-        products.forEach((item) => {
-            htmlString += `\n<tr>
-                <td>${item.fields.name}</td>
-                <td>${item.fields.is_rusak ? "Rusak" : "Non-rusak"}</td>
-                <td>${item.fields.description}</td>
-            </tr>`;
-        });
-
-        document.getElementById("product_table").innerHTML = htmlString;
-        document.getElementById("product_table").style.display = "table";
-    }
-
-    refreshProducts();
-
-    function addProduct() {
-        const isRusak = document.getElementById("is-rusak").value;
-        const formData = new FormData(document.querySelector('#form'));
-        formData.append("is_rusak", isRusak);
-
-        fetch("{% url 'laporan_buku_rusak:add_product_ajax' %}", {
-            method: "POST",
-            body: formData
-        }).then(refreshProducts);
-        document.getElementById("form").reset();
-        return false;
-    }
-
-    document.getElementById("button_add").addEventListener("click", addProduct);
-
-    document.getElementById("filter-button").addEventListener("click", filterProducts);
-
-    async function filterProducts() {
-        const nonRusak = document.getElementById("non-rusak-checkbox").checked;
-        const rusak = document.getElementById("rusak-checkbox").checked;
-
-        const products = await getProducts();
-        const filteredProducts = products.filter((item) => {
-            const isRusak = item.fields.is_rusak;
-
-            if (nonRusak && rusak) {
-                return true; // Tampilkan semua buku
-            } else if (nonRusak) {
-                return !isRusak; // Tampilkan yang non-rusak
-            } else if (rusak) {
-                return isRusak; // Tampilkan yang rusak
-            }
-
-            return false; // Tidak ada yang dipilih
-        });
-        document.getElementById("filter-button").addEventListener("click", filterProducts);
-        // Buat tabel hasil filter
-        document.getElementById("product_table").innerHTML = "";
-        let htmlString = `<tr>
-            <th>Name</th>
-            <th>Kondisi Buku</th>
-            <th>Alasan Rusak</th>
-        </tr>`;
-        filteredProducts.forEach((item) => {
-            htmlString += `\n<tr>
-                <td>${item.fields.name}</td>
-                <td>${item.fields.is_rusak ? "Rusak" : "Non-rusak"}</td>
-                <td>${item.fields.description}</td>
-            </tr>`;
-        });
-        document.getElementById("product_table").innerHTML = htmlString;
-    }
-    refreshProducts();
-
-</script>
+<script src="{% static 'js/laporan_buku_rusak.js' %}?{% now "U" %}"></script>
 
 {% endblock content %}

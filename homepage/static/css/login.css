@@ -1,0 +1,101 @@
+
+body {
+    background-color: #282626 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    z-index: 10;
+}
+
+.login-container {
+    border-radius: 50px;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    height: 500px;
+}
+
+.title {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin: 20px;
+    margin-top: 30px;
+}
+
+.form-group label {
+    font-size: 18px;
+    color: #696161;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: #D9D9D9;
+}
+
+.form-group button {
+    background-color: #B6895B;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 45%;
+    height: 45px;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.remember-checkbox {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.remember-checkbox input[type="checkbox"] {
+    width: 20px; 
+    height: 20px; 
+    margin-right: 10px;
+    background-color: #D9D9D9;  
+}
+
+.remember-checkbox label {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    color: #696161;
+}
+
+.register-link {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 100;
+    color: white;
+    margin-top: 20px;
+}
+
+.login-failed {
+    margin-top: 10px;
+    color: rgb(211, 32, 32);
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+}

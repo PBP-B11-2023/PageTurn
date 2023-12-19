@@ -1,0 +1,164 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+}
+
+
+.content-container {
+    margin-top: 150px;
+    margin-left: 100;
+    margin-right: 100;
+    text-align: left;
+    max-width: 800px;
+}
+
+.content p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 56px;
+    text-align: justify;
+    color: white;
+    margin-left: 30px;
+}
+
+.highlighted-text {
+    color: #B6895B;; /* Change this color to the color you want */
+}
+
+.product-box {
+    background-color: #B6895B;
+    width: 250px;
+    height: 58px;
+    text-align: center;
+    margin: 20px auto;
+    line-height: 58px;
+    border-radius: 30px;
+}
+
+.product-box a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Apply background image and styles to a separate container */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place it behind other content */
+}
+
+.background-overlay {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) ; /* Adjust the last value (0.5) for opacity */
+    pointer-events: none; /* Allows interaction with elements behind the overlay */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #282626 !important;;
+    color: #fff; /* Text color or other styles */
+    /* Additional styles for your content */
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5; /* Adjust the opacity as needed */
+}
+.right-section {
+    z-index: 0;
+    position: fixed;
+    top: 120px;
+    right: 300px;
+    width: 300px; /* Adjust the width as needed */
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto; /* Add a vertical scrollbar if content overflows */
+    max-height: 80vh; /* Set a maximum height; adjust as needed */
+}
+
+/* Style for each card */
+.card {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.card:first-child {
+    display: block;
+}
+
+/* Style for card content (image, title, author, category) */
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.book-list {
+    padding: 10px; /* Add some spacing inside the panel */
+}
+
+/* Style for the popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    overflow: auto;
+}
+
+.popup-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+    position: relative;
+    color: black; /* Text color for readability */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    line-height: 1.5; /* Adjust line height for readability */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+}
+
+/* Hide the "Read More" link */
+.read-more-link {
+    cursor: pointer;
+}
+
+/* Hide long descriptions */
+.card .description {
+    max-height: 80px;
+    overflow: hidden;
+}
+
+/* Hide the description by default */
+.hidden {
+    display: none;
+}
