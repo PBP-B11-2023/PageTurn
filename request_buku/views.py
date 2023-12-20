@@ -65,7 +65,6 @@ def create_request_flutter(request):
         data = json.loads(request.body)
 
         new_request = Request.objects.create(
-            user = request.user,
             title = data["title"],
             author = data["author"],
             description = data["description"]
