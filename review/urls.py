@@ -1,5 +1,5 @@
 from django.urls import path
-from review.views import create_product_flutter, show_main
+from review.views import create_product_flutter, show_json, show_main
 from review.views import show_main, create_review
 from review.views import edit_review
 from review.views import delete_review
@@ -15,4 +15,5 @@ urlpatterns = [
     path('get-review/', get_review_json, name='get_review_json'),
     path('create-product-ajax/', add_review_ajax, name='add_review_ajax'),
     path('create-flutter/', create_product_flutter, name='create_product_flutter'),
+    path('json/', show_json, name='show_json'),
 ]
