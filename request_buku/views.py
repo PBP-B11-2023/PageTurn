@@ -55,3 +55,22 @@ def delete_request(request, id):
     request = Request.objects.get(pk = id)
     request.delete()
     return HttpResponseRedirect(reverse('request_buku:show_request'))
+
+@csrf_exempt
+def create_request_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_request = Request.objects.create(
+            user = request.user,
+            title = data["title"],
+            author = data["author"],
+            description = data["description"]
+        )
+
+        new_request.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
