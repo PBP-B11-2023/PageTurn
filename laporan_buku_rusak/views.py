@@ -52,8 +52,6 @@ def add_laporan_flutter(request):
     selected_books = request.POST.getlist('booklist')[0]
     judul = request.POST.getlist('judul')[0]
     deskripsi = request.POST.getlist('deskripsi')[0]
-    print(judul)
-    print(deskripsi)
     selected_books = json.loads(selected_books)
     if selected_books:
         for id in selected_books:
@@ -75,7 +73,5 @@ def add_laporan_flutter(request):
             }, status=400)
     
 def get_laporan(request):
-    print('tes')
     laporans = Laporan.objects.filter(user = request.user)
-    print(laporans)
     return HttpResponse(serializers.serialize('json', laporans))

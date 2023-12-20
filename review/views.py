@@ -1,6 +1,7 @@
 import json
 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.core import serializers
 from django.http import (HttpResponse, HttpResponseNotFound,
@@ -9,6 +10,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
+from homepage.models import CustomUser
 from review.forms import ProductForm
 from review.models import Product
 
@@ -63,6 +65,10 @@ def get_review_json(request):
     review_item = Product.objects.all()
     return HttpResponse(serializers.serialize('json', review_item))
 
+def show_json(request):
+    data = Product.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
 @csrf_exempt
 def add_review_ajax(request):
     if request.method == 'POST':
@@ -82,10 +88,13 @@ def create_product_flutter(request):
         
         data = json.loads(request.body)
 
+        # Handling AnonymousUser
+        user = request.user if request.user.is_authenticated else None
+
         new_product = Product.objects.create(
-            user = request.user,
-            name = data["name"],
-            description = data["description"]
+            user=user,
+            name=data["name"],
+            description=data["description"]
         )
 
         new_product.save()
