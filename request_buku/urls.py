@@ -1,6 +1,10 @@
-from django.urls import path
-from request_buku.views import show_request, create_request, show_request_json, get_request_json, add_request_ajax, delete_request, create_request_flutter
 from django.contrib import admin
+from django.urls import path
+
+from request_buku.views import (add_request_ajax, create_request,
+                                create_request_flutter, delete_request,
+                                get_request_json, show_request,
+                                show_request_json)
 
 app_name = 'request_buku'
 
