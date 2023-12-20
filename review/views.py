@@ -102,39 +102,3 @@ def create_product_flutter(request):
         return JsonResponse({"status": "success"}, status=200)
     else:
         return JsonResponse({"status": "error"}, status=401)
-
-# @csrf_exempt
-# def create_product_flutter(request):
-#     if request.method == 'POST':
-#         try:
-#             data = json.loads(request.body.decode('utf-8'))
-
-#             new_product = Product.objects.create(
-#                 # user=request.user if request.user.is_authenticated else None,
-#                 name=data["name"],
-#                 description=data["description"]
-#             )
-#             new_product.save()
-
-#             return JsonResponse({"status": "success"}, status=200)
-#         except json.JSONDecodeError:
-#             return JsonResponse({"status": "error", "message": "Invalid JSON format in the request body"}, status=400)
-#     else:
-#         return JsonResponse({"status": "error", "message": "Invalid request method"}, status=400)
-# @csrf_exempt
-# def create_product_flutter(request):
-#     if request.method == 'POST':
-        
-#         data = json.loads(request.body)
-
-#         new_product = Product.objects.create(
-#             user = request.user,
-#             name = data["name"],
-#             description = data["description"]
-#         )
-
-#         new_product.save()
-
-#         return JsonResponse({"status": "success"}, status=200)
-#     else:
-#         return JsonResponse({"status": "error"}, status=401)
