@@ -40,7 +40,6 @@ def get_books_by_genre(request):
     for book in books:
         if search_query.lower() in book.name.lower() or search_query.lower() in book.author.lower():
             books_ret.append(book)
-    print(search_query)
     # Serialisasi data buku ke JSON
     return HttpResponse(serializers.serialize('json', books_ret))
 
@@ -67,10 +66,8 @@ def add_book_ajax(request):
 
 @csrf_exempt
 def create_flutter(request):
-    print(6)
     if request.method == 'POST':
         data = json.loads(request.body)
-        print(data)
         Book.objects.create(
             name=data['name'],
             author=data['author'],

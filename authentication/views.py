@@ -12,9 +12,6 @@ from homepage.models import CustomUser
 def login(request):
     username = request.POST['username'].strip()
     password = request.POST['password']
-    print(username, password)
-    print(username)
-    print(password)
     user = authenticate(username=username, password=password)
     if user is not None:
         if user.is_active:
@@ -74,7 +71,6 @@ def register(request):
     
     user = CustomUser.objects.create_user(username=username, password=password1, role='member')
     user.save()
-    print(username, password1)
     return JsonResponse({
         "username": user.username,
         "status": True,

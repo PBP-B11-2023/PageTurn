@@ -190,7 +190,6 @@ def return_book_flutter(request, id):
 def get_items_filter(request):
     search_query = request.GET.get('search', '')
     genres = request.GET.getlist('genres')
-    print('genre',genres)
     peminjamans = Peminjaman.objects.filter(user = request.user)
     item_ret = []
     
@@ -211,7 +210,6 @@ def get_items_filter(request):
 def get_history(request):
     search_query = request.GET.get('search', '')
     genres = request.GET.getlist('genres')
-    print('genre',genres)
     peminjamans = Peminjaman.objects.filter(user = request.user)
     item_ret = []
     

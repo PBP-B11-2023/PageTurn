@@ -75,7 +75,5 @@ def add_laporan_flutter(request):
             }, status=400)
     
 def get_laporan(request):
-    print('tes')
     laporans = Laporan.objects.filter(user = request.user)
-    print(laporans)
     return HttpResponse(serializers.serialize('json', laporans))
